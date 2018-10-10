@@ -1,20 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title></title>
-    <url>%2F2018%2F10%2F10%2FTest%2F</url>
-    <content type="text"><![CDATA[adasdsasdaf ahrhj kh]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F2018%2F10%2F09%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+    <title><![CDATA[Java基础一--基本数据类型&访问修饰符]]></title>
+    <url>%2F2018%2F10%2F10%2Fjava%E5%9F%BA%E7%A1%80%E4%B8%80%2F</url>
+    <content type="text"><![CDATA[Java 基本数据类型Java 中有两大数据类型： 内置数据类型 引用数据类型 内置数据类型Java语言提供了八种基本类型。六种数字类型（四个整数型，两个浮点型），一种字符类型，还有一种布尔型。 基本类型 大小 最小值 最大值 默认值 包装类 例子 byte 8 bit -2^7 2^7-1 0 Byte byte a = 100 short 16 bit -2^15 2^15 - 1 0 Short short s = 1000 int 32 bit -2^31 2^31 - 1 0 Integer int a = 100000 long 64 bit -2^63 2^63 -1 0L Long long a = 100000L float 32 bit IEEE754 IEEE754 0.0f Float float f1 = 234.5f double 64 bit IEEE754 IEEE754 0.0d Double double d1 = 123.4 char 16 bit \u0000 \uffff 空 Character char letter = ‘A’ boolean - - - false Boolean boolean one = true 引用类型 在 Java 中，引用类型的变量非常类似于 C/C++ 的指针。引用类型指向一个对象，指向对象的变量是引用变量。这些变量在声明时被指定为一个特定的类型，比如 Employee、Puppy 等。变量一旦声明后，类型就不能被改变了 对象、数组都是引用数据类型 所有引用类型的默认值都是 null 访问修饰符 访问修饰符 当前类 同一包内 子类 其他包 public √ √ √ √ protected √ √ √ × default √ √ × × private √ × × × public : 公开,所有类可见 protected :继承访问权限（本包中的子类非子类均可访问，不同包中的子类可以访问，不是子类不能访问） default :包访问权限（本包中的子类非子类均可访问，不同包中的类及子类均不能访问） private :私有,在同一类内可见 [注]：protected的可见性在于两点： 父类的 protected 成员是包内可见的，并且对子类可见； 若子类与父类不在同一包中，那么在子类中，子类实例可以访问其从父类继承而来的protected方法，而不能访问父类实例的protected方法。]]></content>
       <categories>
-        <category>Diary</category>
+        <category>Java基础</category>
       </categories>
       <tags>
-        <tag>PS3</tag>
-        <tag>Games</tag>
+        <tag>基本数据类型</tag>
+        <tag>访问修饰符</tag>
       </tags>
   </entry>
 </search>

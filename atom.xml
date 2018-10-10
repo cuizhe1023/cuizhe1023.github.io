@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://cuizhe1023.github.io/"/>
-  <updated>2018-10-10T04:19:41.295Z</updated>
+  <updated>2018-10-10T14:18:56.503Z</updated>
   <id>https://cuizhe1023.github.io/</id>
   
   <author>
@@ -17,49 +17,31 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
-    <link href="https://cuizhe1023.github.io/2018/10/10/Test/"/>
-    <id>https://cuizhe1023.github.io/2018/10/10/Test/</id>
-    <published>2018-10-10T04:19:28.889Z</published>
-    <updated>2018-10-10T04:19:41.295Z</updated>
+    <title>Java基础一--基本数据类型&amp;访问修饰符</title>
+    <link href="https://cuizhe1023.github.io/2018/10/10/java%E5%9F%BA%E7%A1%80%E4%B8%80/"/>
+    <id>https://cuizhe1023.github.io/2018/10/10/java基础一/</id>
+    <published>2018-10-10T12:30:55.203Z</published>
+    <updated>2018-10-10T14:18:56.503Z</updated>
     
-    <content type="html"><![CDATA[<p>adasdsasdaf ahrhj kh </p>]]></content>
+    <content type="html"><![CDATA[<h2 id="Java-基本数据类型"><a href="#Java-基本数据类型" class="headerlink" title="Java 基本数据类型"></a>Java 基本数据类型</h2><p>Java 中有两大数据类型：</p><ul><li>内置数据类型</li><li>引用数据类型</li></ul><h4 id="内置数据类型"><a href="#内置数据类型" class="headerlink" title="内置数据类型"></a>内置数据类型</h4><p>Java语言提供了八种基本类型。六种数字类型（四个整数型，两个浮点型），一种字符类型，还有一种布尔型。</p><table><thead><tr><th style="text-align:center">基本类型</th><th style="text-align:center">大小</th><th style="text-align:center">最小值</th><th style="text-align:center">最大值</th><th style="text-align:center">默认值</th><th style="text-align:center">包装类</th><th style="text-align:center">例子</th></tr></thead><tbody><tr><td style="text-align:center">byte</td><td style="text-align:center">8 bit</td><td style="text-align:center">-2^7</td><td style="text-align:center">2^7-1</td><td style="text-align:center">0</td><td style="text-align:center">Byte</td><td style="text-align:center">byte a = 100</td></tr><tr><td style="text-align:center">short</td><td style="text-align:center">16 bit</td><td style="text-align:center">-2^15</td><td style="text-align:center">2^15 - 1</td><td style="text-align:center">0</td><td style="text-align:center">Short</td><td style="text-align:center">short s = 1000</td></tr><tr><td style="text-align:center">int</td><td style="text-align:center">32 bit</td><td style="text-align:center">-2^31</td><td style="text-align:center">2^31 - 1</td><td style="text-align:center">0</td><td style="text-align:center">Integer</td><td style="text-align:center">int a = 100000</td></tr><tr><td style="text-align:center">long</td><td style="text-align:center">64 bit</td><td style="text-align:center">-2^63</td><td style="text-align:center">2^63 -1</td><td style="text-align:center">0L</td><td style="text-align:center">Long</td><td style="text-align:center">long a = 100000L</td></tr><tr><td style="text-align:center">float</td><td style="text-align:center">32 bit</td><td style="text-align:center">IEEE754</td><td style="text-align:center">IEEE754</td><td style="text-align:center">0.0f</td><td style="text-align:center">Float</td><td style="text-align:center">float f1 = 234.5f</td></tr><tr><td style="text-align:center">double</td><td style="text-align:center">64 bit</td><td style="text-align:center">IEEE754</td><td style="text-align:center">IEEE754</td><td style="text-align:center">0.0d</td><td style="text-align:center">Double</td><td style="text-align:center">double d1 = 123.4</td></tr><tr><td style="text-align:center">char</td><td style="text-align:center">16 bit</td><td style="text-align:center">\u0000</td><td style="text-align:center">\uffff</td><td style="text-align:center">空</td><td style="text-align:center">Character</td><td style="text-align:center">char letter = ‘A’</td></tr><tr><td style="text-align:center">boolean</td><td style="text-align:center">-</td><td style="text-align:center">-</td><td style="text-align:center">-</td><td style="text-align:center">false</td><td style="text-align:center">Boolean</td><td style="text-align:center">boolean one = true</td></tr></tbody></table><h4 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h4><ul><li>在 Java 中，引用类型的变量非常类似于 C/C++ 的指针。引用类型指向一个对象，指向对象的变量是引用变量。这些变量在声明时被指定为一个特定的类型，比如 Employee、Puppy 等。变量一旦声明后，类型就不能被改变了</li><li>对象、数组都是引用数据类型</li><li>所有引用类型的默认值都是 null</li></ul><h2 id="访问修饰符"><a href="#访问修饰符" class="headerlink" title="访问修饰符"></a>访问修饰符</h2><table><thead><tr><th style="text-align:center">访问修饰符</th><th style="text-align:center">当前类</th><th style="text-align:center">同一包内</th><th style="text-align:center">子类</th><th style="text-align:center">其他包</th></tr></thead><tbody><tr><td style="text-align:center">public</td><td style="text-align:center">√</td><td style="text-align:center">√</td><td style="text-align:center">√</td><td style="text-align:center">√</td></tr><tr><td style="text-align:center">protected</td><td style="text-align:center">√</td><td style="text-align:center">√</td><td style="text-align:center">√</td><td style="text-align:center">×</td></tr><tr><td style="text-align:center">default</td><td style="text-align:center">√</td><td style="text-align:center">√</td><td style="text-align:center">×</td><td style="text-align:center">×</td></tr><tr><td style="text-align:center">private</td><td style="text-align:center">√</td><td style="text-align:center">×</td><td style="text-align:center">×</td><td style="text-align:center">×</td></tr></tbody></table><p>public : 公开,所有类可见</p><p>protected :继承访问权限（本包中的子类非子类均可访问，不同包中的子类可以访问，不是子类不能访问）</p><p>default :包访问权限（本包中的子类非子类均可访问，不同包中的类及子类均不能访问）</p><p>private :私有,在同一类内可见</p><p><strong>[注]</strong>：protected的可见性在于两点：</p><ul><li>父类的 protected 成员是包内可见的，并且对子类可见；</li><li>若子类与父类不在同一包中，那么在子类中，子类实例可以访问其从父类继承而来的protected方法，而不能访问父类实例的protected方法。</li></ul>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;adasdsasdaf ahrhj kh &lt;/p&gt;
-
+        &lt;h2 id=&quot;Java-基本数据类型&quot;&gt;&lt;a href=&quot;#Java-基本数据类型&quot; class=&quot;headerlink&quot; title=&quot;Java 基本数据类型&quot;&gt;&lt;/a&gt;Java 基本数据类型&lt;/h2&gt;&lt;p&gt;Java 中有两大数据类型：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;内置数据类型
       
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="https://cuizhe1023.github.io/2018/10/09/hello-world/"/>
-    <id>https://cuizhe1023.github.io/2018/10/09/hello-world/</id>
-    <published>2018-10-09T10:08:33.821Z</published>
-    <updated>2018-10-10T07:07:02.821Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><a id="more"></a><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Create-a-new-post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="Diary" scheme="https://cuizhe1023.github.io/categories/Diary/"/>
+      <category term="Java基础" scheme="https://cuizhe1023.github.io/categories/Java%E5%9F%BA%E7%A1%80/"/>
     
     
-      <category term="PS3" scheme="https://cuizhe1023.github.io/tags/PS3/"/>
+      <category term="基本数据类型" scheme="https://cuizhe1023.github.io/tags/%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"/>
     
-      <category term="Games" scheme="https://cuizhe1023.github.io/tags/Games/"/>
+      <category term="访问修饰符" scheme="https://cuizhe1023.github.io/tags/%E8%AE%BF%E9%97%AE%E4%BF%AE%E9%A5%B0%E7%AC%A6/"/>
     
   </entry>
   
