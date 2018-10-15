@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="数据结构," />
 
 
 
@@ -88,17 +88,27 @@
 
 
 
-<meta name="description" content="虽然还没想好写点什么，但是总觉得这里放句话比较和谐。">
+<meta name="description" content="数据结构算法 + 数据结构 = 编程 什么是数据结构？ 通俗的来说，数据结构是计算机存储、组织数据的方式。 常用的数据机构有：  数组 栈 队列 链表 树 图 字典树（这是一种高效的树形结构，但值得单独说明） 散列表（哈希表）">
+<meta name="keywords" content="数据结构">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CuiZhe&#39;s Blog">
+<meta property="og:title" content="数据结构概述">
 <meta property="og:url" content="https://cuizhe1023.github.io/2018/10/14/数据结构概述/index.html">
 <meta property="og:site_name" content="CuiZhe&#39;s Blog">
-<meta property="og:description" content="虽然还没想好写点什么，但是总觉得这里放句话比较和谐。">
+<meta property="og:description" content="数据结构算法 + 数据结构 = 编程 什么是数据结构？ 通俗的来说，数据结构是计算机存储、组织数据的方式。 常用的数据机构有：  数组 栈 队列 链表 树 图 字典树（这是一种高效的树形结构，但值得单独说明） 散列表（哈希表）">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-15T02:39:19.920Z">
+<meta property="og:image" content="https://cuizhe1023.github.io/2018/10/14/数据结构概述/数组.jpg">
+<meta property="og:image" content="https://cuizhe1023.github.io/2018/10/14/数据结构概述/栈.jpg">
+<meta property="og:image" content="https://cuizhe1023.github.io/2018/10/14/数据结构概述/队列.jpg">
+<meta property="og:image" content="https://cuizhe1023.github.io/2018/10/14/数据结构概述/链表.jpg">
+<meta property="og:image" content="https://cuizhe1023.github.io/2018/10/14/数据结构概述/图.jpg">
+<meta property="og:image" content="https://cuizhe1023.github.io/2018/10/14/数据结构概述/树.jpg">
+<meta property="og:image" content="https://cuizhe1023.github.io/2018/10/14/数据结构概述/字典树.jpg">
+<meta property="og:image" content="https://cuizhe1023.github.io/2018/10/14/数据结构概述/哈希表.jpg">
+<meta property="og:updated_time" content="2018-10-15T02:41:36.473Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CuiZhe&#39;s Blog">
-<meta name="twitter:description" content="虽然还没想好写点什么，但是总觉得这里放句话比较和谐。">
+<meta name="twitter:title" content="数据结构概述">
+<meta name="twitter:description" content="数据结构算法 + 数据结构 = 编程 什么是数据结构？ 通俗的来说，数据结构是计算机存储、组织数据的方式。 常用的数据机构有：  数组 栈 队列 链表 树 图 字典树（这是一种高效的树形结构，但值得单独说明） 散列表（哈希表）">
+<meta name="twitter:image" content="https://cuizhe1023.github.io/2018/10/14/数据结构概述/数组.jpg">
 
 
 
@@ -134,7 +144,7 @@
 
 
 
-  <title> | CuiZhe's Blog</title>
+  <title>数据结构概述 | CuiZhe's Blog</title>
   
 
 
@@ -332,7 +342,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">数据结构概述</h1>
         
 
         <div class="post-meta">
@@ -355,6 +365,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -362,7 +394,7 @@
 
           
           
-             <span id="/2018/10/14/数据结构概述/" class="leancloud_visitors" data-flag-title="">
+             <span id="/2018/10/14/数据结构概述/" class="leancloud_visitors" data-flag-title="数据结构概述">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -388,7 +420,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0
+                  2k
                 </span>
               
 
@@ -404,7 +436,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  6
                 </span>
               
             </div>
@@ -425,7 +457,174 @@
       
 
       
-        
+        <h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><p>算法 + 数据结构 = 编程</p>
+<p>什么是数据结构？</p>
+<p>通俗的来说，数据结构是计算机存储、组织数据的方式。</p>
+<p>常用的数据机构有：</p>
+<ul>
+<li>数组</li>
+<li>栈</li>
+<li>队列</li>
+<li>链表</li>
+<li>树</li>
+<li>图</li>
+<li>字典树（这是一种高效的树形结构，但值得单独说明）</li>
+<li>散列表（哈希表）</li>
+</ul>
+<a id="more"></a>
+<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><p>数组是最简单、也是使用最广泛的数据结构。栈、队列等其他数据结构均是由数组演变过来的。</p>
+<p>下图是一个包含元素（1、2、3、4）的简单数组，数组长度为4。</p>
+<p><img src="/2018/10/14/数据结构概述/数组.jpg" alt="数组"></p>
+<p>每个数据元素都关联一个正数值，我们称之为索引，它表明数组中每个元素所在的位置。大部分语言将初始索引定义为零。</p>
+<h2 id="数组的两种类型："><a href="#数组的两种类型：" class="headerlink" title="数组的两种类型："></a>数组的两种类型：</h2><ul>
+<li>一维数组</li>
+<li>多维数组</li>
+</ul>
+<h2 id="数组的基本操作"><a href="#数组的基本操作" class="headerlink" title="数组的基本操作"></a>数组的基本操作</h2><ul>
+<li>Insert——在指定索引位置插入一个元素</li>
+<li>Get——返回指定索引位置的元素</li>
+<li>Delete——删除指定索引位置的元素</li>
+<li>Size——得到数组所有元素的数量</li>
+</ul>
+<h2 id="面试中关于数组的常见问题"><a href="#面试中关于数组的常见问题" class="headerlink" title="面试中关于数组的常见问题"></a>面试中关于数组的常见问题</h2><ul>
+<li>寻找数组中第二小的元素</li>
+<li>找到数组中第一个不重复出现的整数</li>
+<li>合并两个有序数组</li>
+<li>重新排列数组中的正值和负值</li>
+</ul>
+<hr>
+<h1 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h1><p>著名的撤销操作几乎遍布任意一个应用。但是你有没有想过他是如何实现的？这个问题的解决思路是按照将最后的状态排列在前的顺序，在内存中存储历史工作状态。这没办法用数组实现，但是有了栈，这就变得很方便了。</p>
+<p>可以把栈想象成一摞书，为了拿到中间的书，你需要移除放置在这上面的所有书。这就是LIFO（后进先出）的工作原理。</p>
+<p>下图是包含三个数据元素（1、2、3）的栈，其中顶部的3将被最先移除：</p>
+<p><img src="/2018/10/14/数据结构概述/栈.jpg" alt="栈"></p>
+<h2 id="栈的基本操作"><a href="#栈的基本操作" class="headerlink" title="栈的基本操作"></a>栈的基本操作</h2><ul>
+<li>Push——在顶部插入一个元素</li>
+<li>Pop——返回并移除栈顶元素</li>
+<li>isEmpty——如果栈为空，则返回true</li>
+<li>Top——返回顶部元素，但并不移除它</li>
+</ul>
+<h2 id="面试中关于栈的常见问题"><a href="#面试中关于栈的常见问题" class="headerlink" title="面试中关于栈的常见问题"></a>面试中关于栈的常见问题</h2><ul>
+<li>使用栈计算后缀表达式</li>
+<li>对栈的元素进行排序</li>
+<li>判断表达式是否括号平衡</li>
+</ul>
+<hr>
+<h1 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h1><p>与栈类似，队列是另一种顺序存储元素的线性数据结构。栈与队列的最大差别在于栈是LIFO（后进先出），而队列是FIFO（先进先出）</p>
+<p>常见的队列：排队上车，如果有新人加入，他需要到队尾排队，而非队首。排在前面的人会先上车，然后离开队伍。</p>
+<p>下图是包含四个元素（1，2，3，4）的队列，其中在顶部的1将被最先移除：</p>
+<p><img src="/2018/10/14/数据结构概述/队列.jpg" alt="队列"></p>
+<p>移除先入队的元素、插入新元素</p>
+<h2 id="队列的基本操作"><a href="#队列的基本操作" class="headerlink" title="队列的基本操作"></a>队列的基本操作</h2><ul>
+<li>Enqueue() —— 在队列尾部插入元素</li>
+<li>Dequeue() ——移除队列头部的元素</li>
+<li>isEmpty()——如果队列为空，则返回true</li>
+<li>Top() ——返回队列的第一个元素</li>
+</ul>
+<h2 id="面试中关于队列的常见问题"><a href="#面试中关于队列的常见问题" class="headerlink" title="面试中关于队列的常见问题"></a>面试中关于队列的常见问题</h2><ul>
+<li>使用队列表示栈</li>
+<li>对队列的前k个元素倒序</li>
+<li>使用队列生成从1到n的二进制数</li>
+</ul>
+<hr>
+<h1 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h1><p>链表是另一个重要的数据结构，乍一看可能有点像数组，但在内存分配，内部结构以及数据插入和删除的基本操作方面均有所不同。</p>
+<p>链表就像一个节点链，其中每个节点包含着数据和指向后续节点的指针。链表还包含一个头指针，它指向链表的第一个元素，但当列表为空时，它指向null或无具体内容。</p>
+<p>链表一般用于实现文件系统、哈希表和邻接表。</p>
+<p>这是链表内部结构的展示：</p>
+<p><img src="/2018/10/14/数据结构概述/链表.jpg" alt="链表"></p>
+<h2 id="链表包括以下类型："><a href="#链表包括以下类型：" class="headerlink" title="链表包括以下类型："></a>链表包括以下类型：</h2><ul>
+<li>单链表</li>
+<li>双向链表</li>
+</ul>
+<h2 id="链表的基本操作："><a href="#链表的基本操作：" class="headerlink" title="链表的基本操作："></a>链表的基本操作：</h2><ul>
+<li>InsertAtEnd - 在链表的末尾插入指定元素</li>
+<li>InsertAtHead - 在链接列表的开头/头部插入指定元素</li>
+<li>Delete  - 从链接列表中删除指定元素</li>
+<li>DeleteAtHead - 删除链接列表的第一个元素</li>
+<li>Search  - 从链表中返回指定元素</li>
+<li>isEmpty - 如果链表为空，则返回true</li>
+</ul>
+<h2 id="面试中关于链表的常见问题"><a href="#面试中关于链表的常见问题" class="headerlink" title="面试中关于链表的常见问题"></a>面试中关于链表的常见问题</h2><ul>
+<li>反转链表</li>
+<li>检测链表中的循环</li>
+<li>返回链表倒数第N个节点</li>
+<li>删除链表中的重复项</li>
+</ul>
+<h1 id="图"><a href="#图" class="headerlink" title="图"></a>图</h1><p>图是一组以网络形式相互连接的节点，节点也称为顶点。一对节点（x，y）称为边（edge），表示顶点x连接到顶点y。边可以包含权重/成本，显示从顶点x到y所需的成本。</p>
+<p><img src="/2018/10/14/数据结构概述/图.jpg" alt="图"></p>
+<h2 id="图的类型"><a href="#图的类型" class="headerlink" title="图的类型"></a>图的类型</h2><ul>
+<li>无向图</li>
+<li>有向图</li>
+</ul>
+<p>在程序语言中，图可以用两种形式表示</p>
+<ul>
+<li>邻接矩阵</li>
+<li>邻接表</li>
+</ul>
+<h2 id="常见的图遍历算法"><a href="#常见的图遍历算法" class="headerlink" title="常见的图遍历算法"></a>常见的图遍历算法</h2><ul>
+<li>广度优先搜索</li>
+<li>深度优先搜索</li>
+</ul>
+<h2 id="面试中关于图的常见问题"><a href="#面试中关于图的常见问题" class="headerlink" title="面试中关于图的常见问题"></a>面试中关于图的常见问题</h2><ul>
+<li>实现广度和深度优先搜索</li>
+<li>检查图是否为树</li>
+<li>计算图的边数</li>
+<li>找到两个顶点之间的最短路径</li>
+</ul>
+<hr>
+<h1 id="树"><a href="#树" class="headerlink" title="树"></a>树</h1><p>树形结构是一种层级式的数据结构，由顶点（节点）和连接他们的边组成。数类似于图，但区分树和图的重要特征是树种不存在环路。</p>
+<p>这是一个简单树的示意图，以及树数据结构中使用的基本术语：</p>
+<p><img src="/2018/10/14/数据结构概述/树.jpg" alt="树"></p>
+<p>Root - 根节点</p>
+<p>Parent - 父节点</p>
+<p>Child - 子节点</p>
+<p>Leaf - 叶子节点</p>
+<p>Sibling - 兄弟节点</p>
+<h2 id="树形结构的主要类型"><a href="#树形结构的主要类型" class="headerlink" title="树形结构的主要类型"></a>树形结构的主要类型</h2><ul>
+<li>N元树</li>
+<li>平衡树</li>
+<li>二叉树</li>
+<li>二叉搜索树</li>
+<li>AVL树</li>
+<li>红黑树</li>
+<li>2-3树</li>
+<li>B 树</li>
+<li>B+ 树</li>
+</ul>
+<p>其中，二叉树和二叉搜索树是最常用的树。</p>
+<h2 id="面试中关于树结构的常见问题"><a href="#面试中关于树结构的常见问题" class="headerlink" title="面试中关于树结构的常见问题"></a>面试中关于树结构的常见问题</h2><ul>
+<li>求二叉树的高度</li>
+<li>在二叉搜索树中查找第k个最大值</li>
+<li>查找与根节点距离k的节点</li>
+<li>在二叉树中查找给定节点的祖先节点</li>
+</ul>
+<h1 id="字典树"><a href="#字典树" class="headerlink" title="字典树"></a>字典树</h1><p>字典树，也称为“前缀树”，是一种特殊的树形数据结构，对于解决字符串相关问题非常有效。他能够提供快速减速，主要用于搜索字典中的单词，在搜索引擎中自动提供建议，甚至被用于 IP 的路由。</p>
+<p>以下是在字典树中存储三个单词“top”，“thus”和“their”的例子：</p>
+<p><img src="/2018/10/14/数据结构概述/字典树.jpg" alt="字典树"></p>
+<p>这些单词以顶部到底部的方式存储，其中绿色节点“p”，“s”和“r”分别表示“top”，“thus”和“their”的底部。</p>
+<h2 id="面试中关于字典树的常见问题"><a href="#面试中关于字典树的常见问题" class="headerlink" title="面试中关于字典树的常见问题"></a>面试中关于字典树的常见问题</h2><ul>
+<li>计算字典树中的总单词数</li>
+<li>打印存储在字典树中的所有单词</li>
+<li>使用字典树对数组的元素进行排序</li>
+<li>使用字典树从字典中形成单词</li>
+<li>构建T9字典（字典树+ DFS ）</li>
+</ul>
+<h1 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h1><p>哈希法（Hashing）是一个用于唯一标识对象并将每个对象存储在一些预先计算的唯一索引（称为“键key”）中的过程。因此，对象以键值对的形式存储，这些键值对集合被称为“字典”。可以使用键搜索每个对象。基于哈希法有很多不同的数据结构，但最常用的数据结构是哈希表。</p>
+<p>哈希表通常用数组实现。</p>
+<p>散列数据结构的性能取决于以下三个因素：</p>
+<ul>
+<li>哈希函数</li>
+<li>哈希表的大小</li>
+<li>碰撞处理方法</li>
+</ul>
+<p>下图为如何在数组中映射哈希键值对的说明。该数组的索引是通过哈希函数计算的。</p>
+<p><img src="/2018/10/14/数据结构概述/哈希表.jpg" alt="哈希表"></p>
+<h2 id="面试中关于哈希结构的常见问题："><a href="#面试中关于哈希结构的常见问题：" class="headerlink" title="面试中关于哈希结构的常见问题："></a>面试中关于哈希结构的常见问题：</h2><ul>
+<li>在数组中查找对称键值对</li>
+<li>追踪遍历的完整路径</li>
+<li>查找数组是否是另一个数组的子集</li>
+<li>检查给定的数组是否不相交</li>
+</ul>
+
       
     </div>
     
@@ -443,6 +642,35 @@
 	<div>
       
         
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/10/14/数据结构概述/">数据结构概述</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 Cui Zhe 的个人博客">Cui Zhe</a></p>
+  <p><span>发布时间:</span>2018年10月14日 - 11:10</p>
+  <p><span>最后更新:</span>2018年10月15日 - 10:10</p>
+  <p><span>原始链接:</span><a href="/2018/10/14/数据结构概述/" title="数据结构概述">https://cuizhe1023.github.io/2018/10/14/数据结构概述/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://cuizhe1023.github.io/2018/10/14/数据结构概述/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+    });
+    });  
+</script>
+
       
 	</div>
     
@@ -452,6 +680,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据结构/" rel="tag"><i class="fa fa-tag"></i> 数据结构</a>
+          
+        </div>
       
 
       
@@ -522,8 +756,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -611,6 +854,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数据结构"><span class="nav-number">1.</span> <span class="nav-text">数据结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数组"><span class="nav-number">2.</span> <span class="nav-text">数组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数组的两种类型："><span class="nav-number">2.1.</span> <span class="nav-text">数组的两种类型：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组的基本操作"><span class="nav-number">2.2.</span> <span class="nav-text">数组的基本操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面试中关于数组的常见问题"><span class="nav-number">2.3.</span> <span class="nav-text">面试中关于数组的常见问题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#栈"><span class="nav-number">3.</span> <span class="nav-text">栈</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#栈的基本操作"><span class="nav-number">3.1.</span> <span class="nav-text">栈的基本操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面试中关于栈的常见问题"><span class="nav-number">3.2.</span> <span class="nav-text">面试中关于栈的常见问题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#队列"><span class="nav-number">4.</span> <span class="nav-text">队列</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#队列的基本操作"><span class="nav-number">4.1.</span> <span class="nav-text">队列的基本操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面试中关于队列的常见问题"><span class="nav-number">4.2.</span> <span class="nav-text">面试中关于队列的常见问题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#链表"><span class="nav-number">5.</span> <span class="nav-text">链表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#链表包括以下类型："><span class="nav-number">5.1.</span> <span class="nav-text">链表包括以下类型：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链表的基本操作："><span class="nav-number">5.2.</span> <span class="nav-text">链表的基本操作：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面试中关于链表的常见问题"><span class="nav-number">5.3.</span> <span class="nav-text">面试中关于链表的常见问题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#图"><span class="nav-number">6.</span> <span class="nav-text">图</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#图的类型"><span class="nav-number">6.1.</span> <span class="nav-text">图的类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见的图遍历算法"><span class="nav-number">6.2.</span> <span class="nav-text">常见的图遍历算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面试中关于图的常见问题"><span class="nav-number">6.3.</span> <span class="nav-text">面试中关于图的常见问题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#树"><span class="nav-number">7.</span> <span class="nav-text">树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#树形结构的主要类型"><span class="nav-number">7.1.</span> <span class="nav-text">树形结构的主要类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面试中关于树结构的常见问题"><span class="nav-number">7.2.</span> <span class="nav-text">面试中关于树结构的常见问题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字典树"><span class="nav-number">8.</span> <span class="nav-text">字典树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#面试中关于字典树的常见问题"><span class="nav-number">8.1.</span> <span class="nav-text">面试中关于字典树的常见问题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#哈希表"><span class="nav-number">9.</span> <span class="nav-text">哈希表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#面试中关于哈希结构的常见问题："><span class="nav-number">9.1.</span> <span class="nav-text">面试中关于哈希结构的常见问题：</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -642,7 +901,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">5.3k</span>
+    <span title="Site words total count">7.3k</span>
   
 -->
 
@@ -680,7 +939,7 @@
       <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-  <span class="post-count">Site words total count:5.3k</span>
+  <span class="post-count">Site words total count:7.3k</span>
 </div>
         
 
