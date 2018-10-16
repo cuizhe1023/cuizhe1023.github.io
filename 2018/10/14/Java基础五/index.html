@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="CuiZhe&#39;s Blog">
 <meta property="og:description" content="封装什么是封装？  通过该类提供的方法来实现对隐藏信息的操作和访问 隐藏对象的信息 留出访问的接口">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-16T14:29:44.768Z">
+<meta property="og:updated_time" content="2018-10-16T14:32:25.619Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java基础五--封装">
 <meta name="twitter:description" content="封装什么是封装？  通过该类提供的方法来实现对隐藏信息的操作和访问 隐藏对象的信息 留出访问的接口">
@@ -463,13 +463,13 @@
 </ul>
 <h2 id="实现Java封装的步骤"><a href="#实现Java封装的步骤" class="headerlink" title="实现Java封装的步骤"></a>实现Java封装的步骤</h2><ul>
 <li><p>隐藏对象</p>
-<p><strong>修改属性的可见性—–设置为 private</strong></p>
+<p><strong>修改属性的可见性——设置为 private</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">  <span class="keyword">private</span> String name;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这段代码中，将 name 和 age 属性设置为私有的，只有本类才能访问，其他类都访问不了，如此就对信息进行了隐藏。</p>
 </li>
 <li><p>留出接口</p>
-<p><strong>创建 getter / setter 方法—–设置为 public 用于属性的读写</strong></p>
-<p><strong>在 getter / setter 方法中加入属性控制语句—–对属性值的合法性进行判断</strong></p>
+<p><strong>创建 getter / setter 方法——设置为 public 用于属性的读写</strong></p>
+<p><strong>在 getter / setter 方法中加入属性控制语句——对属性值的合法性进行判断</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">  <span class="keyword">private</span> String name;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span></span>&#123;</span><br><span class="line">      <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span></span>&#123;</span><br><span class="line">      <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line">  	</span><br><span class="line">  	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span></span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>采用 this 关键字是为了解决实例变量（private String name）和局部变量（setName(String name)中的name）之间发生的同名的冲突。</p>
 </li>
@@ -495,11 +495,11 @@
 <p>java.io 包含输入、输出相关功能的类</p>
 <h1 id="static-关键字"><a href="#static-关键字" class="headerlink" title="static 关键字"></a>static 关键字</h1><p>static 翻译为静态，从面向对象的角度讲，当一个类中的变量或方法用 static 修饰时，这些变量和方法就成了类本身的，他们和对象的关系并不大。但是从直观的角度讲，这些被修饰的量确实被该类所有对象所拥有，并且被这个类的所有对象所共享，求其是当使用该类对象进行引用他们时。其实当使用对象进行引用 static 修饰成员时，在底层代码的实现中，其实还是转换为类名进行引用，这表明这个成员属于类。</p>
 <ul>
-<li>static + 属性—–静态属性、类属性</li>
-<li>static + 方法—–静态方法、类方法</li>
-<li>static + 类—–不存在，不能加载类前</li>
-<li>static + 方法内局部变量—–不能加载局部变量前</li>
-<li>static + 代码块—–静态代码块</li>
+<li>static + 属性——静态属性、类属性</li>
+<li>static + 方法——静态方法、类方法</li>
+<li>static + 类——不存在，不能加载类前</li>
+<li>static + 方法内局部变量——不能加载局部变量前</li>
+<li>static + 代码块——静态代码块</li>
 </ul>
 <h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><ul>
 <li>通过{}可以形成代码块</li>
