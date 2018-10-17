@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="CuiZhe&#39;s Blog">
 <meta property="og:description" content="继承继承的概念 继承是类与类之间的一种关系 使用已存在的类的定义作为基础建立新的类 新类的定义可以增加新的数据或新的功能，也可以用父类的功能，但不能选择性地继承父类。 当两个类之间满足 “A is a B” 的关系，我们就说它们满足继承关系">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-17T12:13:49.471Z">
+<meta property="og:updated_time" content="2018-10-17T12:18:37.998Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java基础六--继承">
 <meta name="twitter:description" content="继承继承的概念 继承是类与类之间的一种关系 使用已存在的类的定义作为基础建立新的类 新类的定义可以增加新的数据或新的功能，也可以用父类的功能，但不能选择性地继承父类。 当两个类之间满足 “A is a B” 的关系，我们就说它们满足继承关系">
@@ -526,9 +526,34 @@
 </li>
 <li><p>Java 中的每个类都可以使用 Object 中定义的方法</p>
 <p>Object  类的常用方法</p>
-<p>| 方法       | 说明                                         |<br>| ———- | ——————————————– |<br>| toString() | 返回当前对象本身的有关信息，按字符串对象返回 |<br>| equals()   | 比较两个对象是否是同一个对象，是则返回true   |<br>| hashCode() | 返回该对象的哈希代码值                       |<br>| getClass() | 获取当前对象所属的类信息，返回Class对象      |</p>
 </li>
 </ul>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>toString()</td>
+<td>返回当前对象本身的有关信息，按字符串对象返回</td>
+</tr>
+<tr>
+<td>equals()</td>
+<td>比较两个对象是否是同一个对象，是则返回true</td>
+</tr>
+<tr>
+<td>hashCode()</td>
+<td>返回该对象的哈希代码值</td>
+</tr>
+<tr>
+<td>getClass()</td>
+<td>获取当前对象所属的类信息，返回Class对象</td>
+</tr>
+</tbody>
+</table>
 <h1 id="final关键字"><a href="#final关键字" class="headerlink" title="final关键字"></a>final关键字</h1><p>final 表示“最后的、最终的”含义，变量一旦赋值后，不能被重新赋值。被 final 修饰的实例变量必须显式指定初始值。</p>
 <ul>
 <li>被 final 修饰的类表示不允许被继承</li>
