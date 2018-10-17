@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="继承,super关键字,this关键字,重写&重载," />
+  <meta name="keywords" content="继承,super关键字,this关键字,final关键字,重写&重载," />
 
 
 
@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="继承继承的概念 继承是类与类之间的一种关系 使用已存在的类的定义作为基础建立新的类 新类的定义可以增加新的数据或新的功能，也可以用父类的功能，但不能选择性地继承父类。 当两个类之间满足 “A is a B” 的关系，我们就说它们满足继承关系  继承的特点 利于代码复用 缩短开发周期  语法 使用 extends 实现继承 Java 只支持单继承，一个类只能有一个父类（也称为超类、基类）   继承后">
-<meta name="keywords" content="继承,super关键字,this关键字,重写&amp;重载">
+<meta name="description" content="继承继承的概念 继承是类与类之间的一种关系 使用已存在的类的定义作为基础建立新的类 新类的定义可以增加新的数据或新的功能，也可以用父类的功能，但不能选择性地继承父类。 当两个类之间满足 “A is a B” 的关系，我们就说它们满足继承关系">
+<meta name="keywords" content="继承,super关键字,this关键字,final关键字,重写&amp;重载">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java基础六--继承">
 <meta property="og:url" content="https://cuizhe1023.github.io/2018/10/17/Java基础六/index.html">
 <meta property="og:site_name" content="CuiZhe&#39;s Blog">
-<meta property="og:description" content="继承继承的概念 继承是类与类之间的一种关系 使用已存在的类的定义作为基础建立新的类 新类的定义可以增加新的数据或新的功能，也可以用父类的功能，但不能选择性地继承父类。 当两个类之间满足 “A is a B” 的关系，我们就说它们满足继承关系  继承的特点 利于代码复用 缩短开发周期  语法 使用 extends 实现继承 Java 只支持单继承，一个类只能有一个父类（也称为超类、基类）   继承后">
+<meta property="og:description" content="继承继承的概念 继承是类与类之间的一种关系 使用已存在的类的定义作为基础建立新的类 新类的定义可以增加新的数据或新的功能，也可以用父类的功能，但不能选择性地继承父类。 当两个类之间满足 “A is a B” 的关系，我们就说它们满足继承关系">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-17T07:51:24.582Z">
+<meta property="og:updated_time" content="2018-10-17T12:13:49.471Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java基础六--继承">
-<meta name="twitter:description" content="继承继承的概念 继承是类与类之间的一种关系 使用已存在的类的定义作为基础建立新的类 新类的定义可以增加新的数据或新的功能，也可以用父类的功能，但不能选择性地继承父类。 当两个类之间满足 “A is a B” 的关系，我们就说它们满足继承关系  继承的特点 利于代码复用 缩短开发周期  语法 使用 extends 实现继承 Java 只支持单继承，一个类只能有一个父类（也称为超类、基类）   继承后">
+<meta name="twitter:description" content="继承继承的概念 继承是类与类之间的一种关系 使用已存在的类的定义作为基础建立新的类 新类的定义可以增加新的数据或新的功能，也可以用父类的功能，但不能选择性地继承父类。 当两个类之间满足 “A is a B” 的关系，我们就说它们满足继承关系">
 
 
 
@@ -454,6 +454,7 @@
 <li>新类的定义可以增加新的数据或新的功能，也可以用父类的功能，但不能选择性地继承父类。</li>
 <li>当两个类之间满足 “A is a B” 的关系，我们就说它们满足继承关系</li>
 </ul>
+<a id="more"></a>
 <h2 id="继承的特点"><a href="#继承的特点" class="headerlink" title="继承的特点"></a>继承的特点</h2><ul>
 <li>利于代码复用</li>
 <li>缩短开发周期</li>
@@ -462,9 +463,9 @@
 <li>使用 extends 实现继承</li>
 <li>Java 只支持单继承，一个类只能有一个父类（也称为超类、基类） </li>
 </ul>
-<h2 id="继承后的初始化顺序"><a href="#继承后的初始化顺序" class="headerlink" title="继承后的初始化顺序"></a>继承后的初始化顺序</h2><p>父类的静态成员—&gt;</p>
-<p>子类静态成员—&gt;</p>
-<p>父类对象构建【属性（赋值）、构造代码块、构造方法】—&gt;</p>
+<h2 id="继承后的初始化顺序"><a href="#继承后的初始化顺序" class="headerlink" title="继承后的初始化顺序"></a>继承后的初始化顺序</h2><p>父类的静态成员</p>
+<p>子类静态成员</p>
+<p>父类对象构建【属性（赋值）、构造代码块、构造方法】</p>
 <p>子类对象构建【属性（赋值）、构造代码块、构造方法】</p>
 <hr>
 <h1 id="Super关键字"><a href="#Super关键字" class="headerlink" title="Super关键字"></a>Super关键字</h1><h2 id="如何区分调用的是继承父类的方法还是子类自己重写的方法"><a href="#如何区分调用的是继承父类的方法还是子类自己重写的方法" class="headerlink" title="如何区分调用的是继承父类的方法还是子类自己重写的方法?"></a>如何区分调用的是继承父类的方法还是子类自己重写的方法?</h2><ul>
@@ -588,7 +589,7 @@
   <p><span>本文标题:</span><a href="/2018/10/17/Java基础六/">Java基础六--继承</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Cui Zhe 的个人博客">Cui Zhe</a></p>
   <p><span>发布时间:</span>2018年10月17日 - 08:10</p>
-  <p><span>最后更新:</span>2018年10月17日 - 15:10</p>
+  <p><span>最后更新:</span>2018年10月17日 - 20:10</p>
   <p><span>原始链接:</span><a href="/2018/10/17/Java基础六/" title="Java基础六--继承">https://cuizhe1023.github.io/2018/10/17/Java基础六/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://cuizhe1023.github.io/2018/10/17/Java基础六/"  aria-label="复制成功！"></i></span>
   </p>
@@ -625,6 +626,8 @@
             <a href="/tags/super关键字/" rel="tag"><i class="fa fa-tag"></i> super关键字</a>
           
             <a href="/tags/this关键字/" rel="tag"><i class="fa fa-tag"></i> this关键字</a>
+          
+            <a href="/tags/final关键字/" rel="tag"><i class="fa fa-tag"></i> final关键字</a>
           
             <a href="/tags/重写-重载/" rel="tag"><i class="fa fa-tag"></i> 重写&重载</a>
           
@@ -750,7 +753,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
