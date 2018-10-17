@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://cuizhe1023.github.io/"/>
-  <updated>2018-10-15T02:41:36.473Z</updated>
+  <updated>2018-10-17T07:51:24.582Z</updated>
   <id>https://cuizhe1023.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java基础六--继承</title>
+    <link href="https://cuizhe1023.github.io/2018/10/17/Java%E5%9F%BA%E7%A1%80%E5%85%AD/"/>
+    <id>https://cuizhe1023.github.io/2018/10/17/Java基础六/</id>
+    <published>2018-10-17T00:16:32.885Z</published>
+    <updated>2018-10-17T07:51:24.582Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h1><h2 id="继承的概念"><a href="#继承的概念" class="headerlink" title="继承的概念"></a>继承的概念</h2><ul><li>继承是类与类之间的一种关系</li><li>使用已存在的类的定义作为基础建立新的类</li><li>新类的定义可以增加新的数据或新的功能，也可以用父类的功能，但不能选择性地继承父类。</li><li>当两个类之间满足 “A is a B” 的关系，我们就说它们满足继承关系</li></ul><h2 id="继承的特点"><a href="#继承的特点" class="headerlink" title="继承的特点"></a>继承的特点</h2><ul><li>利于代码复用</li><li>缩短开发周期</li></ul><h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><ul><li>使用 extends 实现继承</li><li>Java 只支持单继承，一个类只能有一个父类（也称为超类、基类） </li></ul><h2 id="继承后的初始化顺序"><a href="#继承后的初始化顺序" class="headerlink" title="继承后的初始化顺序"></a>继承后的初始化顺序</h2><p>父类的静态成员—&gt;</p><p>子类静态成员—&gt;</p><p>父类对象构建【属性（赋值）、构造代码块、构造方法】—&gt;</p><p>子类对象构建【属性（赋值）、构造代码块、构造方法】</p><hr><h1 id="Super关键字"><a href="#Super关键字" class="headerlink" title="Super关键字"></a>Super关键字</h1><h2 id="如何区分调用的是继承父类的方法还是子类自己重写的方法"><a href="#如何区分调用的是继承父类的方法还是子类自己重写的方法" class="headerlink" title="如何区分调用的是继承父类的方法还是子类自己重写的方法?"></a>如何区分调用的是继承父类的方法还是子类自己重写的方法?</h2><ul><li><p>访问父类成员方法</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">super</span>.print();</span><br></pre></td></tr></table></figure></li><li><p>访问父类属性</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">super</span>.name;</span><br></pre></td></tr></table></figure></li></ul><h2 id="子类对象实例化时，能否选择父类的构造形式（调用指定的构造方法）？"><a href="#子类对象实例化时，能否选择父类的构造形式（调用指定的构造方法）？" class="headerlink" title="子类对象实例化时，能否选择父类的构造形式（调用指定的构造方法）？"></a>子类对象实例化时，能否选择父类的构造形式（调用指定的构造方法）？</h2><ul><li><p>访问父类构造方法</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">super</span>();<span class="comment">//无参的构造方法</span></span><br><span class="line"><span class="keyword">super</span>(<span class="string">"name"</span>);<span class="comment">//有参的构造方法</span></span><br></pre></td></tr></table></figure></li><li><p>子类的构造过程中必须调用其父类的构造方法，默认调用无参的构造方法</p></li><li><p>如果子类构造方法中既没有显示标注，而父类有没有无参的构造方法，则编译出错</p></li><li><p>使用 super 调用父类指定构造方法，必须在子类的构造方法的第一行</p></li></ul><hr><h1 id="this-关键字-amp-super-关键字"><a href="#this-关键字-amp-super-关键字" class="headerlink" title="this 关键字 &amp; super 关键字"></a>this 关键字 &amp; super 关键字</h1><table><thead><tr><th>this 关键字——当前类对象的引用</th><th>super 关键字——父类对象的引用</th></tr></thead><tbody><tr><td>访问当前类的成员方法<br>访问当前类的成员属性<br>访问当前类的构造方法<br>不能再静态方法中使用</td><td>访问父类的成员方法<br>访问父类的成员属性<br>访问父类的构造方法<br>不能再静态方法中使用</td></tr></tbody></table><p>构造方法调用时，super 和 this 不能同时出现</p><h1 id="重写-amp-重载"><a href="#重写-amp-重载" class="headerlink" title="重写 &amp; 重载"></a>重写 &amp; 重载</h1><table><thead><tr><th>方法重写</th><th>方法重载</th></tr></thead><tbody><tr><td>在满足继承关系的子类中<br>方法名、参数个数、顺序、返回值与父类相同<br>返回值类型与父类的返回值类型向下兼容<br>访问修饰符的限定范围大于等于父类方法</td><td>在同一个类中<br>方法名相同<br>参数个数、顺序、类型不同<br>返回值类型、访问修饰符任意</td></tr></tbody></table><p><strong>方法重写存在，属性重写不存在</strong></p><hr><h1 id="Object-类"><a href="#Object-类" class="headerlink" title="Object 类"></a>Object 类</h1><ul><li><p>Object 类是所有类的父类</p></li><li><p>一个类没有使用 extends 关键字明确标识继承关系，则默认继承 Object 类（包括数组）</p></li><li><p>Java 中的每个类都可以使用 Object 中定义的方法</p><p>Object  类的常用方法</p><p>| 方法       | 说明                                         |<br>| ———- | ——————————————– |<br>| toString() | 返回当前对象本身的有关信息，按字符串对象返回 |<br>| equals()   | 比较两个对象是否是同一个对象，是则返回true   |<br>| hashCode() | 返回该对象的哈希代码值                       |<br>| getClass() | 获取当前对象所属的类信息，返回Class对象      |</p></li></ul><h1 id="final关键字"><a href="#final关键字" class="headerlink" title="final关键字"></a>final关键字</h1><p>final 表示“最后的、最终的”含义，变量一旦赋值后，不能被重新赋值。被 final 修饰的实例变量必须显式指定初始值。</p><ul><li>被 final 修饰的类表示不允许被继承</li><li>被 final 修饰的方法表示不允许被子类重写<ul><li>final 修饰的方法可以被继承</li><li>不能修饰构造方法</li></ul></li><li>被 final 修饰的变量表示不允许被修改<ul><li>方法内部的局部变量 —&gt; 在使用之前被初始化赋值即可</li><li>类中的成员变量 —&gt; 只能在定义时或者构造代码块、构造方法中进行初始化设置</li><li>基本数据类型的变量 —&gt; 初始赋值之后不能更改</li><li>引用类型的变量—&gt;初始化之后不能再指向另一个对象，但指向的对象的内容时可变的</li><li>不能修饰构造方法</li></ul></li><li>可配合 static 使用，表示静态的、不允许被修改的信息</li><li>使用 final 修饰可以提高性能，但会降低可扩展性</li></ul><h1 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h1><p>可以声明在包、类、属性、方法、局部变量、方法参数等的前面，用来对这些元素进行说明、注释</p><h2 id="按照运行机制分"><a href="#按照运行机制分" class="headerlink" title="按照运行机制分"></a>按照运行机制分</h2><ul><li>源码注解</li><li>编译时注解</li><li>运行时注解</li></ul><h2 id="按照来源分"><a href="#按照来源分" class="headerlink" title="按照来源分"></a>按照来源分</h2><ul><li><p>来自 JDK 的注解</p></li><li><p>来自第三方的注解</p></li><li><p>自定义注解</p></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;继承&quot;&gt;&lt;a href=&quot;#继承&quot; class=&quot;headerlink&quot; title=&quot;继承&quot;&gt;&lt;/a&gt;继承&lt;/h1&gt;&lt;h2 id=&quot;继承的概念&quot;&gt;&lt;a href=&quot;#继承的概念&quot; class=&quot;headerlink&quot; title=&quot;继承的概念&quot;&gt;&lt;/a&gt;继承的概
+      
+    
+    </summary>
+    
+      <category term="Java基础" scheme="https://cuizhe1023.github.io/categories/Java%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="继承" scheme="https://cuizhe1023.github.io/tags/%E7%BB%A7%E6%89%BF/"/>
+    
+      <category term="super关键字" scheme="https://cuizhe1023.github.io/tags/super%E5%85%B3%E9%94%AE%E5%AD%97/"/>
+    
+      <category term="this关键字" scheme="https://cuizhe1023.github.io/tags/this%E5%85%B3%E9%94%AE%E5%AD%97/"/>
+    
+      <category term="重写&amp;重载" scheme="https://cuizhe1023.github.io/tags/%E9%87%8D%E5%86%99-%E9%87%8D%E8%BD%BD/"/>
+    
+  </entry>
   
   <entry>
     <title>数据结构概述</title>
