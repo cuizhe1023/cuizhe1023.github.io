@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="CuiZhe&#39;s Blog">
 <meta property="og:description" content="多态多态是同一个行为具有多个不同表现形式或形态的能力。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-18T14:09:07.252Z">
+<meta property="og:updated_time" content="2018-10-18T14:30:36.927Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java基础七--多态">
 <meta name="twitter:description" content="多态多态是同一个行为具有多个不同表现形式或形态的能力。">
@@ -411,7 +411,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.4k
+                  1.9k
                 </span>
               
 
@@ -427,7 +427,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  5
+                  6
                 </span>
               
             </div>
@@ -504,6 +504,36 @@
 <p>那如果我用向上转型呢？</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">(Animal a)</span></span>&#123;</span><br><span class="line">    a.eat();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">eat(<span class="keyword">new</span> Cat());</span><br><span class="line">eat(<span class="keyword">new</span> Cat());</span><br><span class="line">eat(<span class="keyword">new</span> Dog());</span><br><span class="line"><span class="comment">//.....</span></span><br></pre></td></tr></table></figure>
 <p>这样代码是不是简洁了许多？而且这个时候，如果我又有一种新的动物加进来，我只需要实现它自己的类，让他继承Animal就可以了，而不需要为它单独写一个eat方法。是不是提高了扩展性？</p>
+<h3 id="向下转型"><a href="#向下转型" class="headerlink" title="向下转型"></a>向下转型</h3><p>与向上转型相对应的就是向下转型了。向下转型是把父类对象转为子类对象。(请注意！这里是有坑的。)</p>
+<p>再举个例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//还是上面的animal和cat dog</span></span><br><span class="line">Animal a = <span class="keyword">new</span> Cat();</span><br><span class="line">Cat c = (Cat) a;</span><br><span class="line">c.eat();</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>输出结果：</p>
+<p>猫吃鱼</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Dog d = (Dog) a;</span><br><span class="line">d.eat();</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>报错：java.lang.ClassCastException: Cat cannot be cast to Dog</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Animal a1 = <span class="keyword">new</span> Animal();</span><br><span class="line">Cat c1 = (Cat) a1;</span><br><span class="line">c1.eat();</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>报错：java.lang.ClassCastException: Animal cannot be cast to Cat</p>
+</blockquote>
+<p>为什么第一段代码不报错呢？相比你也知道了，因为a本身就是 Cat 对象，所以它理所当然的可以向下转型为Cat，也理所当然的不能转为 Dog，你见过一条狗突然就变成一只猫这种操蛋现象？</p>
+<p>而a1为 Animal 对象，它也不能被向下转型为任何子类对象。比如你去考古，发现了一个新生物，知道它是一种动物，但是你不能直接说，啊，它是猫，或者说它是狗。</p>
+<h4 id="向下转型注意事项"><a href="#向下转型注意事项" class="headerlink" title="向下转型注意事项"></a>向下转型注意事项</h4><ul>
+<li>向下转型的前提是父类对象指向的是子类对象（也就是说，在向下转型之前，它得先向上转型）</li>
+<li>向下转型只能转型为本类对象（猫是不能变成狗的）。</li>
+</ul>
+<blockquote>
+<p>大概你会说，我特么有病啊，我先向上转型再向下转型？？</p>
+</blockquote>
+<p>我们回到上面的问题：喂动物吃饭，吃了饭做点什么呢？不同的动物肯定做不同的事，怎么做呢？</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">(Animal a)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(a <span class="keyword">instanceof</span> Dog)&#123;  </span><br><span class="line">        Dog d = (Dog)a;</span><br><span class="line">        d.eat();</span><br><span class="line">        d.run();<span class="comment">//狗有一个跑的方法      </span></span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">if</span>(a <span class="keyword">instanceof</span> Cat)&#123;  </span><br><span class="line">        Cat c = (Cat)a;</span><br><span class="line">        c.eat();</span><br><span class="line">        System.out.println(<span class="string">"我也想跑，但是不会"</span>); <span class="comment">//猫会抱怨    </span></span><br><span class="line">    &#125; </span><br><span class="line">    a.eat();<span class="comment">//其他动物只会吃</span></span><br><span class="line">&#125;</span><br><span class="line">.....</span><br><span class="line"></span><br><span class="line">eat(<span class="keyword">new</span> Cat());</span><br><span class="line">eat(<span class="keyword">new</span> Cat());</span><br><span class="line">eat(<span class="keyword">new</span> Dog());</span><br><span class="line">.....</span><br></pre></td></tr></table></figure>
+<p>现在，你懂了么？这就是向下转型的简单应用，可能举得例子不恰当，但是也可以说明一些问题。</p>
+<blockquote>
+<p>敲黑板，划重点！看到那个 <strong>instanceof</strong> 了么？  </p>
+</blockquote>
 <h2 id="抽象类-amp-抽象方法"><a href="#抽象类-amp-抽象方法" class="headerlink" title="抽象类 &amp; 抽象方法"></a>抽象类 &amp; 抽象方法</h2><h3 id="应用场景："><a href="#应用场景：" class="headerlink" title="应用场景："></a>应用场景：</h3><p>某个父类只是限定其子类应该包括怎样的方法，但不需要准确知道这些子类如何实现这些方法。</p>
 <h3 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h3><p> Java 中使用抽象类，限制实例化</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -776,7 +806,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#多态"><span class="nav-number">1.</span> <span class="nav-text">多态</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#多态的分类"><span class="nav-number">1.1.</span> <span class="nav-text">多态的分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多态的实现方法"><span class="nav-number">1.2.</span> <span class="nav-text">多态的实现方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#向上转型-amp-向下转型"><span class="nav-number">1.3.</span> <span class="nav-text">向上转型 &amp; 向下转型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#向上转型"><span class="nav-number">1.3.1.</span> <span class="nav-text">向上转型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#转型过程中需要注意的问题"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">转型过程中需要注意的问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#向上转型的好处"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">向上转型的好处</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#抽象类-amp-抽象方法"><span class="nav-number">1.4.</span> <span class="nav-text">抽象类 &amp; 抽象方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#应用场景："><span class="nav-number">1.4.1.</span> <span class="nav-text">应用场景：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象类"><span class="nav-number">1.4.2.</span> <span class="nav-text">抽象类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象方法"><span class="nav-number">1.4.3.</span> <span class="nav-text">抽象方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意"><span class="nav-number">1.4.4.</span> <span class="nav-text">注意</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接口"><span class="nav-number">1.5.</span> <span class="nav-text">接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语法"><span class="nav-number">1.5.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意-1"><span class="nav-number">1.5.2.</span> <span class="nav-text">注意</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内部类"><span class="nav-number">1.6.</span> <span class="nav-text">内部类</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#多态"><span class="nav-number">1.</span> <span class="nav-text">多态</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#多态的分类"><span class="nav-number">1.1.</span> <span class="nav-text">多态的分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多态的实现方法"><span class="nav-number">1.2.</span> <span class="nav-text">多态的实现方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#向上转型-amp-向下转型"><span class="nav-number">1.3.</span> <span class="nav-text">向上转型 &amp; 向下转型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#向上转型"><span class="nav-number">1.3.1.</span> <span class="nav-text">向上转型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#转型过程中需要注意的问题"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">转型过程中需要注意的问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#向上转型的好处"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">向上转型的好处</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#向下转型"><span class="nav-number">1.3.2.</span> <span class="nav-text">向下转型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#向下转型注意事项"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">向下转型注意事项</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#抽象类-amp-抽象方法"><span class="nav-number">1.4.</span> <span class="nav-text">抽象类 &amp; 抽象方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#应用场景："><span class="nav-number">1.4.1.</span> <span class="nav-text">应用场景：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象类"><span class="nav-number">1.4.2.</span> <span class="nav-text">抽象类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象方法"><span class="nav-number">1.4.3.</span> <span class="nav-text">抽象方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意"><span class="nav-number">1.4.4.</span> <span class="nav-text">注意</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接口"><span class="nav-number">1.5.</span> <span class="nav-text">接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语法"><span class="nav-number">1.5.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意-1"><span class="nav-number">1.5.2.</span> <span class="nav-text">注意</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内部类"><span class="nav-number">1.6.</span> <span class="nav-text">内部类</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -814,7 +844,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">11k</span>
+    <span title="Site words total count">11.5k</span>
   
 -->
 
@@ -852,7 +882,7 @@
       <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-  <span class="post-count">Site words total count:11k</span>
+  <span class="post-count">Site words total count:11.5k</span>
 </div>
         
 
