@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://cuizhe1023.github.io/"/>
-  <updated>2018-10-17T12:18:37.998Z</updated>
+  <updated>2018-10-18T03:27:50.774Z</updated>
   <id>https://cuizhe1023.github.io/</id>
   
   <author>
@@ -15,6 +15,72 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="https://cuizhe1023.github.io/2018/10/18/Java%E5%9F%BA%E7%A1%80%E4%B8%83-%E5%86%85%E9%83%A8%E7%B1%BB/"/>
+    <id>https://cuizhe1023.github.io/2018/10/18/Java基础七-内部类/</id>
+    <published>2018-10-18T03:27:50.773Z</published>
+    <updated>2018-10-18T03:27:50.774Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://cuizhe1023.github.io/2018/10/18/Java%E5%9F%BA%E7%A1%80%E4%B8%83-%E6%8E%A5%E5%8F%A3/"/>
+    <id>https://cuizhe1023.github.io/2018/10/18/Java基础七-接口/</id>
+    <published>2018-10-18T03:27:33.126Z</published>
+    <updated>2018-10-18T03:27:33.135Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://cuizhe1023.github.io/2018/10/18/Java%E5%9F%BA%E7%A1%80%E4%B8%83-%E6%8A%BD%E8%B1%A1%E7%B1%BB/"/>
+    <id>https://cuizhe1023.github.io/2018/10/18/Java基础七-抽象类/</id>
+    <published>2018-10-18T03:26:57.362Z</published>
+    <updated>2018-10-18T03:26:57.363Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Java基础七--多态</title>
+    <link href="https://cuizhe1023.github.io/2018/10/18/Java%E5%9F%BA%E7%A1%80%E4%B8%83/"/>
+    <id>https://cuizhe1023.github.io/2018/10/18/Java基础七/</id>
+    <published>2018-10-18T02:34:58.013Z</published>
+    <updated>2018-10-18T14:09:07.252Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h1><p>多态是同一个行为具有多个不同表现形式或形态的能力。</p><a id="more"></a><h2 id="多态的分类"><a href="#多态的分类" class="headerlink" title="多态的分类"></a>多态的分类</h2><ul><li>编译时多态（设计时多态）：方法重载</li><li>运行时多态：Java 运行时系统根据调用该方法的实例的类型来决定选择调用哪个方法则被称为运行时多态</li></ul><p>我们平时说的多态，多指运行时多态</p><h2 id="多态的实现方法"><a href="#多态的实现方法" class="headerlink" title="多态的实现方法"></a>多态的实现方法</h2><ul><li><p>重写</p><p>这个内容写过了，可以访问:</p></li><li><p>接口</p><ul><li>生活中的接口最具代表性的就是插座，例如一个三接头的插头都能接在三孔插座中，因为这个是每个国家都有各自规定的接口规则，有可能到国外就不行，那是因为国外自己定义的接口类型。</li><li>java中的接口类似于生活中的接口，就是一些方法特征的集合，但没有方法的实现。具体可以看<a href="">Java基础七-接口</a>这一章节的内容</li></ul></li><li><p>抽象类和抽象方法</p><p>详情请看 <a href="">Java基础七-抽象类</a>。</p></li></ul><h2 id="向上转型-amp-向下转型"><a href="#向上转型-amp-向下转型" class="headerlink" title="向上转型 &amp; 向下转型"></a>向上转型 &amp; 向下转型</h2><p>要转型，首先要有继承。</p><ul><li><p>向上类型转换（Upcast）：将子类对象转换为父类，父类可以是接口</p><p>隐式/自动类型转换，是小类型到大类型的转换。</p></li><li><p>向下类型转换（Downcast）：将父类型转换为子类型</p><p>强制类型转换，是大类型到小类型。</p></li><li><p>通过 instanceof 运算符，来解决引用对象的类型，避免类型转换的安全性问题，提高代码的健壮性。</p></li></ul><h3 id="向上转型"><a href="#向上转型" class="headerlink" title="向上转型"></a>向上转型</h3><p>举一个大家都知道的例子：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"animal eating..."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cat</span> <span class="keyword">extends</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"猫吃鱼"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"狗吃肉"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"狗爱跑"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Animal animal = <span class="keyword">new</span> Cat();<span class="comment">//向上转型</span></span><br><span class="line">        animal.eat();</span><br><span class="line">        animal = <span class="keyword">new</span> Dog();</span><br><span class="line">        animal.eat();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote><p>执行结果：</p><p>猫吃鱼<br>狗吃肉</p></blockquote><p>这就是向上转型，Animal animal = new Cat(); 将子类对象 Cat 转换为父类对象 Animal 。这个时候 animal 这个引用调用的方法是子类方法。</p><h4 id="转型过程中需要注意的问题"><a href="#转型过程中需要注意的问题" class="headerlink" title="转型过程中需要注意的问题"></a>转型过程中需要注意的问题</h4><ul><li>向上转型时，子类单独定义的方法会丢失。比如上面 Dog 类中定义的 run 方法，当 animal 引用指向 Dog 类实例时是访问不到 run 方法的，<code>animal.run()；</code>会报错。</li><li>子类引用引用不能指向父类对象。<code>Cat c = (Cat)new Animal()</code>这样是不行的。</li></ul><h4 id="向上转型的好处"><a href="#向上转型的好处" class="headerlink" title="向上转型的好处"></a>向上转型的好处</h4><ul><li>减少重复代码，使代码变得简介</li><li>提高系统扩展性</li></ul><p>举个例子：比如，我现在有很多种类的动物，要喂它们吃东西。如果不用向上转型，那我需要这样写：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">(Cat c)</span></span>&#123;</span><br><span class="line">  c.eat();</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">(Dog d)</span></span>&#123;</span><br><span class="line">  d.eat();</span><br><span class="line">&#125;</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">eat(<span class="keyword">new</span> Cat());</span><br><span class="line">eat(<span class="keyword">new</span> Dog());</span><br><span class="line">...</span><br></pre></td></tr></table></figure><p>一种动物写一个方法，如果我有一万种动物，我不得写一万个方法？假设你很厉害，耐着性子写完了，突然又来一个新的动物，你是不是又要单独为它写一个 eat() 方法？</p><p>那如果我用向上转型呢？</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">(Animal a)</span></span>&#123;</span><br><span class="line">    a.eat();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">eat(<span class="keyword">new</span> Cat());</span><br><span class="line">eat(<span class="keyword">new</span> Cat());</span><br><span class="line">eat(<span class="keyword">new</span> Dog());</span><br><span class="line"><span class="comment">//.....</span></span><br></pre></td></tr></table></figure><p>这样代码是不是简洁了许多？而且这个时候，如果我又有一种新的动物加进来，我只需要实现它自己的类，让他继承Animal就可以了，而不需要为它单独写一个eat方法。是不是提高了扩展性？</p><h2 id="抽象类-amp-抽象方法"><a href="#抽象类-amp-抽象方法" class="headerlink" title="抽象类 &amp; 抽象方法"></a>抽象类 &amp; 抽象方法</h2><h3 id="应用场景："><a href="#应用场景：" class="headerlink" title="应用场景："></a>应用场景：</h3><p>某个父类只是限定其子类应该包括怎样的方法，但不需要准确知道这些子类如何实现这些方法。</p><h3 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h3><p> Java 中使用抽象类，限制实例化</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="抽象方法"><a href="#抽象方法" class="headerlink" title="抽象方法"></a>抽象方法</h3><p>abstract 也可用于方法——抽象方法</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure><h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><ul><li>抽象类不能直接实例化，必须借助子类完成相应的实例化操作</li><li>子类如果没有重写父类中所有的抽象方法，则也要定义为抽象类</li><li>抽象方法所在的类一定是抽象类</li><li>抽象类中可以没有抽象方法</li></ul><h2 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h2><ul><li>接口定义了某一批类所需要遵守的规范</li><li>接口不关心这些类的内部数据，也不关心这些类里方法的实现细节，它只规定这些类里必须提供某些方法</li></ul><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[修饰符] interface 接口[extends 父接口1，父接口2..]&#123;</span><br><span class="line">  零到多个常亮定义...</span><br><span class="line">  零到多个抽象方法的定义...</span><br><span class="line">  零到多个默认方法的定义...（jdk1.8 新增）</span><br><span class="line">  零到多个静态方法的定义...（jdk1.8 新增）</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="注意-1"><a href="#注意-1" class="headerlink" title="注意"></a>注意</h3><ul><li>接口可以实现多继承，即一个子接口可以同时继承多个父接口</li><li>实现接口的类如果不能实现接口中所有待重写的方法，则必须设置为抽象类</li><li>一个类可以继承自一个父类，同时实现多个接口</li></ul><h2 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h2><ul><li><p>在 Java 中，可以将一个类定义在另一个类里面或者一个方法里面，这样的类称为内部类</p></li><li><p>与之对应，包含内部类的类被称为外部类</p></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;多态&quot;&gt;&lt;a href=&quot;#多态&quot; class=&quot;headerlink&quot; title=&quot;多态&quot;&gt;&lt;/a&gt;多态&lt;/h1&gt;&lt;p&gt;多态是同一个行为具有多个不同表现形式或形态的能力。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Java基础" scheme="https://cuizhe1023.github.io/categories/Java%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="多态" scheme="https://cuizhe1023.github.io/tags/%E5%A4%9A%E6%80%81/"/>
+    
+      <category term="向上转型&amp;向下转型" scheme="https://cuizhe1023.github.io/tags/%E5%90%91%E4%B8%8A%E8%BD%AC%E5%9E%8B-%E5%90%91%E4%B8%8B%E8%BD%AC%E5%9E%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>Java基础六--继承</title>
