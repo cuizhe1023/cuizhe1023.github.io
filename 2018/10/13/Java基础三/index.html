@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="CuiZhe&#39;s Blog">
 <meta property="og:description" content="在 Java 中运算符有一下几组  算数运算符 关系运算符 位运算符 逻辑运算符 赋值运算符 其他运算符">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-13T10:17:29.744Z">
+<meta property="og:updated_time" content="2018-10-21T02:31:15.216Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java基础三--运算符">
 <meta name="twitter:description" content="在 Java 中运算符有一下几组  算数运算符 关系运算符 位运算符 逻辑运算符 赋值运算符 其他运算符">
@@ -450,15 +450,15 @@
       
         <p>在 Java 中运算符有一下几组</p>
 <ul>
-<li><strong>算数运算符</strong></li>
-<li><strong>关系运算符</strong></li>
-<li><strong>位运算符</strong></li>
-<li><strong>逻辑运算符</strong></li>
-<li><strong>赋值运算符</strong></li>
-<li><strong>其他运算符</strong></li>
+<li>算数运算符</li>
+<li>关系运算符</li>
+<li>位运算符</li>
+<li>逻辑运算符</li>
+<li>赋值运算符</li>
+<li>其他运算符</li>
 </ul>
 <a id="more"></a>
-<h2 id="算数运算符"><a href="#算数运算符" class="headerlink" title="算数运算符"></a>算数运算符</h2><p>算数运算符用在数学表达式中，作用和在数学中的作用一样。</p>
+<h1 id="算数运算符"><a href="#算数运算符" class="headerlink" title="算数运算符"></a>算数运算符</h1><p>算数运算符用在数学表达式中，作用和在数学中的作用一样。</p>
 <p>在表格中 A = 10, B = 20</p>
 <table>
 <thead>
@@ -506,7 +506,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="i-和-i-的区别"><a href="#i-和-i-的区别" class="headerlink" title="i++ 和 ++i 的区别"></a>i++ 和 ++i 的区别</h3><ul>
+<h2 id="i-和-i-的区别"><a href="#i-和-i-的区别" class="headerlink" title="i++ 和 ++i 的区别"></a>i++ 和 ++i 的区别</h2><ul>
 <li>++i 先进行自增操作，在进行表达式运算</li>
 <li>i++ 先进行表达式运算，在进行自增操作</li>
 </ul>
@@ -514,7 +514,7 @@
 <p>表达式 a = ++i; 等价于 i = i + 1;a = i;</p>
 <p>表达式 a = i++; 等价于 a = i;i = i + 1;</p>
 <hr>
-<h2 id="关系运算符"><a href="#关系运算符" class="headerlink" title="关系运算符"></a>关系运算符</h2><p>A = 10, B = 20</p>
+<h1 id="关系运算符"><a href="#关系运算符" class="headerlink" title="关系运算符"></a>关系运算符</h1><p>A = 10, B = 20</p>
 <table>
 <thead>
 <tr>
@@ -557,7 +557,7 @@
 </tbody>
 </table>
 <hr>
-<h2 id="位运算符"><a href="#位运算符" class="headerlink" title="位运算符"></a>位运算符</h2><p>位运算应用于整数类型（int），长整型（long），短整型（short），字符型（char）和字节型（byte）等类型。</p>
+<h1 id="位运算符"><a href="#位运算符" class="headerlink" title="位运算符"></a>位运算符</h1><p>位运算应用于整数类型（int），长整型（long），短整型（short），字符型（char）和字节型（byte）等类型。</p>
 <p>位运算符作用在所有的位上，并且按位运算。假设 A = 60, B = 13,则二进制表示如下</p>
 <blockquote>
 <p>A = 0011 1100</p>
@@ -610,7 +610,7 @@
 </tbody>
 </table>
 <hr>
-<h2 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h2><p>假设 A = true, B = false</p>
+<h1 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h1><p>假设 A = true, B = false</p>
 <table>
 <thead>
 <tr>
@@ -637,7 +637,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="短路逻辑运算符"><a href="#短路逻辑运算符" class="headerlink" title="短路逻辑运算符"></a>短路逻辑运算符</h3><p>当使用与逻辑运算符时，在两个操作数都为true时，结果才为true，但是当得到第一个操作为false时，其结果就必定是false，这时候就不会再判断第二个操作了。</p>
+<h2 id="短路逻辑运算符"><a href="#短路逻辑运算符" class="headerlink" title="短路逻辑运算符"></a>短路逻辑运算符</h2><p>当使用与逻辑运算符时，在两个操作数都为true时，结果才为true，但是当得到第一个操作为false时，其结果就必定是false，这时候就不会再判断第二个操作了。</p>
 <ul>
 <li>短路逻辑与</li>
 </ul>
@@ -655,7 +655,7 @@
 </blockquote>
 <p><strong>解析</strong>：该程序使用到了短路逻辑运算符(||)，首先判断 a &gt; 4 的结果为 true，则 b 的结果必定是 true，所以不再执行第二个操作 a++&lt;10 的判断，所以 a 的值为 5。</p>
 <hr>
-<h2 id="赋值运算"><a href="#赋值运算" class="headerlink" title="赋值运算"></a>赋值运算</h2><table>
+<h1 id="赋值运算"><a href="#赋值运算" class="headerlink" title="赋值运算"></a>赋值运算</h1><table>
 <thead>
 <tr>
 <th>操作符</th>
@@ -722,13 +722,13 @@
 </tbody>
 </table>
 <hr>
-<h2 id="其他运算符"><a href="#其他运算符" class="headerlink" title="其他运算符"></a>其他运算符</h2><h3 id="条件运算符"><a href="#条件运算符" class="headerlink" title="条件运算符"></a>条件运算符</h3><p>条件运算符也被称为三元运算符。该运算符有3个操作数，并且需要判断布尔表达式的值。该运算符的主要是决定哪个值应该赋值给变量。</p>
+<h1 id="其他运算符"><a href="#其他运算符" class="headerlink" title="其他运算符"></a>其他运算符</h1><h2 id="条件运算符"><a href="#条件运算符" class="headerlink" title="条件运算符"></a>条件运算符</h2><p>条件运算符也被称为三元运算符。该运算符有3个操作数，并且需要判断布尔表达式的值。该运算符的主要是决定哪个值应该赋值给变量。</p>
 <p>对于条件表达式b ? x : y，先计算条件b，然后进行判断。如果b的值为true，计算x的值，运算结果为x的值；否则，计算y的值，运算结果为y的值。一个条件表达式绝不会既计算x，又计算y。条件运算符是右结合的，也就是说，从右向左分组计算。例如，a ? b : c ? d : e将按a ? b : (c ? d : e)执行。</p>
-<h3 id="instanceof-运算符"><a href="#instanceof-运算符" class="headerlink" title="instanceof 运算符"></a>instanceof 运算符</h3><p>该运算符用于操作对象实例，检查该对象是否是一个特定类型（类类型或接口类型）。</p>
+<h2 id="instanceof-运算符"><a href="#instanceof-运算符" class="headerlink" title="instanceof 运算符"></a>instanceof 运算符</h2><p>该运算符用于操作对象实例，检查该对象是否是一个特定类型（类类型或接口类型）。</p>
 <p>用法：<br>result = object instanceof class</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String name = <span class="string">"James"</span>;</span><br><span class="line"><span class="keyword">boolean</span> result = name <span class="keyword">instanceof</span> String; <span class="comment">// 由于 name 是 String 类型，所以返回 true</span></span><br></pre></td></tr></table></figure>
 <hr>
-<h2 id="Java-运算符优先级"><a href="#Java-运算符优先级" class="headerlink" title="Java 运算符优先级"></a>Java 运算符优先级</h2><table>
+<h1 id="Java-运算符优先级"><a href="#Java-运算符优先级" class="headerlink" title="Java 运算符优先级"></a>Java 运算符优先级</h1><table>
 <thead>
 <tr>
 <th>类别</th>
@@ -841,7 +841,7 @@
   <p><span>本文标题:</span><a href="/2018/10/13/Java基础三/">Java基础三--运算符</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Cui Zhe 的个人博客">Cui Zhe</a></p>
   <p><span>发布时间:</span>2018年10月13日 - 18:10</p>
-  <p><span>最后更新:</span>2018年10月13日 - 18:10</p>
+  <p><span>最后更新:</span>2018年10月21日 - 10:10</p>
   <p><span>原始链接:</span><a href="/2018/10/13/Java基础三/" title="Java基础三--运算符">https://cuizhe1023.github.io/2018/10/13/Java基础三/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://cuizhe1023.github.io/2018/10/13/Java基础三/"  aria-label="复制成功！"></i></span>
   </p>
@@ -1001,7 +1001,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1057,7 +1057,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算数运算符"><span class="nav-number">1.</span> <span class="nav-text">算数运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#i-和-i-的区别"><span class="nav-number">1.1.</span> <span class="nav-text">i++ 和 ++i 的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关系运算符"><span class="nav-number">2.</span> <span class="nav-text">关系运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#位运算符"><span class="nav-number">3.</span> <span class="nav-text">位运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#逻辑运算符"><span class="nav-number">4.</span> <span class="nav-text">逻辑运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#短路逻辑运算符"><span class="nav-number">4.1.</span> <span class="nav-text">短路逻辑运算符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#赋值运算"><span class="nav-number">5.</span> <span class="nav-text">赋值运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他运算符"><span class="nav-number">6.</span> <span class="nav-text">其他运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#条件运算符"><span class="nav-number">6.1.</span> <span class="nav-text">条件运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#instanceof-运算符"><span class="nav-number">6.2.</span> <span class="nav-text">instanceof 运算符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-运算符优先级"><span class="nav-number">7.</span> <span class="nav-text">Java 运算符优先级</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#算数运算符"><span class="nav-number">1.</span> <span class="nav-text">算数运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#i-和-i-的区别"><span class="nav-number">1.1.</span> <span class="nav-text">i++ 和 ++i 的区别</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关系运算符"><span class="nav-number">2.</span> <span class="nav-text">关系运算符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#位运算符"><span class="nav-number">3.</span> <span class="nav-text">位运算符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#逻辑运算符"><span class="nav-number">4.</span> <span class="nav-text">逻辑运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#短路逻辑运算符"><span class="nav-number">4.1.</span> <span class="nav-text">短路逻辑运算符</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#赋值运算"><span class="nav-number">5.</span> <span class="nav-text">赋值运算</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他运算符"><span class="nav-number">6.</span> <span class="nav-text">其他运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#条件运算符"><span class="nav-number">6.1.</span> <span class="nav-text">条件运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#instanceof-运算符"><span class="nav-number">6.2.</span> <span class="nav-text">instanceof 运算符</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java-运算符优先级"><span class="nav-number">7.</span> <span class="nav-text">Java 运算符优先级</span></a></li></ol></div>
             
 
           </div>
@@ -1095,7 +1095,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">15.9k</span>
+    <span title="Site words total count">16k</span>
   
 -->
 
@@ -1133,7 +1133,7 @@
       <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-  <span class="post-count">Site words total count:15.9k</span>
+  <span class="post-count">Site words total count:16k</span>
 </div>
         
 

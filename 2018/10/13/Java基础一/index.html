@@ -97,7 +97,7 @@
 <meta property="og:description" content="Java 中有两大数据类型：  内置数据类型 引用数据类型">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://cuizhe1023.github.io/2018/10/13/Java基础一/Java类型装换.jpg">
-<meta property="og:updated_time" content="2018-10-13T12:19:50.520Z">
+<meta property="og:updated_time" content="2018-10-21T02:31:47.016Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java基础一--基本数据类型&amp;类型转换">
 <meta name="twitter:description" content="Java 中有两大数据类型：  内置数据类型 引用数据类型">
@@ -452,11 +452,11 @@
       
         <p>Java 中有两大数据类型：</p>
 <ul>
-<li><strong>内置数据类型</strong></li>
-<li><strong>引用数据类型</strong></li>
+<li>内置数据类型</li>
+<li>引用数据类型</li>
 </ul>
 <a id="more"></a>
-<h4 id="内置数据类型"><a href="#内置数据类型" class="headerlink" title="内置数据类型"></a>内置数据类型</h4><p>Java语言提供了八种基本类型。六种数字类型（四个整数型，两个浮点型），一种字符类型，还有一种布尔型。</p>
+<h1 id="内置数据类型"><a href="#内置数据类型" class="headerlink" title="内置数据类型"></a>内置数据类型</h1><p>Java语言提供了八种基本类型。六种数字类型（四个整数型，两个浮点型），一种字符类型，还有一种布尔型。</p>
 <table>
 <thead>
 <tr>
@@ -544,12 +544,13 @@
 </tr>
 </tbody>
 </table>
-<h4 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h4><ul>
+<h1 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h1><ul>
 <li>在 Java 中，引用类型的变量非常类似于 C/C++ 的指针。引用类型指向一个对象，指向对象的变量是引用变量。这些变量在声明时被指定为一个特定的类型，比如 Employee、Puppy 等。变量一旦声明后，类型就不能被改变了</li>
 <li>引用数据类型包括：类、接口类型、数组类型、枚举类型、注解类型，字符串型；</li>
 <li>所有引用类型的默认值都是 null</li>
 </ul>
-<h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><p>什么是类型转换？</p>
+<hr>
+<h1 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h1><p>什么是类型转换？</p>
 <p><strong>整型、实型（常量）、字符型数据可以混合运算。运算中，不同类型的数据先转化为同一类型，然后进行运算。</strong></p>
 <p>转换从低级到高级</p>
 <blockquote>
@@ -577,18 +578,18 @@
 <li><strong>自动类型转换</strong></li>
 <li><strong>强制类型转换</strong></li>
 </ul>
-<h3 id="自动类型转换"><a href="#自动类型转换" class="headerlink" title="自动类型转换"></a>自动类型转换</h3><p>必须满足转换前的数据类型的位数要低于转换后的数据类型，例如: short数据类型的位数为16位，就可以自动转换位数为32的int类型，同样float数据类型的位数为32，可以自动转换为64位的double类型。</p>
+<h2 id="自动类型转换"><a href="#自动类型转换" class="headerlink" title="自动类型转换"></a>自动类型转换</h2><p>必须满足转换前的数据类型的位数要低于转换后的数据类型，例如: short数据类型的位数为16位，就可以自动转换位数为32的int类型，同样float数据类型的位数为32，可以自动转换为64位的double类型。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ZiDongLeiZhuan</span></span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">            <span class="keyword">char</span> c1=<span class="string">'a'</span>;<span class="comment">//定义一个char类型</span></span><br><span class="line">            <span class="keyword">int</span> i1 = c1;<span class="comment">//char自动类型转换为int</span></span><br><span class="line">            System.out.println(<span class="string">"char自动类型转换为int后的值等于"</span>+i1);</span><br><span class="line">            <span class="keyword">char</span> c2 = <span class="string">'A'</span>;<span class="comment">//定义一个char类型</span></span><br><span class="line">            <span class="keyword">int</span> i2 = c2+<span class="number">1</span>;<span class="comment">//char 类型和 int 类型计算</span></span><br><span class="line">            System.out.println(<span class="string">"char类型和int计算后的值等于"</span>+i2);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>结果为：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span>自动类型转换为<span class="keyword">int</span>后的值等于<span class="number">97</span></span><br><span class="line"><span class="keyword">char</span>类型和<span class="keyword">int</span>计算后的值等于<span class="number">66</span></span><br></pre></td></tr></table></figure>
 <p><strong>解析</strong>：c1 的值为字符 <strong>a</strong> ,查 ASCII 码表可知对应的 int 类型值为 97， A 对应值为 65，所以 i2=65+1=66。</p>
-<h3 id="强制类型转换"><a href="#强制类型转换" class="headerlink" title="强制类型转换"></a>强制类型转换</h3><p>将高级别类型赋值给低级别类型时，必须进行强制类型转换。</p>
+<h2 id="强制类型转换"><a href="#强制类型转换" class="headerlink" title="强制类型转换"></a>强制类型转换</h2><p>将高级别类型赋值给低级别类型时，必须进行强制类型转换。</p>
 <ul>
 <li>条件是转换的数据类型必须是兼容的。</li>
 <li>格式：(type)value type是要强制类型转换后的数据类型。</li>
 </ul>
 <hr>
-<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><ul>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><ul>
 <li><p>Java 中有两大数据类型，基本数据类型和引用数据类型。</p>
 <ul>
 <li>基本数据类型在被创建时，在栈上给其划分一块内存，将<strong>数据直接存储在栈</strong>上.</li>
@@ -627,7 +628,7 @@
   <p><span>本文标题:</span><a href="/2018/10/13/Java基础一/">Java基础一--基本数据类型&类型转换</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Cui Zhe 的个人博客">Cui Zhe</a></p>
   <p><span>发布时间:</span>2018年10月13日 - 18:10</p>
-  <p><span>最后更新:</span>2018年10月13日 - 20:10</p>
+  <p><span>最后更新:</span>2018年10月21日 - 10:10</p>
   <p><span>原始链接:</span><a href="/2018/10/13/Java基础一/" title="Java基础一--基本数据类型&类型转换">https://cuizhe1023.github.io/2018/10/13/Java基础一/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://cuizhe1023.github.io/2018/10/13/Java基础一/"  aria-label="复制成功！"></i></span>
   </p>
@@ -783,7 +784,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -839,7 +840,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#内置数据类型"><span class="nav-number">1.</span> <span class="nav-text">内置数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#引用类型"><span class="nav-number">2.</span> <span class="nav-text">引用类型</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类型转换"><span class="nav-number"></span> <span class="nav-text">类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自动类型转换"><span class="nav-number"></span> <span class="nav-text">自动类型转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#强制类型转换"><span class="nav-number"></span> <span class="nav-text">强制类型转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小结"><span class="nav-number"></span> <span class="nav-text">小结</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#内置数据类型"><span class="nav-number">1.</span> <span class="nav-text">内置数据类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#引用类型"><span class="nav-number">2.</span> <span class="nav-text">引用类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#类型转换"><span class="nav-number">3.</span> <span class="nav-text">类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#自动类型转换"><span class="nav-number">3.1.</span> <span class="nav-text">自动类型转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#强制类型转换"><span class="nav-number">3.2.</span> <span class="nav-text">强制类型转换</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#小结"><span class="nav-number">4.</span> <span class="nav-text">小结</span></a></li></ol></div>
             
 
           </div>
@@ -877,7 +878,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">15.9k</span>
+    <span title="Site words total count">16k</span>
   
 -->
 
@@ -915,7 +916,7 @@
       <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-  <span class="post-count">Site words total count:15.9k</span>
+  <span class="post-count">Site words total count:16k</span>
 </div>
         
 
