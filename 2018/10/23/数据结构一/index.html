@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="修饰符," />
+  <meta name="keywords" content="数组,数据结构," />
 
 
 
@@ -88,18 +88,20 @@
 
 
 
-<meta name="description" content="Java 中主要有两类修饰符：  访问修饰符 非访问修饰符">
-<meta name="keywords" content="修饰符">
+<meta name="description" content="所谓数组，就是相同类型的数据按照顺序组成的一种引用数据类型。">
+<meta name="keywords" content="数组,数据结构">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java基础二--修饰符">
-<meta property="og:url" content="https://cuizhe1023.github.io/2018/10/13/Java基础二/index.html">
+<meta property="og:title" content="数据结构一--数组">
+<meta property="og:url" content="https://cuizhe1023.github.io/2018/10/23/数据结构一/index.html">
 <meta property="og:site_name" content="CuiZhe&#39;s Blog">
-<meta property="og:description" content="Java 中主要有两类修饰符：  访问修饰符 非访问修饰符">
+<meta property="og:description" content="所谓数组，就是相同类型的数据按照顺序组成的一种引用数据类型。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-21T02:30:54.542Z">
+<meta property="og:image" content="https://cuizhe1023.github.io/2018/10/23/数据结构一/数组在内存中的存储.jpg">
+<meta property="og:updated_time" content="2018-10-23T14:33:47.305Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java基础二--修饰符">
-<meta name="twitter:description" content="Java 中主要有两类修饰符：  访问修饰符 非访问修饰符">
+<meta name="twitter:title" content="数据结构一--数组">
+<meta name="twitter:description" content="所谓数组，就是相同类型的数据按照顺序组成的一种引用数据类型。">
+<meta name="twitter:image" content="https://cuizhe1023.github.io/2018/10/23/数据结构一/数组在内存中的存储.jpg">
 
 
 
@@ -129,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="https://cuizhe1023.github.io/2018/10/13/Java基础二/"/>
+  <link rel="canonical" href="https://cuizhe1023.github.io/2018/10/23/数据结构一/"/>
 
 
 
 
 
-  <title>Java基础二--修饰符 | CuiZhe's Blog</title>
+  <title>数据结构一--数组 | CuiZhe's Blog</title>
   
 
 
@@ -316,7 +318,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://cuizhe1023.github.io/2018/10/13/Java基础二/">
+    <link itemprop="mainEntityOfPage" href="https://cuizhe1023.github.io/2018/10/23/数据结构一/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cui Zhe">
@@ -333,7 +335,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Java基础二--修饰符</h1>
+          <h1 class="post-title" itemprop="name headline">数据结构一--数组</h1>
         
 
         <div class="post-meta">
@@ -345,8 +347,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-13T18:15:18+08:00">
-                2018-10-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-23T21:33:42+08:00">
+                2018-10-23
               </time>
             
 
@@ -368,8 +370,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java基础/" itemprop="url" rel="index">
-                    <span itemprop="name">Java基础</span>
+                  <a href="/categories/数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构</span>
                   </a>
                 </span>
 
@@ -385,7 +387,7 @@
 
           
           
-             <span id="/2018/10/13/Java基础二/" class="leancloud_visitors" data-flag-title="Java基础二--修饰符">
+             <span id="/2018/10/23/数据结构一/" class="leancloud_visitors" data-flag-title="数据结构一--数组">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -411,7 +413,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.2k
+                  1k
                 </span>
               
 
@@ -448,109 +450,68 @@
       
 
       
-        <p>Java 中主要有两类修饰符：</p>
-<ul>
-<li>访问修饰符</li>
-<li>非访问修饰符</li>
-</ul>
+        <p>所谓数组，就是<strong>相同类型的数据</strong>按照<strong>顺序</strong>组成的一种引用数据类型。</p>
 <a id="more"></a>
-<h1 id="访问修饰符"><a href="#访问修饰符" class="headerlink" title="访问修饰符"></a>访问修饰符</h1><table>
-<thead>
-<tr>
-<th style="text-align:center">访问修饰符</th>
-<th style="text-align:center">当前类</th>
-<th style="text-align:center">同一包内</th>
-<th style="text-align:center">子类</th>
-<th style="text-align:center">其他包</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">public</td>
-<td style="text-align:center">√</td>
-<td style="text-align:center">√</td>
-<td style="text-align:center">√</td>
-<td style="text-align:center">√</td>
-</tr>
-<tr>
-<td style="text-align:center">protected</td>
-<td style="text-align:center">√</td>
-<td style="text-align:center">√</td>
-<td style="text-align:center">√</td>
-<td style="text-align:center">×</td>
-</tr>
-<tr>
-<td style="text-align:center">default</td>
-<td style="text-align:center">√</td>
-<td style="text-align:center">√</td>
-<td style="text-align:center">×</td>
-<td style="text-align:center">×</td>
-</tr>
-<tr>
-<td style="text-align:center">private</td>
-<td style="text-align:center">√</td>
-<td style="text-align:center">×</td>
-<td style="text-align:center">×</td>
-<td style="text-align:center">×</td>
-</tr>
-</tbody>
-</table>
-<p>public : 公开,所有类可见</p>
-<p>protected :继承访问权限（本包中的子类非子类均可访问，不同包中的子类可以访问，不是子类不能访问）</p>
-<p>default :包访问权限（本包中的子类非子类均可访问，不同包中的类及子类均不能访问）</p>
-<p>private :私有,在同一类内可见</p>
-<p><strong>[注]</strong>：protected的可见性在于两点：</p>
+<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><p>数组对于每一门编程语言来说都是重要的数据结构之一，当然不同语言对数组的实现及处理也不尽相同。</p>
+<p>Java 语言中提供的数组是用来存储固定大小的同类型元素。</p>
+<h2 id="声明数组"><a href="#声明数组" class="headerlink" title="声明数组"></a>声明数组</h2><p>在 Java 中有两种声明数组的方式</p>
 <ul>
-<li>父类的 protected 成员是包内可见的，并且对子类可见；</li>
-<li>若子类与父类不在同一包中，那么在子类中，子类实例可以访问其从父类继承而来的protected方法，而不能访问父类实例的protected方法。</li>
-</ul>
-<h2 id="访问控制和继承"><a href="#访问控制和继承" class="headerlink" title="访问控制和继承"></a>访问控制和继承</h2><ul>
-<li>父类中声明为 public 的方法在子类中也必须为 public。</li>
-<li>父类中声明为 protected 的方法在子类中要么声明为 protected，要么声明为 public，不能声明为 private。</li>
-<li>父类中声明为 private 的方法，不能够被继承。</li>
-</ul>
-<hr>
-<h1 id="Java-非访问修饰符"><a href="#Java-非访问修饰符" class="headerlink" title="Java 非访问修饰符"></a>Java 非访问修饰符</h1><p>Java 中的非访问修饰符有：</p>
-<ul>
-<li>static 修饰符，用来修饰类方法和类变量</li>
-<li>final 修饰符，用来修饰类、方法和变量，final 修饰的类不能够被继承，修饰的方法不能被继承类重新定义，修饰的变量为常量，是不可修改的。</li>
-<li>abstract 修饰符，用来创建抽象类和抽象方法。</li>
-<li>synchronized 和 volatile 修饰符，主要用于线程的编程。</li>
-</ul>
-<h2 id="Static-修饰符"><a href="#Static-修饰符" class="headerlink" title="Static 修饰符"></a>Static 修饰符</h2><p>所谓静态就是指在编译后所分配的内存会一直存在，直到程序退出内存才会释放这个空间，也就是只要程序在运行，那么这块内存就会一直存在。</p>
-<ul>
-<li><p><strong>静态变量：</strong></p>
-<p>static 关键字用来声明独立于对象的静态变量，无论一个类实例化多少对象，它的静态变量只有一份拷贝。 静态变量也被称为类变量。局部变量不能被声明为 static 变量。</p>
+<li><p>数据类型[] 数组名</p>
+<p>int[] myIntArray;    //首选的方法</p>
 </li>
-<li><p><strong>静态方法：</strong></p>
-<p>static 关键字用来声明独立于对象的静态方法。静态方法不能使用类的非静态变量。静态方法从参数列表得到数据，然后计算这些数据。</p>
+<li><p>数据类型 数组名[]</p>
+<p>int myIntArray[];    //效果相同，但不是首选的方法</p>
 </li>
 </ul>
-<h2 id="final-修饰符"><a href="#final-修饰符" class="headerlink" title="final 修饰符"></a>final 修饰符</h2><p>final 表示”最后的、最终的”含义，变量一旦赋值后，不能被重新赋值。被 final 修饰的实例变量必须显式指定初始值。</p>
+<h2 id="创建数组"><a href="#创建数组" class="headerlink" title="创建数组"></a>创建数组</h2><p>Java 中使用 new 操作符来创建数组</p>
 <ul>
-<li>final 修饰符通常和 static 修饰符一起使用来创建类常量。</li>
-<li>类中的 final 方法可以被子类继承，但是不能被子类修改。声明 final 方法的主要目的是防止该方法的内容被修改。</li>
-<li>final 类不能被继承，没有类能够继承 final 类的任何特性。</li>
-</ul>
-<h2 id="abstract-修饰符"><a href="#abstract-修饰符" class="headerlink" title="abstract 修饰符"></a>abstract 修饰符</h2><ul>
-<li><p><strong>抽象类：</strong></p>
-<p>抽象类不能用来实例化对象，声明抽象类的唯一目的是为了将来对该类进行扩充。</p>
-<p>一个类不能同时被 abstract 和 final 修饰<strong>[被 final 修饰后就不能被继承了]</strong>。如果一个类包含抽象方法，那么该类一定要声明为抽象类，否则将出现编译错误。</p>
-<p>抽象类可以包含抽象方法和非抽象方法。</p>
+<li><p>语法格式一：先声明后创建</p>
+<p>数据类型[] 数组名;</p>
+<p>数组名 = new 数据类型[数组长度];</p>
+<p>int[] arr;</p>
+<p>arr = new int[10];</p>
+<p>创建一个长度为10的数组</p>
 </li>
-<li><p><strong>抽象方法：</strong></p>
-<p>抽象方法是一种没有任何实现的方法，该方法的的具体实现由子类提供。</p>
-<p>抽象方法不能被声明成 final 和 static。</p>
-<p>任何继承抽象类的子类必须实现父类的所有抽象方法，除非该子类也是抽象类。</p>
-<p>如果一个类包含若干个抽象方法，那么该类必须声明为抽象类。抽象类可以不包含抽象方法。</p>
-<p>抽象方法的声明以分号结尾。</p>
+<li><p>语法格式二：声明的同时创建数组</p>
+<p>数据类型[] 数组名 = new 数据类型[数组长度]</p>
+<p>int[] arr = new int[10]；</p>
+<p>创建一个长度为10的数组</p>
 </li>
 </ul>
-<h2 id="synchronized-修饰符"><a href="#synchronized-修饰符" class="headerlink" title="synchronized 修饰符"></a>synchronized 修饰符</h2><p>synchronized 关键字声明的方法同一时间只能被一个线程访问。</p>
-<h2 id="transient-修饰符"><a href="#transient-修饰符" class="headerlink" title="transient 修饰符"></a>transient 修饰符</h2><p>序列化的对象包含被 transient 修饰的实例变量时，java 虚拟机(JVM)跳过该特定的变量。</p>
-<p>该修饰符包含在定义变量的语句中，用来预处理类和变量的数据类型。</p>
-<h2 id="volatile-修饰符"><a href="#volatile-修饰符" class="headerlink" title="volatile 修饰符"></a>volatile 修饰符</h2><p>volatile 修饰的成员变量在每次被线程访问时，都强制从共享内存中重新读取该成员变量的值。而且，当成员变量发生变化时，会强制线程将变化值回写到共享内存。这样在任何时刻，两个不同的线程总是看到某个成员变量的同一个值。</p>
-<p>一个 volatile 对象引用可能是 null。</p>
+<p><strong>注意：</strong>数组长度必须指定</p>
+<ul>
+<li>语法格式三：数据类型[] 数组名 = {value0，value1…valuek};</li>
+</ul>
+<h2 id="数组在内存中的存储"><a href="#数组在内存中的存储" class="headerlink" title="数组在内存中的存储"></a>数组在内存中的存储</h2><p>数组会被分配连续的内存空间</p>
+<p>比如，我们定义一个数组。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 数组大小</span></span><br><span class="line">        <span class="keyword">int</span> size = <span class="number">10</span>;</span><br><span class="line">        <span class="comment">// 定义数组</span></span><br><span class="line">        <span class="keyword">double</span>[] myList = <span class="keyword">new</span> <span class="keyword">double</span>[size];</span><br><span class="line">        myList[<span class="number">0</span>] = <span class="number">5.6</span>;</span><br><span class="line">        myList[<span class="number">1</span>] = <span class="number">4.5</span>;</span><br><span class="line">        myList[<span class="number">2</span>] = <span class="number">3.3</span>;</span><br><span class="line">        myList[<span class="number">3</span>] = <span class="number">13.2</span>;</span><br><span class="line">        myList[<span class="number">4</span>] = <span class="number">4.0</span>;</span><br><span class="line">        myList[<span class="number">5</span>] = <span class="number">34.33</span>;</span><br><span class="line">        myList[<span class="number">6</span>] = <span class="number">34.0</span>;</span><br><span class="line">        myList[<span class="number">7</span>] = <span class="number">45.45</span>;</span><br><span class="line">        myList[<span class="number">8</span>] = <span class="number">99.993</span>;</span><br><span class="line">        myList[<span class="number">9</span>] = <span class="number">11123</span>;</span><br><span class="line">        <span class="comment">// 计算所有元素的总和</span></span><br><span class="line">        <span class="keyword">double</span> total = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i++) &#123;</span><br><span class="line">            total += myList[i];</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"总和为： "</span> + total);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>它在内存空间中的存储如下图所示：</p>
+<p><img src="/2018/10/23/数据结构一/数组在内存中的存储.jpg" alt="数组在内存中的存储"></p>
+<p>若数组没有赋值，则整型数组的默认值为0，其他类型的数组按照数据类型确定数组的默认值。</p>
+<h1 id="处理数组"><a href="#处理数组" class="headerlink" title="处理数组"></a>处理数组</h1><p>数组的元素类型和数组的大小都是确定的，所以当处理数组元素的时候，我们通常用基本循环或者 foreach 循环</p>
+<p>下面的例子就展示了数组的创建、初始化和操纵数组</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">double</span>[] myList = &#123;<span class="number">1.9</span>, <span class="number">2.9</span>, <span class="number">3.5</span>, <span class="number">3.4</span>&#125;;</span><br><span class="line">        System.out.println(<span class="string">"打印数组："</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; myList.length; i++) &#123;</span><br><span class="line">            System.out.print(myList[i] + <span class="string">"  "</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println();</span><br><span class="line">        System.out.println(<span class="string">"计算所有元素的和"</span>);</span><br><span class="line">        <span class="keyword">double</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; myList.length; i++) &#123;</span><br><span class="line">            sum += myList[i];</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"数组myList元素的和为："</span> + sum);</span><br><span class="line">        <span class="keyword">double</span> max = myList[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; myList.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (max&lt;myList[i])&#123;</span><br><span class="line">                max = myList[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"数组myList中的最大值为："</span> + max);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>运行结果</p>
+<p>打印数组：<br>1.9  2.9  3.5  3.4<br>计算所有元素的和<br>数组myList元素的和为：11.700000000000001<br>数组myList中的最大值为：3.5</p>
+</blockquote>
+<h2 id="foreach循环"><a href="#foreach循环" class="headerlink" title="foreach循环"></a>foreach循环</h2><p>foreach 循环可以在不适用下标的情况下遍历数组</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">double</span>[] myList = &#123;<span class="number">1.9</span>, <span class="number">2.9</span>, <span class="number">3.5</span>, <span class="number">3.4</span>&#125;;</span><br><span class="line">        System.out.println(<span class="string">"打印数组："</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">double</span> i :</span><br><span class="line">                myList) &#123;</span><br><span class="line">            System.out.print(i + <span class="string">"  "</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>运行结果</p>
+<p>打印数组：<br>1.9  2.9  3.5  3.4  </p>
+</blockquote>
+<h2 id="数组作为函数的参数"><a href="#数组作为函数的参数" class="headerlink" title="数组作为函数的参数"></a>数组作为函数的参数</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">double</span>[] myList = &#123;<span class="number">1.9</span>, <span class="number">2.9</span>, <span class="number">3.5</span>, <span class="number">3.4</span>&#125;;</span><br><span class="line">        System.out.println(<span class="string">"打印数组:"</span>);</span><br><span class="line">        printArray(myList);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printArray</span><span class="params">(<span class="keyword">double</span>[] arr)</span></span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">double</span> i :</span><br><span class="line">                arr) &#123;</span><br><span class="line">            System.out.print(i + <span class="string">"  "</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>运行结果</p>
+<p>打印数组:<br>1.9  2.9  3.5  3.4  </p>
+</blockquote>
+<h2 id="数组作为函数的返回值"><a href="#数组作为函数的返回值" class="headerlink" title="数组作为函数的返回值"></a>数组作为函数的返回值</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">double</span>[] myList = &#123;<span class="number">1.9</span>, <span class="number">2.9</span>, <span class="number">3.5</span>, <span class="number">3.4</span>&#125;;</span><br><span class="line">        System.out.println(<span class="string">"打印数组:"</span>);</span><br><span class="line">        <span class="keyword">double</span>[] result = reverse(myList);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">double</span> i :</span><br><span class="line">                result) &#123;</span><br><span class="line">            System.out.print(i + <span class="string">"  "</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span>[] reverse(<span class="keyword">double</span>[] list) &#123;</span><br><span class="line">        <span class="keyword">double</span>[] result = <span class="keyword">new</span> <span class="keyword">double</span>[list.length];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>, j = result.length - <span class="number">1</span>; i &lt; list.length; i++, j--) &#123;</span><br><span class="line">            result[j] = list[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>运行结果</p>
+<p>打印数组:<br>3.4  3.5  2.9  1.9  </p>
+</blockquote>
+<h1 id="多维数组"><a href="#多维数组" class="headerlink" title="多维数组"></a>多维数组</h1><p>多维数组可以看成是数组的数组，比如二维数组就是一个特殊的一维数组，其每一个元素都是一个一维数组。</p>
 
       
     </div>
@@ -575,12 +536,12 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2018/10/13/Java基础二/">Java基础二--修饰符</a></p>
+  <p><span>本文标题:</span><a href="/2018/10/23/数据结构一/">数据结构一--数组</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Cui Zhe 的个人博客">Cui Zhe</a></p>
-  <p><span>发布时间:</span>2018年10月13日 - 18:10</p>
-  <p><span>最后更新:</span>2018年10月21日 - 10:10</p>
-  <p><span>原始链接:</span><a href="/2018/10/13/Java基础二/" title="Java基础二--修饰符">https://cuizhe1023.github.io/2018/10/13/Java基础二/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://cuizhe1023.github.io/2018/10/13/Java基础二/"  aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2018年10月23日 - 21:10</p>
+  <p><span>最后更新:</span>2018年10月23日 - 22:10</p>
+  <p><span>原始链接:</span><a href="/2018/10/23/数据结构一/" title="数据结构一--数组">https://cuizhe1023.github.io/2018/10/23/数据结构一/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://cuizhe1023.github.io/2018/10/23/数据结构一/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -610,7 +571,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/修饰符/" rel="tag"><i class="fa fa-tag"></i> 修饰符</a>
+            <a href="/tags/数组/" rel="tag"><i class="fa fa-tag"></i> 数组</a>
+          
+            <a href="/tags/数据结构/" rel="tag"><i class="fa fa-tag"></i> 数据结构</a>
           
         </div>
       
@@ -623,8 +586,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/13/Java基础一/" rel="next" title="Java基础一--基本数据类型&类型转换">
-                <i class="fa fa-chevron-left"></i> Java基础一--基本数据类型&类型转换
+              <a href="/2018/10/22/Java基础七-内部类/" rel="next" title="Java基础七--内部类">
+                <i class="fa fa-chevron-left"></i> Java基础七--内部类
               </a>
             
           </div>
@@ -632,10 +595,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/13/Java基础三/" rel="prev" title="Java基础三--运算符">
-                Java基础三--运算符 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -794,7 +753,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#访问修饰符"><span class="nav-number">1.</span> <span class="nav-text">访问修饰符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#访问控制和继承"><span class="nav-number">1.1.</span> <span class="nav-text">访问控制和继承</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java-非访问修饰符"><span class="nav-number">2.</span> <span class="nav-text">Java 非访问修饰符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Static-修饰符"><span class="nav-number">2.1.</span> <span class="nav-text">Static 修饰符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#final-修饰符"><span class="nav-number">2.2.</span> <span class="nav-text">final 修饰符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#abstract-修饰符"><span class="nav-number">2.3.</span> <span class="nav-text">abstract 修饰符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#synchronized-修饰符"><span class="nav-number">2.4.</span> <span class="nav-text">synchronized 修饰符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#transient-修饰符"><span class="nav-number">2.5.</span> <span class="nav-text">transient 修饰符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#volatile-修饰符"><span class="nav-number">2.6.</span> <span class="nav-text">volatile 修饰符</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数组"><span class="nav-number">1.</span> <span class="nav-text">数组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#声明数组"><span class="nav-number">1.1.</span> <span class="nav-text">声明数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建数组"><span class="nav-number">1.2.</span> <span class="nav-text">创建数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组在内存中的存储"><span class="nav-number">1.3.</span> <span class="nav-text">数组在内存中的存储</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#处理数组"><span class="nav-number">2.</span> <span class="nav-text">处理数组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#foreach循环"><span class="nav-number">2.1.</span> <span class="nav-text">foreach循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组作为函数的参数"><span class="nav-number">2.2.</span> <span class="nav-text">数组作为函数的参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组作为函数的返回值"><span class="nav-number">2.3.</span> <span class="nav-text">数组作为函数的返回值</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多维数组"><span class="nav-number">3.</span> <span class="nav-text">多维数组</span></a></li></ol></div>
             
 
           </div>
