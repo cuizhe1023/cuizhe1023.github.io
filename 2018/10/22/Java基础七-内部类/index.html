@@ -91,15 +91,17 @@
 <meta name="description" content="在 Java 中，可以将一个类定义在另一个类里面或者一个方法里面，这样的类称为内部类。 与之对应，包含内部类的类被称为外部类。">
 <meta name="keywords" content="多态,内部类">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java基础七-内部类">
+<meta property="og:title" content="Java基础七--内部类">
 <meta property="og:url" content="https://cuizhe1023.github.io/2018/10/22/Java基础七-内部类/index.html">
 <meta property="og:site_name" content="CuiZhe&#39;s Blog">
 <meta property="og:description" content="在 Java 中，可以将一个类定义在另一个类里面或者一个方法里面，这样的类称为内部类。 与之对应，包含内部类的类被称为外部类。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-22T14:07:58.639Z">
+<meta property="og:image" content="https://cuizhe1023.github.io/2018/10/22/Java基础七-内部类/局部内部类.png">
+<meta property="og:updated_time" content="2018-10-23T09:39:36.472Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java基础七-内部类">
+<meta name="twitter:title" content="Java基础七--内部类">
 <meta name="twitter:description" content="在 Java 中，可以将一个类定义在另一个类里面或者一个方法里面，这样的类称为内部类。 与之对应，包含内部类的类被称为外部类。">
+<meta name="twitter:image" content="https://cuizhe1023.github.io/2018/10/22/Java基础七-内部类/局部内部类.png">
 
 
 
@@ -135,7 +137,7 @@
 
 
 
-  <title>Java基础七-内部类 | CuiZhe's Blog</title>
+  <title>Java基础七--内部类 | CuiZhe's Blog</title>
   
 
 
@@ -333,7 +335,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Java基础七-内部类</h1>
+          <h1 class="post-title" itemprop="name headline">Java基础七--内部类</h1>
         
 
         <div class="post-meta">
@@ -385,7 +387,7 @@
 
           
           
-             <span id="/2018/10/22/Java基础七-内部类/" class="leancloud_visitors" data-flag-title="Java基础七-内部类">
+             <span id="/2018/10/22/Java基础七-内部类/" class="leancloud_visitors" data-flag-title="Java基础七--内部类">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -411,7 +413,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.1k
+                  4.4k
                 </span>
               
 
@@ -427,7 +429,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4
+                  17
                 </span>
               
             </div>
@@ -458,7 +460,16 @@
 <li>匿名内部类</li>
 <li>静态内部类</li>
 </ul>
-<h1 id="内部类的优势"><a href="#内部类的优势" class="headerlink" title="内部类的优势"></a>内部类的优势</h1><p>内部类提供了更好的封装，可以把内部类隐藏在外部类之中，不允许同一个包中的其他类访问该类，更好的实现了信息隐藏。</p>
+<h1 id="为什么要使用内部类"><a href="#为什么要使用内部类" class="headerlink" title="为什么要使用内部类"></a>为什么要使用内部类</h1><p>在《Think in java》中有这样一句话：<strong>使用内部类最吸引人的原因是：每个内部类都能独立地继承一个（接口的）实现，所以无论外部类是否已经继承了某个（接口的）实现，对于内部类都没有影响。</strong></p>
+<p>在我们程序设计中有时候会存在一些使用接口很难解决的问题，这个时候我们可以利用内部类提供的、可以继承多个具体的或者抽象的类的能力来解决这些程序设计问题。可以这样说，<strong>接口只是解决了部分问题，而内部类使得多重继承的解决方案变得更加完整。</strong></p>
+<hr>
+<h1 id="内部类的优势"><a href="#内部类的优势" class="headerlink" title="内部类的优势"></a>内部类的优势</h1><ul>
+<li><p>内部类提供了更好的封装，可以把内部类隐藏在外部类之中，不允许同一个包中的其他类访问该类，更好的实现了信息隐藏。</p>
+</li>
+<li><p>也是最吸引人的原因，每个内部类都能独立地继承一个接口，而无论外部类是否已经继承了某个接口。<br>因此，内部类使多重继承的解决方案变得更加完整。<br>在项目中，需要多重继承，如果是两个接口，那么好办，接口支持多重继承。<br>如果是两个类呢？这时只有使用内部类了。</p>
+</li>
+</ul>
+<hr>
 <h1 id="成员内部类"><a href="#成员内部类" class="headerlink" title="成员内部类"></a>成员内部类</h1><p>成员内部类是最普通的内部类，它的定义为位于另一个类的内部，形如下面的形式：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Circle</span> </span>&#123;			<span class="comment">//外部类</span></span><br><span class="line">    <span class="keyword">double</span> r = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Circle</span><span class="params">(<span class="keyword">double</span> r)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.r = r;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Draw</span></span>&#123;			<span class="comment">//内部类</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">drawSahpe</span><span class="params">()</span></span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"Draw Sahpe."</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这样看起来，Draw 类像是 Circle 类的一个成员，Circle 称为外部类，Draw 类称为 Circle 类的成员内部类。成员内部类可以无条件访问外部类的所有成员属性和成员方法（包括 private 成员和静态成员）。</p>
@@ -471,13 +482,128 @@
 <p>内部类可以拥有 private 访问权限、protected 访问权限、public 访问权限及包访问权限。比如上面的例子，如果成员内部类 Inner 用 private 修饰，则只能在外部类的内部访问，如果用 public 修饰，则任何地方都能访问；如果用 protected 修饰，则只能在同一个包下或者继承外部类的情况下访问；如果是默认访问权限，则只能在同一个包下访问。这一点和外部类有一点不一样，外部类只能被 public 和包访问两种权限修饰。我个人是这么理解的，由于成员内部类看起来像是外部类的一个成员，所以可以像类的成员一样拥有多种权限修饰。</p>
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ul>
 <li>内部类在外部使用时，无法直接实例化，需要借由外部类信息才能完成实例化</li>
+<li>成员内部类中不能存在任何static的变量和方法</li>
 <li>内部类的访问修饰符，可以任意，但是访问范围会受到影响</li>
-<li>内部类可以直接访问外部类的成员；如果出现同名属性，有限访问内部类中定义的 </li>
+<li>内部类可以直接访问外部类的成员；如果出现同名属性，有限访问内部类中定义的</li>
 <li>可以使用<strong>外部类.this.成员</strong>的方法，访问外部类中同名的信息</li>
-<li>外部类访问内部类信息，需要通过内部类实例，无法直接访问 </li>
-<li>内部类编译后.class文件命名:外部类%内部类.class</li>
+<li>外部类访问内部类信息，需要通过内部类实例，无法直接访问</li>
+<li>内部类编译后.class文件命名:<strong>外部类$内部类.class</strong></li>
 <li>内部类中可以包含与外部类相同方法签名的方法，内部类对象在调用的时候调用的是内部类中的方法</li>
 </ul>
+<hr>
+<h1 id="局部内部类"><a href="#局部内部类" class="headerlink" title="局部内部类"></a>局部内部类</h1><p>有这样一种内部类，它是嵌套在方法和作用域内的，对于这个类的使用主要是应用与解决比较复杂的问题，想创建一个类来辅助我们的解决方案，到那时又不希望这个类是公共可用的，所以就产生了局部内部类，局部内部类和成员内部类一样被编译，只是它的作用域发生了改变，它只能在该方法和属性中被使用，出了该方法和属性就会失效。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Outter</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//局部内部类 Inner</span></span><br><span class="line">        <span class="class"><span class="keyword">class</span> <span class="title">Inner</span></span>&#123;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>&#123;</span><br><span class="line">                System.out.println(<span class="string">"局部内部类..."</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="小结-1"><a href="#小结-1" class="headerlink" title="小结"></a>小结</h2><ul>
+<li><p>局部内部类类似方法的局部变量，所以在类外或者类的其他方法中不能访问这个内部类，但这并不代表局部内部类的实例和定义了它的方法中的局部变量具有相同的生命周期。</p>
+<p><img src="/2018/10/22/Java基础七-内部类/局部内部类.png" alt="局部内部类"></p>
+<p>我们可以看到，这里的局部内部类 Inner 定义在了一个 if 条件作用域中，因此，在 if 之外的部分，尽管没有离开 function() 方法，就会编译报错，无法访问到 Inner 这个内部类。因此，还要广义的理解局部内部类的含义和访问条件，不可以片面的理解为仅仅是方法中定义的内部类。</p>
+</li>
+<li><p>只能在方法内部，局部内部类定义之后使用，不存在外部可见性问题，因此没有访问修饰符，即 class 前面不可以添加public、private、protected、static</p>
+</li>
+<li><p>不能再局部内部类中使用可变的局部变量</p>
+</li>
+<li><p>类中不能包含静态成员</p>
+</li>
+<li><p>类中可以包含final、abstract修饰的成员</p>
+</li>
+</ul>
+<p>综上，就是局部内部类的知识，其实局部内部类的名气远没有匿名内部类的名气大，但是作为一个匿名内部类的父概念，其定义了匿名内部类和普通的局部内部类的概念和特性，因此可以作为匿名内部类的知识补充。</p>
+<hr>
+<h1 id="匿名内部类"><a href="#匿名内部类" class="headerlink" title="匿名内部类"></a>匿名内部类</h1><p>匿名内部类也就是没有名字的内部类。</p>
+<p>正因为没有名字，所以匿名内部类只能用一次，它通常是用来简化代码编写</p>
+<p>但使用匿名内部类还有一个前提条件:必须继承一个父类或实现一个接口</p>
+<p>这应该是我最经常用的内部类了，写 Android 的时候，使用点击事件就会用到它，来举个例子吧</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">  setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">  bt = findViewById(R.id.bt1);</span><br><span class="line">  <span class="comment">//1.匿名内部类</span></span><br><span class="line">  bt.setOnClickListener(<span class="keyword">new</span> OnClickListener() &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">      <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">      Log.i(<span class="string">"匿名内部类"</span>, <span class="string">"点击事件"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这就是匿名内部类的使用。代码中需要给 Button 设置一个监听器对象，使用匿名内部类能够在实现父类或者接口的方法的情况下同时产生一个相应的对象，但是前提是父类或者这个接口的方法是存在的。当然，也可以按照下面这么写。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">setListener</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    bt.setOnClickListener(<span class="keyword">new</span> Listener1());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Listener1</span> <span class="keyword">implements</span> <span class="title">View</span>.<span class="title">OnClickListener</span></span>&#123;</span><br><span class="line">      <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">      <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">      Log.i(<span class="string">"匿名内部类"</span>, <span class="string">"点击事件"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样的写法虽然能达到同样的效果，但是及冗长又难以维护，所以一般使用匿名内部类的方法来编写事件监听代码。同样的，匿名内部类也不能有访问修饰符和 static 修饰符的。</p>
+<h2 id="匿名内部类初始化"><a href="#匿名内部类初始化" class="headerlink" title="匿名内部类初始化"></a>匿名内部类初始化</h2><p>我们一般用构造器来完成某个实例的初始化工作，但是匿名内部类是没有构造器的，那怎么来初始化匿名内部类呢？答案是使用构造代码块！利用构造代码块能够达到为匿名内部类创建一个构造器的效果。</p>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><p>匿名内部类有不能的表现形式，下面为大家展示一下：</p>
+<h3 id="继承式的匿名内部类"><a href="#继承式的匿名内部类" class="headerlink" title="继承式的匿名内部类"></a>继承式的匿名内部类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Car</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">drive</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Car car = <span class="keyword">new</span> Car() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">drive</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                System.out.println(<span class="string">"Driving another car"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        car.drive();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>运行结果</p>
+<p>Driving another car</p>
+</blockquote>
+<p>引用变量不是引用 Car 对象，而是 Car 匿名子类的对象</p>
+<p>建立匿名内部类的关键是重写父类的一个或者多个方法，这里再强调一下，是重写父类的方法，而不是建立新的方法。因为父类的引用不可能调用父类本身没有的方法，所以建立新的方法是多余的。</p>
+<h3 id="接口式的匿名内部类"><a href="#接口式的匿名内部类" class="headerlink" title="接口式的匿名内部类"></a>接口式的匿名内部类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Vehicle</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">drive</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Vehicle v = <span class="keyword">new</span> Vehicle() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">drive</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                System.out.println(<span class="string">"Driving a car"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>运行结果</p>
+<p>Driving a car</p>
+</blockquote>
+<p>这段代码很奇怪，乍一看以为实例化了个接口。事实并非如此，接口式的匿名内部类是实现了一个接口的匿名类。而且只能实现一个借口。</p>
+<h3 id="参数式的匿名内部类"><a href="#参数式的匿名内部类" class="headerlink" title="参数式的匿名内部类"></a>参数式的匿名内部类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Foo</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Bar</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">doStuff</span><span class="params">(Foo f)</span></span>&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BarOne</span> <span class="keyword">extends</span> <span class="title">Bar</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">doStuff</span><span class="params">(Foo f)</span></span>&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">go</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Bar b = <span class="keyword">new</span> BarOne();</span><br><span class="line">        b.doStuff(<span class="keyword">new</span> Foo() &#123;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">foo</span><span class="params">()</span></span>&#123;</span><br><span class="line">                System.out.println(<span class="string">"foofy"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>由上面3个例子可以看出，只要一个类是抽象的或者是一个接口，那么其子类中的方法都可以使用匿名内部类来实现。最常用的情况就是在多线程的实现上，因为要实现多线程必须继承 Thread 类或是实现 Runable 接口</p>
+<h3 id="Thread-类的匿名内部类实现"><a href="#Thread-类的匿名内部类实现" class="headerlink" title="Thread 类的匿名内部类实现"></a>Thread 类的匿名内部类实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Thread t = <span class="keyword">new</span> Thread()&#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">                    System.out.print(i + <span class="string">" "</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        t.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Runnable-接口的匿名内部类实现"><a href="#Runnable-接口的匿名内部类实现" class="headerlink" title="Runnable 接口的匿名内部类实现"></a>Runnable 接口的匿名内部类实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Runnable r = <span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">                    System.out.print(i + <span class="string">" "</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        Thread t = <span class="keyword">new</span> Thread(r);</span><br><span class="line">        t.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="小结-2"><a href="#小结-2" class="headerlink" title="小结"></a>小结</h2><ul>
+<li>匿名内部类没有类型名称、实例对象名称</li>
+<li><p>编译后的文件命名：外部类$数字.class</p>
+</li>
+<li><p>无法使用private、public、protected、abstract、static修饰，匿名内部类不能出现抽象方法</p>
+</li>
+<li>无法编写构造方法，可以添加构造代码块</li>
+<li>不能出现静态成员</li>
+<li>匿名内部类可以实现接口也可以继承父类，但不可以兼得</li>
+<li>匿名内部类不能是抽象的，它必须要实现继承的类或者实现接口的所有抽象方法</li>
+</ul>
+<hr>
+<h1 id="静态内部类"><a href="#静态内部类" class="headerlink" title="静态内部类"></a>静态内部类</h1><p>静态内部类也是定义在另一个类里面的类，只不过在类的前面多了一个关键字 static 。静态内部类是不需要依赖于外部类的，这点和类的静态成员属性有点类似，并且它不能使用外部类的非 static 成员变量或方法。这点很好理解，因为在没有外部类的对象的情况下，可以创建静态内部类的对象，如果允许访问外部类的非 static 成员就会产生矛盾，因为外部类的非 static 必须依附于具体的对象。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Outter</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> age = <span class="number">12</span>;</span><br><span class="line">    <span class="keyword">private</span> String name = <span class="string">"外部类"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">say</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"这是外部类的静态方法"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Inner</span></span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">say</span><span class="params">()</span></span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"这是内部类的静态方法"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> String <span class="title">print</span><span class="params">()</span></span>&#123;</span><br><span class="line">            <span class="keyword">new</span> Outter().say();</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> Outter().name + <span class="string">"到此一游"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Outter.Inner in = <span class="keyword">new</span> Outter.Inner();</span><br><span class="line">        System.out.println(in.print());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>运行结果</p>
+<p>这是外部类的静态方法<br>外部类到此一游</p>
+</blockquote>
+<p>可以看到，如果用 static 将内部类静态化，那么内部类就只能访问外部类的静态成员变量，具有局限性。</p>
+<p>其次，因为内部类被静态化，因此 Outter.Inner 可以当做一个整体看，可以直接 new 出内部类的对象。(因为类名访问 static ，生不成外部类对象都没关系)</p>
+<h2 id="小结-3"><a href="#小结-3" class="headerlink" title="小结"></a>小结</h2><ul>
+<li><p>静态内部类中，只能直接访问外部类的静态成员，如果需要调用非静态成员，可以通过对象实例</p>
+<p><code>new Outter().say();</code> 这样调用</p>
+</li>
+<li><p>静态内部类对象实例时，可以不依赖于外部类对象</p>
+</li>
+<li><p>可以通过<strong>外部类.内部类.静态成员</strong>的方式，访问内部类中的静态成员</p>
+</li>
+<li><p>当内部类属性与外部类属性同名时，默认直接调用内部类中的成员</p>
+</li>
+<li><p>如果需要访问外部类中的静态属性，则可以通过<strong>外部类.属性</strong>的方式</p>
+</li>
+<li><p>如果需要访问外部类中的非静态属性，则可以通过<strong>new 外部类().属性</strong>的方式</p>
+</li>
+</ul>
+<hr>
+<h1 id="接口中的内部类"><a href="#接口中的内部类" class="headerlink" title="接口中的内部类"></a>接口中的内部类</h1><p>我们在实际开发中，如果想要创建某些公共代码，使得它们可以被某个接口的所有不同实现所共用，那么接口内部的嵌套类会显得很方便。也就是说，在接口中可以含有内部类。</p>
+<ul>
+<li>首先创建接口，接口中定义了普通内部类 InnerClass 和抽象内部类 AbInnerClass</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IOuterInterface</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> TEMP = <span class="number">100</span>;<span class="comment">//常亮</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">abMethod</span><span class="params">()</span></span>;<span class="comment">//抽象方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">default</span> <span class="keyword">void</span> <span class="title">deMethod</span><span class="params">()</span></span>&#123;<span class="comment">//jdk1.8后可添加</span></span><br><span class="line">        System.out.println(<span class="string">"接口中的静态方法"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">stMethod</span><span class="params">()</span></span>&#123;<span class="comment">//jdk1.8后可添加</span></span><br><span class="line">        System.out.println(<span class="string">"接口中的静态方法"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//普通内部类</span></span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InnerClass</span></span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span></span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"接口中可定义普通成员内部类"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//抽象内部类</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">AbInnerClass</span></span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">abInfo</span><span class="params">()</span></span>;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">info</span><span class="params">()</span></span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"接口中可以定义抽象成员内部类"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>普通成员内部类的实例化</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ClassDemo</span> <span class="keyword">implements</span> <span class="title">IOuterInterface</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">abMethod</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"实现类"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//获取接口中内部类方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> InnerClass <span class="title">getInner</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> InnerClass();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//第一种实例化对象方式</span></span><br><span class="line">        <span class="comment">//通过 接口名.类名 进行实例化</span></span><br><span class="line">        IOuterInterface.InnerClass innerClass = <span class="keyword">new</span> IOuterInterface.InnerClass();</span><br><span class="line">        innerClass.show();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//第二种实例化对象方式</span></span><br><span class="line">        <span class="comment">//通过在实现类中创建接口中内部类获取方法</span></span><br><span class="line">        <span class="comment">//用实现类对象调用获取方法</span></span><br><span class="line">        ClassDemo demo = <span class="keyword">new</span> ClassDemo();</span><br><span class="line">        demo.getInner().show();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>运行结果</p>
+<p>接口中可定义普通成员内部类<br>接口中可定义普通成员内部类</p>
+</blockquote>
+<ul>
+<li>抽象成员内部类的实例化</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AbClassDemo</span> <span class="keyword">implements</span> <span class="title">IOuterInterface</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">abMethod</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//继承抽象类AbInnerClass</span></span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AbDemo</span> <span class="keyword">extends</span> <span class="title">AbInnerClass</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">abInfo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"重写了接口中国抽象类中的抽象方法"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//第一种实例化对象方式</span></span><br><span class="line">        <span class="comment">//通过 接口名.类名 进行实例化</span></span><br><span class="line">        <span class="comment">//但是对于抽象类而言，不能直接实例化，所以这里可以使用匿名内部类的方式</span></span><br><span class="line">        IOuterInterface.AbInnerClass abInner = <span class="keyword">new</span> IOuterInterface.AbInnerClass() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">abInfo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                System.out.println(<span class="string">"重写抽象类中的抽象方法"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        abInner.abInfo();</span><br><span class="line">        abInner.info();</span><br><span class="line">        System.out.println();</span><br><span class="line">        <span class="comment">//第二种实例化对象方式</span></span><br><span class="line">        <span class="comment">//在实现类中定义内部类继承接口中的抽象内部类</span></span><br><span class="line">        IOuterInterface.AbInnerClass abInnerOne = <span class="keyword">new</span> AbClassDemo().new AbDemo();</span><br><span class="line">        abInnerOne.abInfo();</span><br><span class="line">        abInnerOne.info();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>运行结果</p>
+<p>重写抽象类中的抽象方法<br>接口中可以定义抽象成员内部类</p>
+<p>重写了接口中国抽象类中的抽象方法<br>接口中可以定义抽象成员内部类</p>
+</blockquote>
+<h2 id="小结-4"><a href="#小结-4" class="headerlink" title="小结"></a>小结</h2><p>这里只是提供给大家几种实例化接口中内部类的思路和方式，大家也可以用其他方式去进行对象实例化，当然前提是要满足代码规则。</p>
 
       
     </div>
@@ -502,11 +628,11 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2018/10/22/Java基础七-内部类/">Java基础七-内部类</a></p>
+  <p><span>本文标题:</span><a href="/2018/10/22/Java基础七-内部类/">Java基础七--内部类</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Cui Zhe 的个人博客">Cui Zhe</a></p>
   <p><span>发布时间:</span>2018年10月22日 - 22:10</p>
-  <p><span>最后更新:</span>2018年10月22日 - 22:10</p>
-  <p><span>原始链接:</span><a href="/2018/10/22/Java基础七-内部类/" title="Java基础七-内部类">https://cuizhe1023.github.io/2018/10/22/Java基础七-内部类/</a>
+  <p><span>最后更新:</span>2018年10月23日 - 17:10</p>
+  <p><span>原始链接:</span><a href="/2018/10/22/Java基础七-内部类/" title="Java基础七--内部类">https://cuizhe1023.github.io/2018/10/22/Java基础七-内部类/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://cuizhe1023.github.io/2018/10/22/Java基础七-内部类/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
@@ -719,7 +845,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#内部类的优势"><span class="nav-number">1.</span> <span class="nav-text">内部类的优势</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#成员内部类"><span class="nav-number">2.</span> <span class="nav-text">成员内部类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">2.1.</span> <span class="nav-text">小结</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么要使用内部类"><span class="nav-number">1.</span> <span class="nav-text">为什么要使用内部类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#内部类的优势"><span class="nav-number">2.</span> <span class="nav-text">内部类的优势</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#成员内部类"><span class="nav-number">3.</span> <span class="nav-text">成员内部类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">3.1.</span> <span class="nav-text">小结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#局部内部类"><span class="nav-number">4.</span> <span class="nav-text">局部内部类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#小结-1"><span class="nav-number">4.1.</span> <span class="nav-text">小结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#匿名内部类"><span class="nav-number">5.</span> <span class="nav-text">匿名内部类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#匿名内部类初始化"><span class="nav-number">5.1.</span> <span class="nav-text">匿名内部类初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例"><span class="nav-number">5.2.</span> <span class="nav-text">实例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#继承式的匿名内部类"><span class="nav-number">5.2.1.</span> <span class="nav-text">继承式的匿名内部类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接口式的匿名内部类"><span class="nav-number">5.2.2.</span> <span class="nav-text">接口式的匿名内部类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参数式的匿名内部类"><span class="nav-number">5.2.3.</span> <span class="nav-text">参数式的匿名内部类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Thread-类的匿名内部类实现"><span class="nav-number">5.2.4.</span> <span class="nav-text">Thread 类的匿名内部类实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Runnable-接口的匿名内部类实现"><span class="nav-number">5.2.5.</span> <span class="nav-text">Runnable 接口的匿名内部类实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结-2"><span class="nav-number">5.3.</span> <span class="nav-text">小结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#静态内部类"><span class="nav-number">6.</span> <span class="nav-text">静态内部类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#小结-3"><span class="nav-number">6.1.</span> <span class="nav-text">小结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#接口中的内部类"><span class="nav-number">7.</span> <span class="nav-text">接口中的内部类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#小结-4"><span class="nav-number">7.1.</span> <span class="nav-text">小结</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -757,7 +883,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">17.1k</span>
+    <span title="Site words total count">20.4k</span>
   
 -->
 
@@ -795,7 +921,7 @@
       <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-  <span class="post-count">Site words total count:17.1k</span>
+  <span class="post-count">Site words total count:20.4k</span>
 </div>
         
 
