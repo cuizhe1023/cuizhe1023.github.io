@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="继承,super关键字,this关键字,final关键字,重写&重载," />
+  <meta name="keywords" content="异常," />
 
 
 
@@ -88,18 +88,24 @@
 
 
 
-<meta name="description" content="继承是java面向对象编程技术的一块基石，因为它允许创建分等级层次的类。 继承就是子类继承父类的特征和行为，使得子类对象（实例）具有父类的实例域和方法，或子类从父类继承方法，使得子类具有父类相同的行为。">
-<meta name="keywords" content="继承,super关键字,this关键字,final关键字,重写&amp;重载">
+<meta name="description" content="异常字面翻译就是“意外、例外”的意思，也就是说非正常情况。 在程序运行过程中，意外发生的情况，背离我们程序本身的意图的表现，都可以理解为异常 Java 中的异常本质上是程序中的一些错误，但并不是所有的错误都是异常，并且错误有时候是可以避免的。">
+<meta name="keywords" content="异常">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java基础六--继承">
-<meta property="og:url" content="https://cuizhe1023.github.io/2018/10/17/Java基础六/index.html">
+<meta property="og:title" content="Java基础八--异常">
+<meta property="og:url" content="https://cuizhe1023.github.io/2018/10/25/Java基础八/index.html">
 <meta property="og:site_name" content="CuiZhe&#39;s Blog">
-<meta property="og:description" content="继承是java面向对象编程技术的一块基石，因为它允许创建分等级层次的类。 继承就是子类继承父类的特征和行为，使得子类对象（实例）具有父类的实例域和方法，或子类从父类继承方法，使得子类具有父类相同的行为。">
+<meta property="og:description" content="异常字面翻译就是“意外、例外”的意思，也就是说非正常情况。 在程序运行过程中，意外发生的情况，背离我们程序本身的意图的表现，都可以理解为异常 Java 中的异常本质上是程序中的一些错误，但并不是所有的错误都是异常，并且错误有时候是可以避免的。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-21T02:29:11.767Z">
+<meta property="og:image" content="https://cuizhe1023.github.io/2018/10/25/Java基础八/Throwable及其子类.png">
+<meta property="og:image" content="https://cuizhe1023.github.io/2018/10/25/Java基础八/异常处理.PNG">
+<meta property="og:image" content="https://cuizhe1023.github.io/2018/10/25/Java基础八/try-catch无异常.png">
+<meta property="og:image" content="https://cuizhe1023.github.io/2018/10/25/Java基础八/try-catch有异常且能处理.png">
+<meta property="og:image" content="https://cuizhe1023.github.io/2018/10/25/Java基础八/try-catch有异常但不能处理.png">
+<meta property="og:updated_time" content="2018-10-25T12:24:23.493Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java基础六--继承">
-<meta name="twitter:description" content="继承是java面向对象编程技术的一块基石，因为它允许创建分等级层次的类。 继承就是子类继承父类的特征和行为，使得子类对象（实例）具有父类的实例域和方法，或子类从父类继承方法，使得子类具有父类相同的行为。">
+<meta name="twitter:title" content="Java基础八--异常">
+<meta name="twitter:description" content="异常字面翻译就是“意外、例外”的意思，也就是说非正常情况。 在程序运行过程中，意外发生的情况，背离我们程序本身的意图的表现，都可以理解为异常 Java 中的异常本质上是程序中的一些错误，但并不是所有的错误都是异常，并且错误有时候是可以避免的。">
+<meta name="twitter:image" content="https://cuizhe1023.github.io/2018/10/25/Java基础八/Throwable及其子类.png">
 
 
 
@@ -129,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="https://cuizhe1023.github.io/2018/10/17/Java基础六/"/>
+  <link rel="canonical" href="https://cuizhe1023.github.io/2018/10/25/Java基础八/"/>
 
 
 
 
 
-  <title>Java基础六--继承 | CuiZhe's Blog</title>
+  <title>Java基础八--异常 | CuiZhe's Blog</title>
   
 
 
@@ -316,7 +322,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://cuizhe1023.github.io/2018/10/17/Java基础六/">
+    <link itemprop="mainEntityOfPage" href="https://cuizhe1023.github.io/2018/10/25/Java基础八/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cui Zhe">
@@ -333,7 +339,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Java基础六--继承</h1>
+          <h1 class="post-title" itemprop="name headline">Java基础八--异常</h1>
         
 
         <div class="post-meta">
@@ -345,8 +351,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-17T08:16:32+08:00">
-                2018-10-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-25T11:41:16+08:00">
+                2018-10-25
               </time>
             
 
@@ -385,7 +391,7 @@
 
           
           
-             <span id="/2018/10/17/Java基础六/" class="leancloud_visitors" data-flag-title="Java基础六--继承">
+             <span id="/2018/10/25/Java基础八/" class="leancloud_visitors" data-flag-title="Java基础八--异常">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -411,7 +417,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.2k
+                  2.7k
                 </span>
               
 
@@ -427,7 +433,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4
+                  9
                 </span>
               
             </div>
@@ -448,154 +454,220 @@
       
 
       
-        <p>继承是java面向对象编程技术的一块基石，因为它允许创建分等级层次的类。</p>
-<p>继承就是子类继承父类的特征和行为，使得子类对象（实例）具有父类的实例域和方法，或子类从父类继承方法，使得子类具有父类相同的行为。</p>
+        <p>异常字面翻译就是“意外、例外”的意思，也就是说非正常情况。</p>
+<p>在程序运行过程中，意外发生的情况，背离我们程序本身的意图的表现，都可以理解为异常</p>
+<p>Java 中的异常本质上是程序中的一些错误，但并不是所有的错误都是异常，并且错误有时候是可以避免的。</p>
 <a id="more"></a>
-<h1 id="继承的概念"><a href="#继承的概念" class="headerlink" title="继承的概念"></a>继承的概念</h1><ul>
-<li>继承是类与类之间的一种关系</li>
-<li>使用已存在的类的定义作为基础建立新的类</li>
-<li>新类的定义可以增加新的数据或新的功能，也可以用父类的功能，但不能选择性地继承父类。</li>
-<li>当两个类之间满足 “A is a B” 的关系，我们就说它们满足继承关系</li>
+<p>利用 Java 中的异常处理机制，我们可以更好地提升程序的健壮性</p>
+<p>要理解 Java 异常处理是如何工作的，需要掌握以下三种类型的异常：</p>
+<ul>
+<li>检查型异常：最具代表的检查性异常时用户错误或问题引起的异常，这是我们无法预见的。例如要打开一个不存在的文件，一个异常就发生了，这些异常在编译时不能被简单的忽略。</li>
+<li>运行时异常：运行时异常时可能被程序员避免的异常。与检查性异常相反，运行时异常可以在编译时被忽略</li>
+<li>错误：错误不是异常，而是脱离我们控制的问题。错误在代码中通常被忽略。例如，当栈溢出时，一个错误就发生了，他们在编译也检查不到。</li>
+</ul>
+<h1 id="异常的分类"><a href="#异常的分类" class="headerlink" title="异常的分类"></a>异常的分类</h1><p>在程序开发中，异常指不期而至的各种状况。他是一个事件，当发生在程序运行期间时，会干扰正常的指令流程。</p>
+<p>在 Java 中，通过 Throwable 及其子类描述各种不同的异常类型</p>
+<p><img src="/2018/10/25/Java基础八/Throwable及其子类.png" alt="Throwable及其子类"></p>
+<p>Throwable 有两个重要的子类：Exception 和 Error</p>
+<hr>
+<h1 id="Error"><a href="#Error" class="headerlink" title="Error"></a>Error</h1><p>Error 是程序无法处理的错误，表示运行应用程序中较严重问题。大多数错误与代码编写者执行的操作无关，而代表代码运行时 JVM 出现的问题</p>
+<p>例如，Java 虚拟机运行错误，当 JVM 不再有继续执行操作所需的内存资源时，将出现 OutOfMemoryError</p>
+<ul>
+<li><p>这些错误是不可查的，因为它们在应用程序的控制和处理能力之外，而且绝大多数是程序运行时不允许出现的状况。</p>
+</li>
+<li><p>对于设计合理的应用程序来说，即使确实发生了错误，本质上也不应该试图去处理它所引起的异常状况。</p>
+</li>
+<li>因此我们编写程序时不需要关心这类异常</li>
 </ul>
 <hr>
-<h1 id="继承的特点"><a href="#继承的特点" class="headerlink" title="继承的特点"></a>继承的特点</h1><ul>
-<li>利于代码复用</li>
-<li>缩短开发周期</li>
-</ul>
-<hr>
-<h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><ul>
-<li>使用 extends 实现继承</li>
-<li>Java 只支持单继承，一个类只能有一个父类（也称为超类、基类） </li>
-</ul>
-<hr>
-<h1 id="继承后的初始化顺序"><a href="#继承后的初始化顺序" class="headerlink" title="继承后的初始化顺序"></a>继承后的初始化顺序</h1><p>父类的静态成员</p>
-<p>子类静态成员</p>
-<p>父类对象构建【属性（赋值）、构造代码块、构造方法】</p>
-<p>子类对象构建【属性（赋值）、构造代码块、构造方法】</p>
-<hr>
-<h1 id="Super关键字"><a href="#Super关键字" class="headerlink" title="Super关键字"></a>Super关键字</h1><h2 id="如何区分调用的是继承父类的方法还是子类自己重写的方法"><a href="#如何区分调用的是继承父类的方法还是子类自己重写的方法" class="headerlink" title="如何区分调用的是继承父类的方法还是子类自己重写的方法?"></a>如何区分调用的是继承父类的方法还是子类自己重写的方法?</h2><ul>
-<li><p>访问父类成员方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">super</span>.print();</span><br></pre></td></tr></table></figure>
+<h1 id="Exception"><a href="#Exception" class="headerlink" title="Exception"></a>Exception</h1><p>Exception 是程序本身可以处理的异常。异常处理通常指针对这种类型异常的处理。</p>
+<p>Exception 类的异常包括 unchecked exception（非检查型异常） 和 checked exception（检查型异常）</p>
+<h2 id="unchecked-exception"><a href="#unchecked-exception" class="headerlink" title="unchecked exception"></a>unchecked exception</h2><ul>
+<li><p>unchecked exception：编译器不要求强制处置的异常。</p>
 </li>
-<li><p>访问父类属性</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">super</span>.name;</span><br></pre></td></tr></table></figure>
+<li><p>包含 RunntimeException 类及其子类异常</p>
+</li>
+<li><p>如 NullPointerException（空指针异常）、IndexOutOfBoundsException（下标越界异常）等，这些异常时unchecked exception。</p>
+</li>
+<li><p>Java 编译器不会检查这些异常，在程序中可以选择捕获处理，也可以不处理，照样正常编译通过</p>
 </li>
 </ul>
-<h2 id="子类对象实例化时，能否选择父类的构造形式（调用指定的构造方法）？"><a href="#子类对象实例化时，能否选择父类的构造形式（调用指定的构造方法）？" class="headerlink" title="子类对象实例化时，能否选择父类的构造形式（调用指定的构造方法）？"></a>子类对象实例化时，能否选择父类的构造形式（调用指定的构造方法）？</h2><ul>
-<li><p>访问父类构造方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">super</span>();<span class="comment">//无参的构造方法</span></span><br><span class="line"><span class="keyword">super</span>(<span class="string">"name"</span>);<span class="comment">//有参的构造方法</span></span><br></pre></td></tr></table></figure>
+<h2 id="checked-exception"><a href="#checked-exception" class="headerlink" title="checked exception"></a>checked exception</h2><ul>
+<li><p>checked exception：编译器要求必须处置的异常</p>
 </li>
-<li><p>子类的构造过程中必须调用其父类的构造方法，默认调用无参的构造方法</p>
+<li><p>是 RunntimeException 类及其子类以外，其他的 Exception 类的子类</p>
 </li>
-<li><p>如果子类构造方法中既没有显示标注，而父类有没有无参的构造方法，则编译出错</p>
-</li>
-<li><p>使用 super 调用父类指定构造方法，必须在子类的构造方法的第一行</p>
-</li>
+<li>如 IOException、SQLException 等</li>
+<li>Java 编译器会检查这些异常，当程序中可能出现这类异常时，要求必须进行异常处理，否则编译不会通过</li>
 </ul>
 <hr>
-<h1 id="this-关键字-amp-super-关键字"><a href="#this-关键字-amp-super-关键字" class="headerlink" title="this 关键字 &amp; super 关键字"></a>this 关键字 &amp; super 关键字</h1><table>
+<h1 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h1><p>在 Java 应用程序中，异常处理机制为：抛出异常、捕获异常</p>
+<h2 id="抛出异常"><a href="#抛出异常" class="headerlink" title="抛出异常"></a>抛出异常</h2><ul>
+<li>当一个方法出现错误引发异常时，方法创建异常对象并交付运行时系统</li>
+<li>异常对象中包含了异常类型和异常出现时的程序状态等异常信息</li>
+<li>运行时系统负责寻找处置异常的代码并执行</li>
+</ul>
+<h2 id="捕获异常"><a href="#捕获异常" class="headerlink" title="捕获异常"></a>捕获异常</h2><ul>
+<li>在方法抛出异常之后，运行时系统将转为寻找合适的异常处理器</li>
+<li>运行时系统从发生异常的方法开始，依次回查调用栈中的方法，当异常处理器所能处理的异常类型与方法抛出的异常类型相符时，即为合适的异常处理器</li>
+<li>当运行时系统遍历调用栈而未找到合适的异常处理器，则运行时系统终止。同时，意味着 Java 程序的终止</li>
+<li>对于运行时异常、错误或可查异常，Java 技术所要求的的异常处理方式有所不同</li>
+<li>总体来说，Java 规定：对于可查异常必捕获、或者声明抛出。允许忽略不可查的 RuntimeException 和 Error</li>
+<li>简单的来说，异常总是先被抛出，后被捕获的</li>
+</ul>
+<h2 id="异常处理-1"><a href="#异常处理-1" class="headerlink" title="异常处理"></a>异常处理</h2><p>通过5个关键字来实现：try、catch、finally、throw、throws</p>
+<p><img src="/2018/10/25/Java基础八/异常处理.PNG" alt="异常处理"></p>
+<h3 id="try-catch-finally"><a href="#try-catch-finally" class="headerlink" title="try-catch-finally"></a>try-catch-finally</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">try</span>&#123;</span><br><span class="line">    <span class="comment">//代码段1</span></span><br><span class="line">    <span class="comment">//产生异常的代码段2</span></span><br><span class="line">  &#125;<span class="keyword">catch</span>(异常类型 e)&#123;</span><br><span class="line">    <span class="comment">//对异常进行处理的代码段3</span></span><br><span class="line">  &#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">    <span class="comment">//代码段4</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="try-catch"><a href="#try-catch" class="headerlink" title="try-catch"></a>try-catch</h3><ul>
+<li>使用 try-catch 块捕获并处理异常</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">try</span>&#123;</span><br><span class="line">    <span class="comment">//代码段</span></span><br><span class="line">  &#125;<span class="keyword">catch</span>(异常类型 e)&#123;</span><br><span class="line">    <span class="comment">//对异常进行处理的代码段</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//代码段</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用 try-catch 块捕获并处理异常——无异常</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">try</span>&#123;</span><br><span class="line">    <span class="comment">//代码段（此处不会产生异常）</span></span><br><span class="line">  &#125;<span class="keyword">catch</span>(异常类型 e)&#123;</span><br><span class="line">    <span class="comment">//对异常进行处理的代码段</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//代码段</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/10/25/Java基础八/try-catch无异常.png" alt="try-catch无异常"></p>
+<ul>
+<li>使用 try-catch 块捕获并处理异常——有异常并能正常匹配处理</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">try</span>&#123;</span><br><span class="line">    <span class="comment">//代码段1</span></span><br><span class="line">    <span class="comment">//产生异常的代码段2</span></span><br><span class="line">    <span class="comment">//代码段3</span></span><br><span class="line">  &#125;<span class="keyword">catch</span>(异常类型 e)&#123;</span><br><span class="line">    <span class="comment">//对异常进行处理的代码段4</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//代码段5</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/10/25/Java基础八/try-catch有异常且能处理.png" alt="try-catch有异常且能处理"></p>
+<ul>
+<li>使用 try-catch 块捕获并处理异常——有异常不能正常匹配处理</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">try</span>&#123;</span><br><span class="line">    <span class="comment">//代码段1</span></span><br><span class="line">    <span class="comment">//产生异常的代码段2</span></span><br><span class="line">    <span class="comment">//代码段3</span></span><br><span class="line">  &#125;<span class="keyword">catch</span>(异常类型 e)&#123;</span><br><span class="line">    <span class="comment">//对异常进行处理的代码段4</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//代码段5</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/10/25/Java基础八/try-catch有异常但不能处理.png" alt="try-catch有异常但不能处理"></p>
+<h3 id="多重-catch-块"><a href="#多重-catch-块" class="headerlink" title="多重 catch 块"></a>多重 catch 块</h3><ul>
+<li>一旦某个 catch 捕获到匹配的异常类型，将进入异常处理代码。一经处理结束，就意味着整个 tr-catch 语句结束。其他的 catch 子句不再有匹配和捕获异常类型的机会。</li>
+<li>对于有多个 catch 子句的异常程序而言，应该尽量将捕获底层异常类的 catch 子句放在前面，同时尽量将捕获相对高层的异常类的 catch 子句放在后面。否则，捕获底层异常类 catch 子句将可能会被屏蔽。</li>
+<li><p>引发多种类型的异常</p>
+<ul>
+<li><p>排列 catch 语句的顺序：先子类后父类</p>
+</li>
+<li><p>发生异常时按顺序逐个匹配</p>
+</li>
+<li><p>只执行第一个与异常类型匹配的 catch 语句</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">try</span>&#123;</span><br><span class="line">    <span class="comment">//代码段</span></span><br><span class="line">    <span class="comment">//产生异常（类型2）</span></span><br><span class="line">  &#125;<span class="keyword">catch</span>(异常类型<span class="number">1</span> e)&#123;</span><br><span class="line">    <span class="comment">//对异常处理的代码</span></span><br><span class="line">  &#125;<span class="keyword">catch</span>(异常类型<span class="number">2</span> e)&#123;</span><br><span class="line">    <span class="comment">//对异常处理的代码</span></span><br><span class="line">  &#125;<span class="keyword">catch</span>(异常类型<span class="number">3</span> e)&#123;</span><br><span class="line">    <span class="comment">//对异常处理的代码</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//代码段</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="try-ctach-finally"><a href="#try-ctach-finally" class="headerlink" title="try-ctach-finally"></a>try-ctach-finally</h3><ul>
+<li>try 块后可以接零个或者多个 catch 块</li>
+<li>如果没有 catch，则必须跟一个 finally 块</li>
+<li>catch、finally可选<ul>
+<li>语法组合：<ul>
+<li>try-catch</li>
+<li>try-finally</li>
+<li>try-catch-finally</li>
+<li>try-catch-catch-finally</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>在 try-catch 块后加入 finally 块<ul>
+<li>是否发生异常都执行</li>
+<li>不执行的唯一情况</li>
+</ul>
+</li>
+<li>try-catch-finally的执行情况</li>
+</ul>
+<hr>
+<h1 id="常见的异常类型"><a href="#常见的异常类型" class="headerlink" title="常见的异常类型"></a>常见的异常类型</h1><table>
 <thead>
 <tr>
-<th>this 关键字——当前类对象的引用</th>
-<th>super 关键字——父类对象的引用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>访问当前类的成员方法<br>访问当前类的成员属性<br>访问当前类的构造方法<br>不能再静态方法中使用</td>
-<td>访问父类的成员方法<br>访问父类的成员属性<br>访问父类的构造方法<br>不能再静态方法中使用</td>
-</tr>
-</tbody>
-</table>
-<p>构造方法调用时，super 和 this 不能同时出现</p>
-<hr>
-<h1 id="重写-amp-重载"><a href="#重写-amp-重载" class="headerlink" title="重写 &amp; 重载"></a>重写 &amp; 重载</h1><table>
-<thead>
-<tr>
-<th>方法重写</th>
-<th>方法重载</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>在满足继承关系的子类中<br>方法名、参数个数、顺序、返回值与父类相同<br>返回值类型与父类的返回值类型向下兼容<br>访问修饰符的限定范围大于等于父类方法</td>
-<td>在同一个类中<br>方法名相同<br>参数个数、顺序、类型不同<br>返回值类型、访问修饰符任意</td>
-</tr>
-</tbody>
-</table>
-<p><strong>方法重写存在，属性重写不存在</strong></p>
-<hr>
-<h1 id="Object-类"><a href="#Object-类" class="headerlink" title="Object 类"></a>Object 类</h1><ul>
-<li><p>Object 类是所有类的父类</p>
-</li>
-<li><p>一个类没有使用 extends 关键字明确标识继承关系，则默认继承 Object 类（包括数组）</p>
-</li>
-<li><p>Java 中的每个类都可以使用 Object 中定义的方法</p>
-<p>Object  类的常用方法</p>
-</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>方法</th>
+<th>异常类型</th>
 <th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>toString()</td>
-<td>返回当前对象本身的有关信息，按字符串对象返回</td>
+<td>Exception</td>
+<td>异常层次结构的父类</td>
 </tr>
 <tr>
-<td>equals()</td>
-<td>比较两个对象是否是同一个对象，是则返回true</td>
+<td>ArithmeticException</td>
+<td>算术错误情形，如以零作除数</td>
 </tr>
 <tr>
-<td>hashCode()</td>
-<td>返回该对象的哈希代码值</td>
+<td>ArrayIndexOutOfBoundsException</td>
+<td>数组下标越界</td>
 </tr>
 <tr>
-<td>getClass()</td>
-<td>获取当前对象所属的类信息，返回Class对象</td>
+<td>NullPointerException</td>
+<td>尝试访问 null 对象成员</td>
+</tr>
+<tr>
+<td>ClassNotFoundException</td>
+<td>不能加载所需的类</td>
+</tr>
+<tr>
+<td>IllegalArgumentException</td>
+<td>方法接受到非法参数</td>
+</tr>
+<tr>
+<td>ClassCastException</td>
+<td>对象强制类型转换出错</td>
+</tr>
+<tr>
+<td>NumberFormatException</td>
+<td>数字格式转换异常，如把“abc”转换为数字</td>
 </tr>
 </tbody>
 </table>
 <hr>
-<h1 id="final关键字"><a href="#final关键字" class="headerlink" title="final关键字"></a>final关键字</h1><p>final 表示“最后的、最终的”含义，变量一旦赋值后，不能被重新赋值。被 final 修饰的实例变量必须显式指定初始值。</p>
-<ul>
-<li>被 final 修饰的类表示不允许被继承</li>
-<li>被 final 修饰的方法表示不允许被子类重写<ul>
-<li>final 修饰的方法可以被继承</li>
-<li>不能修饰构造方法</li>
-</ul>
-</li>
-<li>被 final 修饰的变量表示不允许被修改<ul>
-<li>方法内部的局部变量 —&gt; 在使用之前被初始化赋值即可</li>
-<li>类中的成员变量 —&gt; 只能在定义时或者构造代码块、构造方法中进行初始化设置</li>
-<li>基本数据类型的变量 —&gt; 初始赋值之后不能更改</li>
-<li>引用类型的变量—&gt;初始化之后不能再指向另一个对象，但指向的对象的内容时可变的</li>
-<li>不能修饰构造方法</li>
-</ul>
-</li>
-<li>可配合 static 使用，表示静态的、不允许被修改的信息</li>
-<li>使用 final 修饰可以提高性能，但会降低可扩展性</li>
+<h1 id="实际应用中的经验与总结"><a href="#实际应用中的经验与总结" class="headerlink" title="实际应用中的经验与总结"></a>实际应用中的经验与总结</h1><ul>
+<li>处理运行时异常时，采用逻辑去合理规避同时辅助 try-catch 处理</li>
+<li>在多重 catch 块后面，可以加上 catch(Exception e)来处理可能会被遗漏的异常</li>
+<li>对于不确定的代码，也可以加上 try-catch，处理潜在的异常</li>
+<li>尽量去处理异常，切记只是简单地调用 printStackTrace() 去打印输出</li>
+<li>具体如何处理异常，要根据不同的业务需求和异常类型去决定</li>
+<li>尽量添加 finally 语句块去释放占用的资源</li>
 </ul>
 <hr>
-<h1 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h1><p>可以声明在包、类、属性、方法、局部变量、方法参数等的前面，用来对这些元素进行说明、注释</p>
-<h2 id="按照运行机制分"><a href="#按照运行机制分" class="headerlink" title="按照运行机制分"></a>按照运行机制分</h2><ul>
-<li>源码注解</li>
-<li>编译时注解</li>
-<li>运行时注解</li>
-</ul>
-<h2 id="按照来源分"><a href="#按照来源分" class="headerlink" title="按照来源分"></a>按照来源分</h2><ul>
-<li><p>来自 JDK 的注解</p>
+<h1 id="throw-amp-throws"><a href="#throw-amp-throws" class="headerlink" title="throw&amp;throws"></a>throw&amp;throws</h1><p>可以通过 throws 声明将要抛出何种类型的异常，通过 throw将产生的异常抛出</p>
+<h2 id="throws"><a href="#throws" class="headerlink" title="throws"></a>throws</h2><ul>
+<li><p>如果一个方法可能会出现异常，但没有能力处理这种异常，可以在方法声明处用 throws 子句来声明抛出异常</p>
 </li>
-<li><p>来自第三方的注解</p>
+<li><p>例如：汽车在运行时可能会出现故障，汽车本身没有办法处理这个故障，那就让开车的人来处理</p>
 </li>
-<li><p>自定义注解</p>
+<li><p>throws 语句用在方法定义时声明该方法要抛出的异常类型</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span> <span class="keyword">throws</span> Exception1，Exception2,...,ExceptionN</span>&#123;</span><br><span class="line">  <span class="comment">//可能产生异常的代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>当方法抛出异常列表中的异常时，方法不对这些类型及其子类类型的异常作处理，而抛向调用该方法的方法，由他去处理</p>
 </li>
 </ul>
-
+<h3 id="throws的使用规则"><a href="#throws的使用规则" class="headerlink" title="throws的使用规则"></a>throws的使用规则</h3><ul>
+<li>如果是不可检查异常（unchecked exception），即 Error 、RuntimeException 或他们的子类，那么可以不适用 throws 关键字来声明要抛出的异常，编译仍能顺利通过，但在运行时会被系统抛出</li>
+<li>如果一个方法中可能出现可查异常，要么用 try-catch 语句捕获，要么用 throws 子句声明将它抛出，否则会导致编译错误</li>
+<li>当抛出了异常，则该方法的调用者必须处理或者重新抛出该异常</li>
+<li>当子类重写父类抛出异常的方法时，声明的异常必须是父类方法所声明异常的同类或子类</li>
+</ul>
+<h2 id="throw"><a href="#throw" class="headerlink" title="throw"></a>throw</h2><ul>
+<li><p>throw 用来抛出一个异常</p>
+<p>例如：throw new IOException();</p>
+</li>
+<li><p>trhow 抛出的只能是可抛出类 Throwable 或其子类的实例对象</p>
+<p>例如：throw new String(“出错啦！”);//是错误的</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">try</span>&#123;</span><br><span class="line">    <span class="comment">//代码段1</span></span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> 异常类型();</span><br><span class="line">  &#125;<span class="keyword">catch</span>(异常类型 e)&#123;</span><br><span class="line">    <span class="comment">//对异常进行处理的代码段2</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span> throw 异常类型</span>&#123;</span><br><span class="line">  <span class="comment">//代码段1</span></span><br><span class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> 异常类型();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="自定义异常"><a href="#自定义异常" class="headerlink" title="自定义异常"></a>自定义异常</h1><ul>
+<li>使用 Java 内置的异常类可以描述在编程时出现的大部分异常情况</li>
+<li>也可以通过自定义异常描述特定业务产生的异常类型</li>
+<li>所谓自定义异常，就是定义一个类，去继承 Throwable 类或者它的子类</li>
+</ul>
+<hr>
+<h1 id="异常链"><a href="#异常链" class="headerlink" title="异常链"></a>异常链</h1><ul>
+<li><p>有时候我们会捕捉一个异常后再抛出另一个异常</p>
+</li>
+<li><p>顾名思义就是：将异常发生的原因一个传一个穿起来，即把底层的异常信息传给上层，这样逐层抛出</p>
+</li>
+</ul>
+<hr>
+<h1 id="Java-常见异常类型及原因分析"><a href="#Java-常见异常类型及原因分析" class="headerlink" title="Java 常见异常类型及原因分析"></a>Java 常见异常类型及原因分析</h1><h2 id="NullPointerException-异常"><a href="#NullPointerException-异常" class="headerlink" title="NullPointerException 异常"></a>NullPointerException 异常</h2><h2 id="ClassCastException-异常"><a href="#ClassCastException-异常" class="headerlink" title="ClassCastException 异常"></a>ClassCastException 异常</h2><h2 id="ArrayIndexOutOfBoundsException-异常"><a href="#ArrayIndexOutOfBoundsException-异常" class="headerlink" title="ArrayIndexOutOfBoundsException 异常"></a>ArrayIndexOutOfBoundsException 异常</h2><h2 id="NumberFormatException-异常"><a href="#NumberFormatException-异常" class="headerlink" title="NumberFormatException 异常"></a>NumberFormatException 异常</h2><h2 id="UnsupportedClassVersionError-错误"><a href="#UnsupportedClassVersionError-错误" class="headerlink" title="UnsupportedClassVersionError 错误"></a>UnsupportedClassVersionError 错误</h2><h2 id="堆栈溢出和内存溢出"><a href="#堆栈溢出和内存溢出" class="headerlink" title="堆栈溢出和内存溢出"></a>堆栈溢出和内存溢出</h2>
       
     </div>
     
@@ -619,12 +691,12 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2018/10/17/Java基础六/">Java基础六--继承</a></p>
+  <p><span>本文标题:</span><a href="/2018/10/25/Java基础八/">Java基础八--异常</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Cui Zhe 的个人博客">Cui Zhe</a></p>
-  <p><span>发布时间:</span>2018年10月17日 - 08:10</p>
-  <p><span>最后更新:</span>2018年10月21日 - 10:10</p>
-  <p><span>原始链接:</span><a href="/2018/10/17/Java基础六/" title="Java基础六--继承">https://cuizhe1023.github.io/2018/10/17/Java基础六/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://cuizhe1023.github.io/2018/10/17/Java基础六/"  aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2018年10月25日 - 11:10</p>
+  <p><span>最后更新:</span>2018年10月25日 - 20:10</p>
+  <p><span>原始链接:</span><a href="/2018/10/25/Java基础八/" title="Java基础八--异常">https://cuizhe1023.github.io/2018/10/25/Java基础八/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://cuizhe1023.github.io/2018/10/25/Java基础八/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -654,15 +726,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/继承/" rel="tag"><i class="fa fa-tag"></i> 继承</a>
-          
-            <a href="/tags/super关键字/" rel="tag"><i class="fa fa-tag"></i> super关键字</a>
-          
-            <a href="/tags/this关键字/" rel="tag"><i class="fa fa-tag"></i> this关键字</a>
-          
-            <a href="/tags/final关键字/" rel="tag"><i class="fa fa-tag"></i> final关键字</a>
-          
-            <a href="/tags/重写-重载/" rel="tag"><i class="fa fa-tag"></i> 重写&重载</a>
+            <a href="/tags/异常/" rel="tag"><i class="fa fa-tag"></i> 异常</a>
           
         </div>
       
@@ -675,8 +739,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/14/数据结构概述/" rel="next" title="数据结构概述">
-                <i class="fa fa-chevron-left"></i> 数据结构概述
+              <a href="/2018/10/23/数据结构一/" rel="next" title="数据结构一--数组">
+                <i class="fa fa-chevron-left"></i> 数据结构一--数组
               </a>
             
           </div>
@@ -684,10 +748,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/18/Java基础七/" rel="prev" title="Java基础七--多态">
-                Java基础七--多态 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -846,7 +906,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#继承的概念"><span class="nav-number">1.</span> <span class="nav-text">继承的概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#继承的特点"><span class="nav-number">2.</span> <span class="nav-text">继承的特点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#语法"><span class="nav-number">3.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#继承后的初始化顺序"><span class="nav-number">4.</span> <span class="nav-text">继承后的初始化顺序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Super关键字"><span class="nav-number">5.</span> <span class="nav-text">Super关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#如何区分调用的是继承父类的方法还是子类自己重写的方法"><span class="nav-number">5.1.</span> <span class="nav-text">如何区分调用的是继承父类的方法还是子类自己重写的方法?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#子类对象实例化时，能否选择父类的构造形式（调用指定的构造方法）？"><span class="nav-number">5.2.</span> <span class="nav-text">子类对象实例化时，能否选择父类的构造形式（调用指定的构造方法）？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#this-关键字-amp-super-关键字"><span class="nav-number">6.</span> <span class="nav-text">this 关键字 &amp; super 关键字</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#重写-amp-重载"><span class="nav-number">7.</span> <span class="nav-text">重写 &amp; 重载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Object-类"><span class="nav-number">8.</span> <span class="nav-text">Object 类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#final关键字"><span class="nav-number">9.</span> <span class="nav-text">final关键字</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注解"><span class="nav-number">10.</span> <span class="nav-text">注解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#按照运行机制分"><span class="nav-number">10.1.</span> <span class="nav-text">按照运行机制分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#按照来源分"><span class="nav-number">10.2.</span> <span class="nav-text">按照来源分</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#异常的分类"><span class="nav-number">1.</span> <span class="nav-text">异常的分类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Error"><span class="nav-number">2.</span> <span class="nav-text">Error</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Exception"><span class="nav-number">3.</span> <span class="nav-text">Exception</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#unchecked-exception"><span class="nav-number">3.1.</span> <span class="nav-text">unchecked exception</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#checked-exception"><span class="nav-number">3.2.</span> <span class="nav-text">checked exception</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#异常处理"><span class="nav-number">4.</span> <span class="nav-text">异常处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#抛出异常"><span class="nav-number">4.1.</span> <span class="nav-text">抛出异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#捕获异常"><span class="nav-number">4.2.</span> <span class="nav-text">捕获异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异常处理-1"><span class="nav-number">4.3.</span> <span class="nav-text">异常处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#try-catch-finally"><span class="nav-number">4.3.1.</span> <span class="nav-text">try-catch-finally</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#try-catch"><span class="nav-number">4.3.2.</span> <span class="nav-text">try-catch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多重-catch-块"><span class="nav-number">4.3.3.</span> <span class="nav-text">多重 catch 块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#try-ctach-finally"><span class="nav-number">4.3.4.</span> <span class="nav-text">try-ctach-finally</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常见的异常类型"><span class="nav-number">5.</span> <span class="nav-text">常见的异常类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实际应用中的经验与总结"><span class="nav-number">6.</span> <span class="nav-text">实际应用中的经验与总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#throw-amp-throws"><span class="nav-number">7.</span> <span class="nav-text">throw&amp;throws</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#throws"><span class="nav-number">7.1.</span> <span class="nav-text">throws</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#throws的使用规则"><span class="nav-number">7.1.1.</span> <span class="nav-text">throws的使用规则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#throw"><span class="nav-number">7.2.</span> <span class="nav-text">throw</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自定义异常"><span class="nav-number">8.</span> <span class="nav-text">自定义异常</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#异常链"><span class="nav-number">9.</span> <span class="nav-text">异常链</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java-常见异常类型及原因分析"><span class="nav-number">10.</span> <span class="nav-text">Java 常见异常类型及原因分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#NullPointerException-异常"><span class="nav-number">10.1.</span> <span class="nav-text">NullPointerException 异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ClassCastException-异常"><span class="nav-number">10.2.</span> <span class="nav-text">ClassCastException 异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ArrayIndexOutOfBoundsException-异常"><span class="nav-number">10.3.</span> <span class="nav-text">ArrayIndexOutOfBoundsException 异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NumberFormatException-异常"><span class="nav-number">10.4.</span> <span class="nav-text">NumberFormatException 异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UnsupportedClassVersionError-错误"><span class="nav-number">10.5.</span> <span class="nav-text">UnsupportedClassVersionError 错误</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#堆栈溢出和内存溢出"><span class="nav-number">10.6.</span> <span class="nav-text">堆栈溢出和内存溢出</span></a></li></ol></li></ol></div>
             
 
           </div>
