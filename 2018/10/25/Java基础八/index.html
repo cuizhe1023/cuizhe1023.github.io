@@ -101,7 +101,10 @@
 <meta property="og:image" content="https://cuizhe1023.github.io/2018/10/25/Java基础八/try-catch无异常.png">
 <meta property="og:image" content="https://cuizhe1023.github.io/2018/10/25/Java基础八/try-catch有异常且能处理.png">
 <meta property="og:image" content="https://cuizhe1023.github.io/2018/10/25/Java基础八/try-catch有异常但不能处理.png">
-<meta property="og:updated_time" content="2018-10-25T12:24:23.493Z">
+<meta property="og:image" content="https://cuizhe1023.github.io/2018/10/25/Java基础八/多重catch块发生异常时按顺序逐个匹配.png">
+<meta property="og:image" content="https://cuizhe1023.github.io/2018/10/25/Java基础八/finally不执行的情况.png">
+<meta property="og:image" content="https://cuizhe1023.github.io/2018/10/25/Java基础八/try-catch-finally的执行流程.png">
+<meta property="og:updated_time" content="2018-10-26T09:10:38.258Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java基础八--异常">
 <meta name="twitter:description" content="异常字面翻译就是“意外、例外”的意思，也就是说非正常情况。 在程序运行过程中，意外发生的情况，背离我们程序本身的意图的表现，都可以理解为异常 Java 中的异常本质上是程序中的一些错误，但并不是所有的错误都是异常，并且错误有时候是可以避免的。">
@@ -417,7 +420,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2.7k
+                  4.8k
                 </span>
               
 
@@ -433,7 +436,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  9
+                  18
                 </span>
               
             </div>
@@ -545,6 +548,7 @@
 <li><p>排列 catch 语句的顺序：先子类后父类</p>
 </li>
 <li><p>发生异常时按顺序逐个匹配</p>
+<p><img src="/2018/10/25/Java基础八/多重catch块发生异常时按顺序逐个匹配.png" alt="多重catch块发生异常时按顺序逐个匹配"></p>
 </li>
 <li><p>只执行第一个与异常类型匹配的 catch 语句</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">try</span>&#123;</span><br><span class="line">    <span class="comment">//代码段</span></span><br><span class="line">    <span class="comment">//产生异常（类型2）</span></span><br><span class="line">  &#125;<span class="keyword">catch</span>(异常类型<span class="number">1</span> e)&#123;</span><br><span class="line">    <span class="comment">//对异常处理的代码</span></span><br><span class="line">  &#125;<span class="keyword">catch</span>(异常类型<span class="number">2</span> e)&#123;</span><br><span class="line">    <span class="comment">//对异常处理的代码</span></span><br><span class="line">  &#125;<span class="keyword">catch</span>(异常类型<span class="number">3</span> e)&#123;</span><br><span class="line">    <span class="comment">//对异常处理的代码</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//代码段</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -553,9 +557,12 @@
 </li>
 </ul>
 <h3 id="try-ctach-finally"><a href="#try-ctach-finally" class="headerlink" title="try-ctach-finally"></a>try-ctach-finally</h3><ul>
-<li>try 块后可以接零个或者多个 catch 块</li>
-<li>如果没有 catch，则必须跟一个 finally 块</li>
-<li>catch、finally可选<ul>
+<li><p>try 块后可以接零个或者多个 catch 块</p>
+</li>
+<li><p>如果没有 catch，则必须跟一个 finally 块</p>
+</li>
+<li><p>catch、finally可选</p>
+<ul>
 <li>语法组合：<ul>
 <li>try-catch</li>
 <li>try-finally</li>
@@ -565,15 +572,99 @@
 </li>
 </ul>
 </li>
-<li>在 try-catch 块后加入 finally 块<ul>
-<li>是否发生异常都执行</li>
-<li>不执行的唯一情况</li>
+<li><p>在 try-catch 块后加入 finally 块</p>
+<ul>
+<li><p>是否发生异常都执行</p>
+</li>
+<li><p>不执行的唯一情况</p>
+<p><img src="/2018/10/25/Java基础八/finally不执行的情况.png" alt="finally不执行的情况"></p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"普通代码"</span>);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"try"</span>);</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> Exception();</span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">            System.out.println(<span class="string">"catch"</span>);</span><br><span class="line">            System.exit(<span class="number">1</span>);</span><br><span class="line">        &#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"finally"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>运行结果：</p>
+<p> 普通代码<br> try<br> catch</p>
+</blockquote>
+</li>
+<li><p>一旦在 try 块或者 catch 块中加入 System.exit(1) 这个语句 finally 语句块将会强制终止执行</p>
+<p>其实还要一种情况，当 try 块没有执行的话，finally 也不会被执行，也就是说，当一个方法在 try 块之前就返回了，那么他的 finally 块就不会被执行。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">        String str= method();</span><br><span class="line">        System.out.println(str);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">method</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> a = <span class="number">3</span>;</span><br><span class="line">        <span class="keyword">if</span> (a&lt;<span class="number">4</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"finally 没有执行"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"普通代码"</span>);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"try"</span>);</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> Exception();</span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">            System.out.println(<span class="string">"catch"</span>);</span><br><span class="line">            System.exit(<span class="number">1</span>);</span><br><span class="line">        &#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"finally"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"finally 执行了"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>运行结果：</p>
+<p>finally 没有执行</p>
+</blockquote>
+</li>
 </ul>
 </li>
-<li>try-catch-finally的执行情况</li>
+</ul>
+<ul>
+<li><p>try-catch-finally的执行情况</p>
+<p><img src="/2018/10/25/Java基础八/try-catch-finally的执行流程.png" alt="try-catch-finally的执行流程"></p>
+</li>
 </ul>
 <hr>
-<h1 id="常见的异常类型"><a href="#常见的异常类型" class="headerlink" title="常见的异常类型"></a>常见的异常类型</h1><table>
+<h1 id="实际应用中的经验与总结"><a href="#实际应用中的经验与总结" class="headerlink" title="实际应用中的经验与总结"></a>实际应用中的经验与总结</h1><ul>
+<li>处理运行时异常时，采用逻辑去合理规避同时辅助 try-catch 处理</li>
+<li>在多重 catch 块后面，可以加上 catch(Exception e)来处理可能会被遗漏的异常</li>
+<li>对于不确定的代码，也可以加上 try-catch，处理潜在的异常</li>
+<li>尽量去处理异常，切记只是简单地调用 printStackTrace() 去打印输出</li>
+<li>具体如何处理异常，要根据不同的业务需求和异常类型去决定</li>
+<li>尽量添加 finally 语句块去释放占用的资源</li>
+<li>不执行 finally 块有两种方式<ul>
+<li>try 语句没有被执行到，如在 try 语句之前 return 就返回了，这样 finally 语句就不会执行。这也说明了 finally 语句被执行的必要而非充分条件是：相应的 try 语句一定被执行到</li>
+<li>在 try 块 catch 块中有 System.exit(0); 这样的语句。System.exit(0) 是终止 Java 虚拟机 JVM 的，连 JVM 都停止了，所有都结束了，当然 finally 语句也不会被执行到。</li>
+</ul>
+</li>
+<li>在 try-catch-finally 中, 当 return 遇到 finally，return 对 finally 无效<ul>
+<li>在try catch块里return的时候，finally也会被执行</li>
+<li>finally 里的 return 语句会把 try catch 块里的 return 语句效果给覆盖掉</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="throw-amp-throws"><a href="#throw-amp-throws" class="headerlink" title="throw&amp;throws"></a>throw&amp;throws</h1><p>可以通过 throws 声明将要抛出何种类型的异常，通过 throw将产生的异常抛出</p>
+<h2 id="throws"><a href="#throws" class="headerlink" title="throws"></a>throws</h2><ul>
+<li><p>如果一个方法可能会出现异常，但没有能力处理这种异常，可以在方法声明处用 throws 子句来声明抛出异常</p>
+</li>
+<li><p>例如：汽车在运行时可能会出现故障，汽车本身没有办法处理这个故障，那就让开车的人来处理</p>
+</li>
+<li><p>throws 语句用在方法定义时声明该方法要抛出的异常类型</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span> <span class="keyword">throws</span> Exception1，Exception2,...,ExceptionN</span>&#123;</span><br><span class="line">  <span class="comment">//可能产生异常的代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>当方法抛出异常列表中的异常时，方法不对这些类型及其子类类型的异常作处理，而抛向调用该方法的方法，由他去处理</p>
+</li>
+</ul>
+<h3 id="throws的使用规则"><a href="#throws的使用规则" class="headerlink" title="throws的使用规则"></a>throws的使用规则</h3><ul>
+<li>如果是不可检查异常（unchecked exception），即 Error 、RuntimeException 或他们的子类，那么可以不适用 throws 关键字来声明要抛出的异常，编译仍能顺利通过，但在运行时会被系统抛出</li>
+<li>如果一个方法中可能出现可查异常，要么用 try-catch 语句捕获，要么用 throws 子句声明将它抛出，否则会导致编译错误</li>
+<li>当抛出了异常，则该方法的调用者必须处理或者重新抛出该异常</li>
+<li>当子类重写父类抛出异常的方法时，声明的异常必须是父类方法所声明异常的同类或子类</li>
+</ul>
+<h2 id="throw"><a href="#throw" class="headerlink" title="throw"></a>throw</h2><ul>
+<li><p>throw 用来抛出一个异常</p>
+<p>例如：throw new IOException();</p>
+</li>
+<li><p>trhow 抛出的只能是可抛出类 Throwable 或其子类的实例对象</p>
+<p>例如：throw new String(“出错啦！”);//是错误的</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">try</span>&#123;</span><br><span class="line">    <span class="comment">//代码段1</span></span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> 异常类型();</span><br><span class="line">  &#125;<span class="keyword">catch</span>(异常类型 e)&#123;</span><br><span class="line">    <span class="comment">//对异常进行处理的代码段2</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span> throw 异常类型</span>&#123;</span><br><span class="line">  <span class="comment">//代码段1</span></span><br><span class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> 异常类型();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="自定义异常"><a href="#自定义异常" class="headerlink" title="自定义异常"></a>自定义异常</h1><ul>
+<li>使用 Java 内置的异常类可以描述在编程时出现的大部分异常情况</li>
+<li>也可以通过自定义异常描述特定业务产生的异常类型</li>
+<li>所谓自定义异常，就是定义一个类，去继承 Throwable 类或者它的子类</li>
+<li>如果希望写一个检查性异常类，则需要继承 Exception 类</li>
+<li>如果你想写一个运行时异常类，那么需要继承 RuntimeException 类</li>
+</ul>
+<hr>
+<h1 id="异常链"><a href="#异常链" class="headerlink" title="异常链"></a>异常链</h1><ul>
+<li><p>有时候我们会捕捉一个异常后再抛出另一个异常</p>
+</li>
+<li><p>顾名思义就是：将异常发生的原因一个传一个穿起来，即把底层的异常信息传给上层，这样逐层抛出</p>
+</li>
+</ul>
+<hr>
+<h1 id="Java-常见异常类型及原因分析"><a href="#Java-常见异常类型及原因分析" class="headerlink" title="Java 常见异常类型及原因分析"></a>Java 常见异常类型及原因分析</h1><h1 id="常见的异常类型"><a href="#常见的异常类型" class="headerlink" title="常见的异常类型"></a>常见的异常类型</h1><table>
 <thead>
 <tr>
 <th>异常类型</th>
@@ -615,59 +706,71 @@
 </tr>
 </tbody>
 </table>
-<hr>
-<h1 id="实际应用中的经验与总结"><a href="#实际应用中的经验与总结" class="headerlink" title="实际应用中的经验与总结"></a>实际应用中的经验与总结</h1><ul>
-<li>处理运行时异常时，采用逻辑去合理规避同时辅助 try-catch 处理</li>
-<li>在多重 catch 块后面，可以加上 catch(Exception e)来处理可能会被遗漏的异常</li>
-<li>对于不确定的代码，也可以加上 try-catch，处理潜在的异常</li>
-<li>尽量去处理异常，切记只是简单地调用 printStackTrace() 去打印输出</li>
-<li>具体如何处理异常，要根据不同的业务需求和异常类型去决定</li>
-<li>尽量添加 finally 语句块去释放占用的资源</li>
-</ul>
-<hr>
-<h1 id="throw-amp-throws"><a href="#throw-amp-throws" class="headerlink" title="throw&amp;throws"></a>throw&amp;throws</h1><p>可以通过 throws 声明将要抛出何种类型的异常，通过 throw将产生的异常抛出</p>
-<h2 id="throws"><a href="#throws" class="headerlink" title="throws"></a>throws</h2><ul>
-<li><p>如果一个方法可能会出现异常，但没有能力处理这种异常，可以在方法声明处用 throws 子句来声明抛出异常</p>
+<h2 id="NullPointerException-异常"><a href="#NullPointerException-异常" class="headerlink" title="NullPointerException 异常"></a>NullPointerException 异常</h2><p>顾名思义，空指针异常，这可能是最常遇见的异常了。但是在 Java 中没有指针，怎么会有空指针异常呢？</p>
+<p>在 C++ 中，声明的指针需要指向一个实例（通过 new 方法构造），这个指针可以理解为地址。在 Java 中，虽然没有指针，但是有引用（通常称为对象引用，一般直接说对象），引用也是要指向一个实例对象（通过 new 方法构造）的，从某种意义上说，Java 中的引用与 C++ 中的指针没有本质区别，不同的是，出于安全的目的，在 Java 中不能对引用进行操作，而在 C++ 中可以直接进行指针的运算。</p>
+<p>所以这里的 NullPointerException 虽然不是真正的空指针异常，但本质上差不多，是因为引用没有指向具体的实例，所以当访问这个引用的时候就会产生这种异常。例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">        String str = <span class="string">"这是一个测试字符串"</span>;</span><br><span class="line">        System.out.println(str.length());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>运行结果：</p>
+<p>9</p>
+</blockquote>
+<p>这段代码是没有问题的，但是如果改成下面的代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">        String str = <span class="keyword">null</span>;</span><br><span class="line">        System.out.println(str.length());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>运行结果：</p>
+<p>Exception in thread “main” java.lang.NullPointerException<br>​    at Main.main(Main.java:4)</p>
+</blockquote>
+<p>这就产生了 NullPointerException 异常了</p>
+<h3 id="这种异常是如何产生的呢"><a href="#这种异常是如何产生的呢" class="headerlink" title="这种异常是如何产生的呢"></a>这种异常是如何产生的呢</h3><ul>
+<li><p>把调用某个方法的返回值直接赋值给某个引用，然后调用这个引用的方法。在这种情况下，如果返回的值是Null，必然会产生 NullPointerException 异常。例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">People</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String Name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        Name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">        People p = <span class="keyword">null</span>;</span><br><span class="line">        p.setName(<span class="string">"张三"</span>);</span><br><span class="line">        System.out.println(p.getName());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>分析：声明一个 People对象，并打印出该对象的 Name 值</p>
+<p>说明：这个时候你的 p 就出现了空指针异常，因为你只是声明了 People 类型的对象，并没有创建对象，所以它的堆里面没有地址引用，切记你要用对象调用方法的时候，一定要先创建对象。</p>
 </li>
-<li><p>例如：汽车在运行时可能会出现故障，汽车本身没有办法处理这个故障，那就让开车的人来处理</p>
-</li>
-<li><p>throws 语句用在方法定义时声明该方法要抛出的异常类型</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span> <span class="keyword">throws</span> Exception1，Exception2,...,ExceptionN</span>&#123;</span><br><span class="line">  <span class="comment">//可能产生异常的代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>当方法抛出异常列表中的异常时，方法不对这些类型及其子类类型的异常作处理，而抛向调用该方法的方法，由他去处理</p>
-</li>
-</ul>
-<h3 id="throws的使用规则"><a href="#throws的使用规则" class="headerlink" title="throws的使用规则"></a>throws的使用规则</h3><ul>
-<li>如果是不可检查异常（unchecked exception），即 Error 、RuntimeException 或他们的子类，那么可以不适用 throws 关键字来声明要抛出的异常，编译仍能顺利通过，但在运行时会被系统抛出</li>
-<li>如果一个方法中可能出现可查异常，要么用 try-catch 语句捕获，要么用 throws 子句声明将它抛出，否则会导致编译错误</li>
-<li>当抛出了异常，则该方法的调用者必须处理或者重新抛出该异常</li>
-<li>当子类重写父类抛出异常的方法时，声明的异常必须是父类方法所声明异常的同类或子类</li>
-</ul>
-<h2 id="throw"><a href="#throw" class="headerlink" title="throw"></a>throw</h2><ul>
-<li><p>throw 用来抛出一个异常</p>
-<p>例如：throw new IOException();</p>
-</li>
-<li><p>trhow 抛出的只能是可抛出类 Throwable 或其子类的实例对象</p>
-<p>例如：throw new String(“出错啦！”);//是错误的</p>
+<li><p>在方法体中调用参数的方法</p>
+<p>如果调用方法的时候传递进来的值是 null，也要产生 NullPointerException 异常。</p>
+<p>要避免程序产生这种异常，比较好的解决方法是在调用某个对象的方法时候判断这个对象是否可能为空，如果可能，则增加判断语句，例如上面的代码就可以写为：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">        People p = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (p == <span class="keyword">null</span>) &#123;</span><br><span class="line">            p = <span class="keyword">new</span> People();</span><br><span class="line">            p.setName(<span class="string">"张三"</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            p.setName(<span class="string">"张三"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(p.getName());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">try</span>&#123;</span><br><span class="line">    <span class="comment">//代码段1</span></span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> 异常类型();</span><br><span class="line">  &#125;<span class="keyword">catch</span>(异常类型 e)&#123;</span><br><span class="line">    <span class="comment">//对异常进行处理的代码段2</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span> throw 异常类型</span>&#123;</span><br><span class="line">  <span class="comment">//代码段1</span></span><br><span class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> 异常类型();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<h1 id="自定义异常"><a href="#自定义异常" class="headerlink" title="自定义异常"></a>自定义异常</h1><ul>
-<li>使用 Java 内置的异常类可以描述在编程时出现的大部分异常情况</li>
-<li>也可以通过自定义异常描述特定业务产生的异常类型</li>
-<li>所谓自定义异常，就是定义一个类，去继承 Throwable 类或者它的子类</li>
+<h2 id="ClassCastException-异常"><a href="#ClassCastException-异常" class="headerlink" title="ClassCastException 异常"></a>ClassCastException 异常</h2><p>从字面上看，是类型转换异常，通常是进行强制类型转换时候出现的错误。下面对产生 ClassCastException 异常的原因进行分析，然后给出这种异常的解决方法</p>
+<h3 id="这种异常是如何产生的呢-1"><a href="#这种异常是如何产生的呢-1" class="headerlink" title="这种异常是如何产生的呢"></a>这种异常是如何产生的呢</h3><p>我们来看下面这段代码</p>
+<p>这里 Animal 表示动物类，Dog 类表示狗类，Cat 类表示猫类，Dog 和 Cat 是 Animal 类的子类。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">        Animal a1 = <span class="keyword">new</span> Dog();</span><br><span class="line">        Animal a2 = <span class="keyword">new</span> Cat();</span><br><span class="line">        Dog d1 = (Dog) a1;</span><br><span class="line">        Dog d2 = (Dog) a2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>运行结果</p>
+<p>Exception in thread “main” java.lang.ClassCastException: Cat cannot be cast to Dog<br>​    at Main.main(Main.java:6)</p>
+</blockquote>
+<p>第5行和第6行代码基本相同，从字面意思上来看都是把 Animal 强制转换为 Dog，但是第六行代码产生了 ClassCastException 异常，说 Cat cannot be cast to Dog 。</p>
+<p>这下就很好理解了，我在 Java 基础七-多态里的<a href="https://cuizhe1023.github.io/2018/10/18/Java%E5%9F%BA%E7%A1%80%E4%B8%83/">向下转型</a>中有说到，因为 a1 本身就是 Dog 对象，所以它理所当然的可以转型为 Dog，a2 本身是 Cat 对象，所以它也理所当然的不能转为 Dog 。猫狗之间能互换吗？</p>
+<p>从上面的例子可以看出，ClassCastException 是进行强制类型转换的时候产生的异常。</p>
+<p>强制类型转换的前提是父类引用指向的对象的类型是子类的时候才可以进行强制类型转换，如果父类引用指向的对象类型不是子类的时候就会产生 ClassCastException 异常。</p>
+<p>遇到这个异常该怎么办呢？如果你知道要访问的对象的具体类型，直接转换成该类型即可。如果不能确定类型可以通过下面的两种方式进行处理（假设对象为 o ）：</p>
+<ul>
+<li>通过<code>o.getClass().getName()</code>&gt;得到具体的类型，可以通过输出语句输出这个类型，然后根据类型进行具体的处理</li>
+<li>通过<code>if(o instanceof 类型)</code>的语句来判断 o 的类型是什么</li>
 </ul>
-<hr>
-<h1 id="异常链"><a href="#异常链" class="headerlink" title="异常链"></a>异常链</h1><ul>
-<li><p>有时候我们会捕捉一个异常后再抛出另一个异常</p>
-</li>
-<li><p>顾名思义就是：将异常发生的原因一个传一个穿起来，即把底层的异常信息传给上层，这样逐层抛出</p>
-</li>
-</ul>
-<hr>
-<h1 id="Java-常见异常类型及原因分析"><a href="#Java-常见异常类型及原因分析" class="headerlink" title="Java 常见异常类型及原因分析"></a>Java 常见异常类型及原因分析</h1><h2 id="NullPointerException-异常"><a href="#NullPointerException-异常" class="headerlink" title="NullPointerException 异常"></a>NullPointerException 异常</h2><h2 id="ClassCastException-异常"><a href="#ClassCastException-异常" class="headerlink" title="ClassCastException 异常"></a>ClassCastException 异常</h2><h2 id="ArrayIndexOutOfBoundsException-异常"><a href="#ArrayIndexOutOfBoundsException-异常" class="headerlink" title="ArrayIndexOutOfBoundsException 异常"></a>ArrayIndexOutOfBoundsException 异常</h2><h2 id="NumberFormatException-异常"><a href="#NumberFormatException-异常" class="headerlink" title="NumberFormatException 异常"></a>NumberFormatException 异常</h2><h2 id="UnsupportedClassVersionError-错误"><a href="#UnsupportedClassVersionError-错误" class="headerlink" title="UnsupportedClassVersionError 错误"></a>UnsupportedClassVersionError 错误</h2><h2 id="堆栈溢出和内存溢出"><a href="#堆栈溢出和内存溢出" class="headerlink" title="堆栈溢出和内存溢出"></a>堆栈溢出和内存溢出</h2>
+<h2 id="ArrayIndexOutOfBoundsException-异常"><a href="#ArrayIndexOutOfBoundsException-异常" class="headerlink" title="ArrayIndexOutOfBoundsException 异常"></a>ArrayIndexOutOfBoundsException 异常</h2><p>这是一个非常常见的异常，从名字上看是数组下标越界错误，解决这个异常的方法就是查看为什么数组下标越界。</p>
+<p>下面有一个错误实例。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] a = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">6</span>; i++) &#123;</span><br><span class="line">            System.out.print(a[i] + <span class="string">" "</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>运行结果</p>
+<p>1 2 3 4 5 Exception in thread “main” java.lang.ArrayIndexOutOfBoundsException: 5<br>​    at Main.main(Main.java:5)</p>
+</blockquote>
+<p>1.我们可以看到错误在第5行</p>
+<p>2.发生错误的时候，下标的值是5</p>
+<p>接下来，我们分析为什么下标值是5的会出错就可以了。</p>
+<h2 id="NumberFormatException-异常"><a href="#NumberFormatException-异常" class="headerlink" title="NumberFormatException 异常"></a>NumberFormatException 异常</h2><p>数字转换异常，在把一个表示数字的字符串转换成数字类型的时候会后可能会报这个异常，原因是作为参数的字符串不是由数字组成的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">        String num1 = <span class="string">"123"</span>;</span><br><span class="line">        String num2 = <span class="string">"123 "</span>;</span><br><span class="line">        System.out.println(Integer.parseInt(num1));</span><br><span class="line">        System.out.println(Integer.parseInt(num2));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>运行结果</p>
+<p>123<br>Exception in thread “main” java.lang.NumberFormatException: For input string: “123 “<br>​    at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)<br>​    at java.lang.Integer.parseInt(Integer.java:580)<br>​    at java.lang.Integer.parseInt(Integer.java:615)<br>​    at Main.main(Main.java:6)</p>
+</blockquote>
+<p>这是因为 num2 后面有一个空格。</p>
+<h2 id="堆栈溢出和内存溢出"><a href="#堆栈溢出和内存溢出" class="headerlink" title="堆栈溢出和内存溢出"></a>堆栈溢出和内存溢出</h2><p>在递归调用的时候可能会产生堆栈溢出的情况，因为递归调用的时候需要把调用的状态保存起来，如果递归的深度达到一定程度，将产生堆栈溢出的异常。</p>
+<p>如果虚拟机内存比较小，而程序对内存要求比较高，则可能产生内存溢出错误</p>
+
       
     </div>
     
@@ -694,7 +797,7 @@
   <p><span>本文标题:</span><a href="/2018/10/25/Java基础八/">Java基础八--异常</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Cui Zhe 的个人博客">Cui Zhe</a></p>
   <p><span>发布时间:</span>2018年10月25日 - 11:10</p>
-  <p><span>最后更新:</span>2018年10月25日 - 20:10</p>
+  <p><span>最后更新:</span>2018年10月26日 - 17:10</p>
   <p><span>原始链接:</span><a href="/2018/10/25/Java基础八/" title="Java基础八--异常">https://cuizhe1023.github.io/2018/10/25/Java基础八/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://cuizhe1023.github.io/2018/10/25/Java基础八/"  aria-label="复制成功！"></i></span>
   </p>
@@ -906,7 +1009,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#异常的分类"><span class="nav-number">1.</span> <span class="nav-text">异常的分类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Error"><span class="nav-number">2.</span> <span class="nav-text">Error</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Exception"><span class="nav-number">3.</span> <span class="nav-text">Exception</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#unchecked-exception"><span class="nav-number">3.1.</span> <span class="nav-text">unchecked exception</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#checked-exception"><span class="nav-number">3.2.</span> <span class="nav-text">checked exception</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#异常处理"><span class="nav-number">4.</span> <span class="nav-text">异常处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#抛出异常"><span class="nav-number">4.1.</span> <span class="nav-text">抛出异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#捕获异常"><span class="nav-number">4.2.</span> <span class="nav-text">捕获异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异常处理-1"><span class="nav-number">4.3.</span> <span class="nav-text">异常处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#try-catch-finally"><span class="nav-number">4.3.1.</span> <span class="nav-text">try-catch-finally</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#try-catch"><span class="nav-number">4.3.2.</span> <span class="nav-text">try-catch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多重-catch-块"><span class="nav-number">4.3.3.</span> <span class="nav-text">多重 catch 块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#try-ctach-finally"><span class="nav-number">4.3.4.</span> <span class="nav-text">try-ctach-finally</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常见的异常类型"><span class="nav-number">5.</span> <span class="nav-text">常见的异常类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实际应用中的经验与总结"><span class="nav-number">6.</span> <span class="nav-text">实际应用中的经验与总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#throw-amp-throws"><span class="nav-number">7.</span> <span class="nav-text">throw&amp;throws</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#throws"><span class="nav-number">7.1.</span> <span class="nav-text">throws</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#throws的使用规则"><span class="nav-number">7.1.1.</span> <span class="nav-text">throws的使用规则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#throw"><span class="nav-number">7.2.</span> <span class="nav-text">throw</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自定义异常"><span class="nav-number">8.</span> <span class="nav-text">自定义异常</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#异常链"><span class="nav-number">9.</span> <span class="nav-text">异常链</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java-常见异常类型及原因分析"><span class="nav-number">10.</span> <span class="nav-text">Java 常见异常类型及原因分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#NullPointerException-异常"><span class="nav-number">10.1.</span> <span class="nav-text">NullPointerException 异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ClassCastException-异常"><span class="nav-number">10.2.</span> <span class="nav-text">ClassCastException 异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ArrayIndexOutOfBoundsException-异常"><span class="nav-number">10.3.</span> <span class="nav-text">ArrayIndexOutOfBoundsException 异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NumberFormatException-异常"><span class="nav-number">10.4.</span> <span class="nav-text">NumberFormatException 异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UnsupportedClassVersionError-错误"><span class="nav-number">10.5.</span> <span class="nav-text">UnsupportedClassVersionError 错误</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#堆栈溢出和内存溢出"><span class="nav-number">10.6.</span> <span class="nav-text">堆栈溢出和内存溢出</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#异常的分类"><span class="nav-number">1.</span> <span class="nav-text">异常的分类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Error"><span class="nav-number">2.</span> <span class="nav-text">Error</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Exception"><span class="nav-number">3.</span> <span class="nav-text">Exception</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#unchecked-exception"><span class="nav-number">3.1.</span> <span class="nav-text">unchecked exception</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#checked-exception"><span class="nav-number">3.2.</span> <span class="nav-text">checked exception</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#异常处理"><span class="nav-number">4.</span> <span class="nav-text">异常处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#抛出异常"><span class="nav-number">4.1.</span> <span class="nav-text">抛出异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#捕获异常"><span class="nav-number">4.2.</span> <span class="nav-text">捕获异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异常处理-1"><span class="nav-number">4.3.</span> <span class="nav-text">异常处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#try-catch-finally"><span class="nav-number">4.3.1.</span> <span class="nav-text">try-catch-finally</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#try-catch"><span class="nav-number">4.3.2.</span> <span class="nav-text">try-catch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多重-catch-块"><span class="nav-number">4.3.3.</span> <span class="nav-text">多重 catch 块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#try-ctach-finally"><span class="nav-number">4.3.4.</span> <span class="nav-text">try-ctach-finally</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实际应用中的经验与总结"><span class="nav-number">5.</span> <span class="nav-text">实际应用中的经验与总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#throw-amp-throws"><span class="nav-number">6.</span> <span class="nav-text">throw&amp;throws</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#throws"><span class="nav-number">6.1.</span> <span class="nav-text">throws</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#throws的使用规则"><span class="nav-number">6.1.1.</span> <span class="nav-text">throws的使用规则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#throw"><span class="nav-number">6.2.</span> <span class="nav-text">throw</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自定义异常"><span class="nav-number">7.</span> <span class="nav-text">自定义异常</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#异常链"><span class="nav-number">8.</span> <span class="nav-text">异常链</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java-常见异常类型及原因分析"><span class="nav-number">9.</span> <span class="nav-text">Java 常见异常类型及原因分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常见的异常类型"><span class="nav-number">10.</span> <span class="nav-text">常见的异常类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#NullPointerException-异常"><span class="nav-number">10.1.</span> <span class="nav-text">NullPointerException 异常</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#这种异常是如何产生的呢"><span class="nav-number">10.1.1.</span> <span class="nav-text">这种异常是如何产生的呢</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ClassCastException-异常"><span class="nav-number">10.2.</span> <span class="nav-text">ClassCastException 异常</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#这种异常是如何产生的呢-1"><span class="nav-number">10.2.1.</span> <span class="nav-text">这种异常是如何产生的呢</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ArrayIndexOutOfBoundsException-异常"><span class="nav-number">10.3.</span> <span class="nav-text">ArrayIndexOutOfBoundsException 异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NumberFormatException-异常"><span class="nav-number">10.4.</span> <span class="nav-text">NumberFormatException 异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#堆栈溢出和内存溢出"><span class="nav-number">10.5.</span> <span class="nav-text">堆栈溢出和内存溢出</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -944,7 +1047,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">26.7k</span>
+    <span title="Site words total count">28.8k</span>
   
 -->
 
@@ -982,7 +1085,7 @@
       <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-  <span class="post-count">Site words total count:26.7k</span>
+  <span class="post-count">Site words total count:28.8k</span>
 </div>
         
 
