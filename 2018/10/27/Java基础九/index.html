@@ -96,12 +96,12 @@
 <meta property="og:site_name" content="CuiZhe&#39;s Blog">
 <meta property="og:description" content="字符串广泛应用在 Java 编程中，在 Java 中字符串属于对象，Java 提供了 String、StringBuffer、StringBuilder类来创建和操作字符串。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://cuizhe1023.github.io/2018/10/27/Java基础九/String的常用方法.png">
-<meta property="og:updated_time" content="2018-10-28T05:42:41.268Z">
+<meta property="og:image" content="https://cuizhe1023.github.io/2018/10/27/Java基础九/String在内存中的存储.png">
+<meta property="og:updated_time" content="2018-10-28T12:45:24.645Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java基础九--字符串">
 <meta name="twitter:description" content="字符串广泛应用在 Java 编程中，在 Java 中字符串属于对象，Java 提供了 String、StringBuffer、StringBuilder类来创建和操作字符串。">
-<meta name="twitter:image" content="https://cuizhe1023.github.io/2018/10/27/Java基础九/String的常用方法.png">
+<meta name="twitter:image" content="https://cuizhe1023.github.io/2018/10/27/Java基础九/String在内存中的存储.png">
 
 
 
@@ -413,7 +413,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.1k
+                  2.7k
                 </span>
               
 
@@ -429,7 +429,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  5
+                  11
                 </span>
               
             </div>
@@ -464,10 +464,75 @@
 <p>运行结果</p>
 <p>China</p>
 </blockquote>
-<p><strong>注意：</strong>String 类是不可改变的，所以你一旦创建了 String 对象，那么它的值就不能改了，如果需要对字符串做很多修改，那么应该使用 StringBuffer &amp; StringBuilder。</p>
-<h2 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h2><p><img src="/2018/10/27/Java基础九/String的常用方法.png" alt="String的常用方法"></p>
+<p><strong>注意：</strong>String 类是不可改变的，所以你一旦创建了 String 对象，那么它的值就不能改了。</p>
+<h2 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>int length()</td>
+<td>返回当前字符串的长度</td>
+</tr>
+<tr>
+<td>int indexOf(int ch)</td>
+<td>查找ch字符在该字符串中第一次出现的位置</td>
+</tr>
+<tr>
+<td>int indexOf(String str)</td>
+<td>查找str子字符串在该字符串中第一次出现的位置</td>
+</tr>
+<tr>
+<td>int lastIndexOf(int ch)</td>
+<td>查找ch字符在该字符串中最后一次出现的位置</td>
+</tr>
+<tr>
+<td>int lastIndexOf(String str)</td>
+<td>查找str子字符串在该字符串中最后一次出现的位置</td>
+</tr>
+<tr>
+<td>String substring(int beginIndex)</td>
+<td>获取从beginIndex位置开始到结束的子字符串</td>
+</tr>
+<tr>
+<td>String substring(int beginIndex,int endIndex)</td>
+<td>获取从beginIndex位置开始到endIndex位置的子字符串[beginIndex,endIndex)</td>
+</tr>
+<tr>
+<td>String trim()</td>
+<td>返回去除了前后空格的字符串</td>
+</tr>
+<tr>
+<td>boolean equals(Object obj)</td>
+<td>将该字符串与指定对象比较，返回true或者false</td>
+</tr>
+<tr>
+<td>String toLowerCase()</td>
+<td>将字符串转换为小写</td>
+</tr>
+<tr>
+<td>String toUpperCase()</td>
+<td>将字符串转换为大写</td>
+</tr>
+<tr>
+<td>char charAt(int index)</td>
+<td>获取字符串中指定位置的字符</td>
+</tr>
+<tr>
+<td>String[] split(String regex,int li)</td>
+<td>将字符串分割为子字符串，返回字符串数组</td>
+</tr>
+<tr>
+<td>byte[] getBytes()</td>
+<td>将该字符串转换为byte数组</td>
+</tr>
+</tbody>
+</table>
 <p>这里先介绍length()、charAt()、substring()、indexOf()、lastIndexOf()的方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String str = <span class="string">"Java编程基础，我喜欢Java编程"</span>;</span><br><span class="line">        System.out.println(<span class="string">"字符串长度："</span>+str.length());</span><br><span class="line">        System.out.println(<span class="string">"字符串中第5个位置是："</span>+str.charAt(<span class="number">5</span>));</span><br><span class="line">        System.out.println(<span class="string">"从4位置开始到结束的子字符串："</span>+str.substring(<span class="number">4</span>));</span><br><span class="line">        System.out.println(<span class="string">"从4位置开始到6位置结束的子字符串："</span>+str.substring(<span class="number">4</span>,<span class="number">6</span>));</span><br><span class="line">        System.out.println(<span class="string">"查找“编程”在该字符串中第一次出现的位置："</span>+str.indexOf(<span class="string">"编程"</span>));</span><br><span class="line">        System.out.println(<span class="string">"查找“编程”在该字符串中最后一次出现的位置："</span>+str.lastIndexOf(<span class="string">"编程"</span>));</span><br><span class="line">        System.out.println(<span class="string">"从8位置开始，查找子串“编程”第一次出现的位置："</span>+str.indexOf(<span class="string">"编程"</span>, <span class="number">8</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String str = <span class="string">"Java编程基础，我喜欢Java编程"</span>;</span><br><span class="line">        System.out.println(<span class="string">"字符串长度："</span>+str.length());</span><br><span class="line">        System.out.println(<span class="string">"字符串中第5个位置是："</span>+str.charAt(<span class="number">5</span>));</span><br><span class="line">        System.out.println(<span class="string">"从4位置开始到结束的子字符串："</span>+str.substring(<span class="number">4</span>));</span><br><span class="line">        System.out.println(<span class="string">"从4位置开始到6位置结束的子字符串[4,6)："</span>+str.substring(<span class="number">4</span>,<span class="number">6</span>));</span><br><span class="line">        System.out.println(<span class="string">"查找“编程”在该字符串中第一次出现的位置："</span>+str.indexOf(<span class="string">"编程"</span>));</span><br><span class="line">        System.out.println(<span class="string">"查找“编程”在该字符串中最后一次出现的位置："</span>+str.lastIndexOf(<span class="string">"编程"</span>));</span><br><span class="line">        System.out.println(<span class="string">"从8位置开始，查找子串“编程”第一次出现的位置："</span>+str.indexOf(<span class="string">"编程"</span>, <span class="number">8</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>运行结果</p>
 <p>字符串长度：18<br>字符串中第5个位置是：程<br>从4位置开始到结束的子字符串：编程基础，我喜欢Java编程<br>从4位置开始到6位置结束的子字符串：编程<br>查找“编程”在该字符串中第一次出现的位置：4<br>查找“编程”在该字符串中最后一次出现的位置：16<br>从8位置开始，查找子串“编程”第一次出现的位置：16</p>
@@ -487,14 +552,91 @@
 <p>74 97 118 97 32 -25 -68 -106 -25 -88 -117 32 -27 -97 -70 -25 -95 -128<br>Java 缂栫▼ 鍩虹</p>
 </blockquote>
 <p>出现乱码了！为什么会这样？</p>
-<p>这是因为 String 转 byte 数组的时候用的是UTF-8，而 byte 转 String 的时候用的却是GBK，编码不统一导致的。</p>
-<p>如果你就是想用GBK编码的话，可以这么写</p>
+<p>这是因为 String 转 byte 数组的时候用的是UTF-8，而 byte 转 String 的时候用的却是 GBK，编码不统一导致的。</p>
+<p>如果你就是想用 GBK 编码的话，可以这么写</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.UnsupportedEncodingException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String str = <span class="string">"Java 编程 基础"</span>;</span><br><span class="line">        <span class="comment">//将字符串转换为 byte 数组，并打印输出</span></span><br><span class="line">        <span class="keyword">byte</span>[] bytes = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            bytes = str.getBytes(<span class="string">"GBK"</span>);<span class="comment">//byte[] getBytes(Charset charset) </span></span><br><span class="line">        &#125; <span class="keyword">catch</span> (UnsupportedEncodingException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">byte</span> i :</span><br><span class="line">                bytes) &#123;</span><br><span class="line">            System.out.print(i + <span class="string">" "</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println();</span><br><span class="line">        <span class="comment">//将 byte 数组转换为字符串</span></span><br><span class="line">        String str1 = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            str1 = <span class="keyword">new</span> String(bytes,<span class="string">"GBK"</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (UnsupportedEncodingException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(str1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>运行结果</p>
 <p>74 97 118 97 32 -25 -68 -106 -25 -88 -117 32 -27 -97 -70 -25 -95 -128<br>Java 编程 基础</p>
 </blockquote>
-<h2 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h2><h1 id="String、StringBuffer和StringBuilder"><a href="#String、StringBuffer和StringBuilder" class="headerlink" title="String、StringBuffer和StringBuilder"></a>String、StringBuffer和StringBuilder</h1><h2 id="StringBuilder的常用方法"><a href="#StringBuilder的常用方法" class="headerlink" title="StringBuilder的常用方法"></a>StringBuilder的常用方法</h2><h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><h1 id="和equals-方法"><a href="#和equals-方法" class="headerlink" title="==和equals()方法"></a>==和equals()方法</h1>
+<h2 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h2><p>我们来看这么一段代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String s1 = <span class="string">"string"</span>;</span><br><span class="line">        String s2 = <span class="string">"string"</span>;</span><br><span class="line">        String s3 = <span class="keyword">new</span> String(<span class="string">"string"</span>);</span><br><span class="line">        String s4 = <span class="keyword">new</span> String(<span class="string">"string"</span>);</span><br><span class="line">        System.out.println(s1==s2);</span><br><span class="line">        System.out.println(s1.equals(s2));</span><br><span class="line">        System.out.println(s1==s3);</span><br><span class="line">        System.out.println(s1.equals(s3));</span><br><span class="line">        System.out.println(s3==s4);</span><br><span class="line">        System.out.println(s3.equals(s4));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>运行结果</p>
+<p>true<br>true<br>false<br>true<br>false<br>true</p>
+</blockquote>
+<p>为什么会出现这样的情况呢？当你用<code>String s1 = “string”;</code>创建字符串的时候，“string” 是存放在常量池里的。当你又用创建 s2 的时候，因为在常量池中已经存在了一个 “string”，所以 s2 里存放的是 “string” 中的内存地址。但当你用<code>String s3 = new String(“string”);</code>创建对象时，他是存放在堆内存的（实例化对象都是在堆内存中开辟空间）。每创建一个对象，它就开辟一个空间。</p>
+<p><img src="/2018/10/27/Java基础九/String在内存中的存储.png" alt="String在内存中的存储"></p>
+<hr>
+<h1 id="StringBuffer和StringBuilder"><a href="#StringBuffer和StringBuilder" class="headerlink" title="StringBuffer和StringBuilder"></a>StringBuffer和StringBuilder</h1><p>前面有提到，String 是不可变的，一旦创建了 String 对象，那么它的值就不能改了。那么我们要是想要进行多次修改，就要用到 StringBuffer 和 StringBuilder 了。</p>
+<p>和 String 类不同的是，StringBuffer 和 StringBuilder 类的对象能够被多次的修改，并且不产生新的未使用对象。</p>
+<p>StringBuilder 和 StringBuffer 之间最大的不同是在于 StringBuilder 的方法是线程不安全的（不能同步访问）。</p>
+<p>由于 StringBuilder 相较于 StringBuffer 有速度优势，所以多数情况下建议使用 StringBuilder。然而在要求线程安全的情况下，必须要用 StringBuffer。</p>
+<h2 id="StringBuilder的常用方法"><a href="#StringBuilder的常用方法" class="headerlink" title="StringBuilder的常用方法"></a>StringBuilder的常用方法</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>String toString()</td>
+<td>将StringBuilder对象转换为String对象</td>
+</tr>
+<tr>
+<td>StringBuilder reverse()</td>
+<td>将此字符序列用其反转形式取代</td>
+</tr>
+<tr>
+<td>StringBuilder append()</td>
+<td>追加内容到当前StringBuilder对象的末尾</td>
+</tr>
+<tr>
+<td>StringBuilder delete()</td>
+<td>移除此序列的子字符串中的字符。</td>
+</tr>
+<tr>
+<td>StringBuilder insert()</td>
+<td>将内容插入到StringBuilder对象的指定位置</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        StringBuilder str = <span class="keyword">new</span> StringBuilder(<span class="string">"String"</span>);</span><br><span class="line">        System.out.println(<span class="string">"StringBuilder字符串为："</span>+str.toString();</span><br><span class="line">        System.out.println(<span class="string">"反转之后："</span>+str.reverse());</span><br><span class="line">        System.out.println(<span class="string">"再反转回来："</span>+str.reverse());</span><br><span class="line">        System.out.println(<span class="string">"在末尾添加“String”："</span>+str.append(<span class="string">"String"</span>));</span><br><span class="line">        System.out.println(<span class="string">"删除从6位置到12位置的字符[6,12)："</span>+str.delete(<span class="number">6</span>,<span class="number">12</span>));</span><br><span class="line">        System.out.println(<span class="string">"在位置5上加入“nnnnn”："</span>+str.insert(<span class="number">5</span>,<span class="string">"nnnnn"</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>运行结果</p>
+<p>StringBuilder字符串为：String<br>反转之后：gnirtS<br>再反转回来：String<br>在末尾添加“String”：StringString<br>删除从6位置到12位置的字符[6,12)：String<br>在位置5上加入“nnnnn”：Strinnnnnng</p>
+</blockquote>
+<h2 id="String、StringBuffer和StringBuilder区别"><a href="#String、StringBuffer和StringBuilder区别" class="headerlink" title="String、StringBuffer和StringBuilder区别"></a>String、StringBuffer和StringBuilder区别</h2><h3 id="可变性"><a href="#可变性" class="headerlink" title="可变性"></a>可变性</h3><p>String 类中使用字符数组保存字符串，<code>private final char value[];</code>,所以 String 对象是不可变的。</p>
+<p>StringBuffer 和 StringBuilder 是继承自 AbstractStringBuilder 类，在 AbstractStringBuilder 中也使用字符数组保存字符串<code>char[] value;</code>没有被 final修饰，所以 StringBuffer 和 StringBuilder 都是可变的。</p>
+<h3 id="线程安全"><a href="#线程安全" class="headerlink" title="线程安全"></a>线程安全</h3><p>String 中的对象是不可变的，也就可以理解为常量，所以是线程安全的。</p>
+<p>AbstractStringBuilder 是 StringBuffer 和 StringBuilder 的公共父类，定义了一些字符串的基本操作，如 append()、insert()、indexOf()等公共方法。</p>
+<p>StringBuffer 对方法加了 synchronized 或者对调用的方法加了 synchronized，所以是线程安全的。</p>
+<p>StringBuilder 并没有对方法加锁，所以是非线程安全的。</p>
+<h3 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h3><p>每次对 String 类型进行改变的时候，都会生成一个新的 String 对象，然后指针指向新的 String</p>
+<p>对象。</p>
+<p>StringBuffer 每次都会对 StringBuffer 对象本身进行改变，而不是生成新的对象并改变对象的引用。</p>
+<p>相同情况下，使用 StringBuilder 相比使用 StringBuffer 仅能获得10%-15%的性能提升，但是要冒着线程不安全的风险。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>String：操作少量的数据</p>
+<p>StringBuilder：单线程下操作大量数据</p>
+<p>StringBuffer：多线程下操作大量数据</p>
+<hr>
+<h1 id="和equals-方法"><a href="#和equals-方法" class="headerlink" title="==和equals()方法"></a>==和equals()方法</h1><h2 id=""><a href="#" class="headerlink" title="=="></a>==</h2><p>它的作用是比较两个对象的地址是不是相等的。即，判断两个对象是不是同一个对象。（基本数据类型\==比较的是值，引用数据类型\==比较的是内存地址）</p>
+<h2 id="equals"><a href="#equals" class="headerlink" title="equals()"></a>equals()</h2><p>它的作用也是判断两个对象是否相等，但它一般有两种使用情况：</p>
+<h3 id="情况一"><a href="#情况一" class="headerlink" title="情况一"></a>情况一</h3><p>类没有覆盖 equals() 方法。则通过 equals() 比较该类的两个对象是，等价于通过“==”比较这两个对象。</p>
+<h3 id="情况二"><a href="#情况二" class="headerlink" title="情况二"></a>情况二</h3><p>类覆盖了 equals() 方法。一般，我们都覆盖 equals() 方法来判断两个对象的内容是否相等。若他们的内容相等，则返回 true（即，认为这两个对象是相等的）。</p>
+<p>举个例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String a = <span class="keyword">new</span> String(<span class="string">"ab"</span>);<span class="comment">// a 为一个引用</span></span><br><span class="line">        String b = <span class="keyword">new</span> String(<span class="string">"ab"</span>);<span class="comment">// b为另一个引用,对象的内容一样</span></span><br><span class="line">        String aa = <span class="string">"ab"</span>;<span class="comment">// 放在常量池中</span></span><br><span class="line">        String bb = <span class="string">"ab"</span>;<span class="comment">// 从常量池中查找</span></span><br><span class="line">        <span class="keyword">if</span> (a == b)&#123;<span class="comment">// false，非同一对象</span></span><br><span class="line">            System.out.println(<span class="string">"a == b"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (aa == bb)&#123;<span class="comment">//true</span></span><br><span class="line">            System.out.println(<span class="string">"aa == bb "</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (a.equals(b))&#123;<span class="comment">//true</span></span><br><span class="line">            System.out.println(<span class="string">"aEQb"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (<span class="number">42</span> == <span class="number">42.0</span>)&#123;<span class="comment">//true</span></span><br><span class="line">            System.out.println(<span class="string">"true"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>运行结果</p>
+<p>aa == bb<br>aEQb<br>true</p>
+</blockquote>
+<p>说明：</p>
+<ul>
+<li>String 中的 equals() 方法是被重写过的，因为 Object 的 equals() 是比较的对象的内存地址，而 String 的 equals 方法比较的是对象的值</li>
+<li>当创建 String 类型的对象时，虚拟机会在常量池中查找有没有已经存在的值和要创建的值相同的对象，如果有，就把它赋给当前的引用，如果没有就在常量池中重新创建一个 String 对象。</li>
+</ul>
+
       
     </div>
     
@@ -521,7 +663,7 @@
   <p><span>本文标题:</span><a href="/2018/10/27/Java基础九/">Java基础九--字符串</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Cui Zhe 的个人博客">Cui Zhe</a></p>
   <p><span>发布时间:</span>2018年10月27日 - 17:10</p>
-  <p><span>最后更新:</span>2018年10月28日 - 13:10</p>
+  <p><span>最后更新:</span>2018年10月28日 - 20:10</p>
   <p><span>原始链接:</span><a href="/2018/10/27/Java基础九/" title="Java基础九--字符串">https://cuizhe1023.github.io/2018/10/27/Java基础九/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://cuizhe1023.github.io/2018/10/27/Java基础九/"  aria-label="复制成功！"></i></span>
   </p>
@@ -733,7 +875,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#String"><span class="nav-number">1.</span> <span class="nav-text">String</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建对象"><span class="nav-number">1.1.</span> <span class="nav-text">创建对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用方法"><span class="nav-number">1.2.</span> <span class="nav-text">常用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储"><span class="nav-number">1.3.</span> <span class="nav-text">存储</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#String、StringBuffer和StringBuilder"><span class="nav-number">2.</span> <span class="nav-text">String、StringBuffer和StringBuilder</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#StringBuilder的常用方法"><span class="nav-number">2.1.</span> <span class="nav-text">StringBuilder的常用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#区别"><span class="nav-number">2.2.</span> <span class="nav-text">区别</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#和equals-方法"><span class="nav-number">3.</span> <span class="nav-text">==和equals()方法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#String"><span class="nav-number">1.</span> <span class="nav-text">String</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建对象"><span class="nav-number">1.1.</span> <span class="nav-text">创建对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用方法"><span class="nav-number">1.2.</span> <span class="nav-text">常用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储"><span class="nav-number">1.3.</span> <span class="nav-text">存储</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#StringBuffer和StringBuilder"><span class="nav-number">2.</span> <span class="nav-text">StringBuffer和StringBuilder</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#StringBuilder的常用方法"><span class="nav-number">2.1.</span> <span class="nav-text">StringBuilder的常用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String、StringBuffer和StringBuilder区别"><span class="nav-number">2.2.</span> <span class="nav-text">String、StringBuffer和StringBuilder区别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#可变性"><span class="nav-number">2.2.1.</span> <span class="nav-text">可变性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程安全"><span class="nav-number">2.2.2.</span> <span class="nav-text">线程安全</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性能"><span class="nav-number">2.2.3.</span> <span class="nav-text">性能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">2.2.4.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#和equals-方法"><span class="nav-number">3.</span> <span class="nav-text">==和equals()方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">3.1.</span> <span class="nav-text">==</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#equals"><span class="nav-number">3.2.</span> <span class="nav-text">equals()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#情况一"><span class="nav-number">3.2.1.</span> <span class="nav-text">情况一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#情况二"><span class="nav-number">3.2.2.</span> <span class="nav-text">情况二</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -771,7 +913,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">31.2k</span>
+    <span title="Site words total count">32.8k</span>
   
 -->
 
@@ -809,7 +951,7 @@
       <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-  <span class="post-count">Site words total count:31.2k</span>
+  <span class="post-count">Site words total count:32.8k</span>
 </div>
         
 
