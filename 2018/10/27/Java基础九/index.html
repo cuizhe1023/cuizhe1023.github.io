@@ -96,10 +96,12 @@
 <meta property="og:site_name" content="CuiZhe&#39;s Blog">
 <meta property="og:description" content="字符串广泛应用在 Java 编程中，在 Java 中字符串属于对象，Java 提供了 String、StringBuffer、StringBuilder类来创建和操作字符串。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-28T01:16:15.828Z">
+<meta property="og:image" content="https://cuizhe1023.github.io/2018/10/27/Java基础九/String的常用方法.png">
+<meta property="og:updated_time" content="2018-10-28T05:23:05.750Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java基础九--字符串">
 <meta name="twitter:description" content="字符串广泛应用在 Java 编程中，在 Java 中字符串属于对象，Java 提供了 String、StringBuffer、StringBuilder类来创建和操作字符串。">
+<meta name="twitter:image" content="https://cuizhe1023.github.io/2018/10/27/Java基础九/String的常用方法.png">
 
 
 
@@ -411,7 +413,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  73
+                  1.1k
                 </span>
               
 
@@ -427,7 +429,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  5
                 </span>
               
             </div>
@@ -450,7 +452,49 @@
       
         <p>字符串广泛应用在 Java 编程中，在 Java 中字符串属于对象，Java 提供了 String、StringBuffer、StringBuilder类来创建和操作字符串。</p>
 <a id="more"></a>
-<h1 id="String"><a href="#String" class="headerlink" title="String"></a>String</h1><h2 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h2><h2 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h2><h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><h2 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h2><h2 id="创建格式化字符串"><a href="#创建格式化字符串" class="headerlink" title="创建格式化字符串"></a>创建格式化字符串</h2><h1 id="String、StringBuffer和StringBuilder"><a href="#String、StringBuffer和StringBuilder" class="headerlink" title="String、StringBuffer和StringBuilder"></a>String、StringBuffer和StringBuilder</h1><h2 id="StringBuilder的常用方法"><a href="#StringBuilder的常用方法" class="headerlink" title="StringBuilder的常用方法"></a>StringBuilder的常用方法</h2><h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><h1 id="和equals-方法"><a href="#和equals-方法" class="headerlink" title="==和equals()方法"></a>==和equals()方法</h1>
+<h1 id="String"><a href="#String" class="headerlink" title="String"></a>String</h1><h2 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String s1 = <span class="string">"这是字符串1"</span>;</span><br><span class="line">        String s2 = <span class="keyword">new</span> String();<span class="comment">//这里创建了一个空字符串</span></span><br><span class="line">        String s3 = <span class="keyword">new</span> String(<span class="string">"这是字符串3"</span>);</span><br><span class="line">        System.out.println(s1);</span><br><span class="line">        System.out.println(s2);</span><br><span class="line">        System.out.println(s3);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>运行结果</p>
+<p>这是字符串1</p>
+<p>这是字符串3</p>
+</blockquote>
+<p>String 类有 11 种构造方法，这些方法提供不同的参数来初始化字符串，比如提供一个字符数组参数:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">char</span>[] name = &#123;<span class="string">'C'</span>,<span class="string">'h'</span>,<span class="string">'i'</span>,<span class="string">'n'</span>,<span class="string">'a'</span>&#125;;</span><br><span class="line">        String str = <span class="keyword">new</span> String(name);</span><br><span class="line">        System.out.println(str);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>运行结果</p>
+<p>China</p>
+</blockquote>
+<p><strong>注意：</strong>String 类是不可改变的，所以你一旦创建了 String 对象，那么它的值就不能改了，如果需要对字符串做很多修改，那么应该使用 StringBuffer &amp; StringBuilder。</p>
+<h2 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h2><p><img src="/2018/10/27/Java基础九/String的常用方法.png" alt="String的常用方法"></p>
+<p>这里先介绍length()、charAt()、substring()、indexOf()、lastIndexOf()的方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String str = <span class="string">"Java编程基础，我喜欢Java编程"</span>;</span><br><span class="line">        System.out.println(<span class="string">"字符串长度："</span>+str.length());</span><br><span class="line">        System.out.println(<span class="string">"字符串中第5个位置是："</span>+str.charAt(<span class="number">5</span>));</span><br><span class="line">        System.out.println(<span class="string">"从4位置开始到结束的子字符串："</span>+str.substring(<span class="number">4</span>));</span><br><span class="line">        System.out.println(<span class="string">"从4位置开始到6位置结束的子字符串："</span>+str.substring(<span class="number">4</span>,<span class="number">6</span>));</span><br><span class="line">        System.out.println(<span class="string">"查找“编程”在该字符串中第一次出现的位置："</span>+str.indexOf(<span class="string">"编程"</span>));</span><br><span class="line">        System.out.println(<span class="string">"查找“编程”在该字符串中最后一次出现的位置："</span>+str.lastIndexOf(<span class="string">"编程"</span>));</span><br><span class="line">        System.out.println(<span class="string">"从8位置开始，查找子串“编程”第一次出现的位置："</span>+str.indexOf(<span class="string">"编程"</span>, <span class="number">8</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>运行结果</p>
+<p>字符串长度：18<br>字符串中第5个位置是：程<br>从4位置开始到结束的子字符串：编程基础，我喜欢Java编程<br>从4位置开始到6位置结束的子字符串：编程<br>查找“编程”在该字符串中第一次出现的位置：4<br>查找“编程”在该字符串中最后一次出现的位置：16<br>从8位置开始，查找子串“编程”第一次出现的位置：16</p>
+</blockquote>
+<p>字符串和 byte 数组之间相互转换</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String str = <span class="string">"Java 编程 基础"</span>;</span><br><span class="line">        <span class="comment">//将字符串转换为 byte 数组，并打印输出</span></span><br><span class="line">        <span class="keyword">byte</span>[] bytes = str.getBytes();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">byte</span> i :</span><br><span class="line">                bytes) &#123;</span><br><span class="line">            System.out.print(i + <span class="string">" "</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println();</span><br><span class="line">        <span class="comment">//将 byte 数组转换为字符串</span></span><br><span class="line">        String str1 = <span class="keyword">new</span> String(bytes);</span><br><span class="line">        System.out.println(str1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>运行结果</p>
+<p>74 97 118 97 32 -25 -68 -106 -25 -88 -117 32 -27 -97 -70 -25 -95 -128<br>Java 编程 基础</p>
+</blockquote>
+<p>为什么会出现这么一堆东西？</p>
+<p>这一堆数字其实就是字符串每一位所对应的ASCII码值，J的ASCII码值是74，a的ASCII码值是97，空格的ASCII码值是32，以此类推。那么负数是什么呢，因为默认用的是UTF-8编码，所以这里每三个负数对应一个汉字，即“编”对应-25 -68 -106，“程”对应-25 -88 -117。</p>
+<p>在 String 中，除了有<code>String(byte[] bytes)</code>这个构造方法以外，还有一个构造方法<code>String(byte[] bytes,Charset charset)</code>，Charset 字符集。我们来看下面的代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.UnsupportedEncodingException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String str = <span class="string">"Java 编程 基础"</span>;</span><br><span class="line">        <span class="comment">//将字符串转换为 byte 数组，并打印输出</span></span><br><span class="line">        <span class="keyword">byte</span>[] bytes = str.getBytes();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">byte</span> i :</span><br><span class="line">                bytes) &#123;</span><br><span class="line">            System.out.print(i + <span class="string">" "</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println();</span><br><span class="line">        <span class="comment">//将 byte 数组转换为字符串</span></span><br><span class="line">        String str1 = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            str1 = <span class="keyword">new</span> String(bytes,<span class="string">"GBK"</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (UnsupportedEncodingException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(str1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>运行结果</p>
+<p>74 97 118 97 32 -25 -68 -106 -25 -88 -117 32 -27 -97 -70 -25 -95 -128<br>Java 缂栫▼ 鍩虹</p>
+</blockquote>
+<p>出现乱码了！为什么会这样？</p>
+<p>这是因为 String 转 byte 数组的时候用的是UTF-8，而 byte 转 String 的时候用的却是GBK，编码不统一导致的。</p>
+<p>如果你就是想用GBK编码的话，可以这么写</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.UnsupportedEncodingException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String str = <span class="string">"Java 编程 基础"</span>;</span><br><span class="line">        <span class="comment">//将字符串转换为 byte 数组，并打印输出</span></span><br><span class="line">        <span class="keyword">byte</span>[] bytes = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            bytes = str.getBytes(<span class="string">"GBK"</span>);<span class="comment">//byte[] getBytes(Charset charset) </span></span><br><span class="line">        &#125; <span class="keyword">catch</span> (UnsupportedEncodingException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">byte</span> i :</span><br><span class="line">                bytes) &#123;</span><br><span class="line">            System.out.print(i + <span class="string">" "</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println();</span><br><span class="line">        <span class="comment">//将 byte 数组转换为字符串</span></span><br><span class="line">        String str1 = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            str1 = <span class="keyword">new</span> String(bytes,<span class="string">"GBK"</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (UnsupportedEncodingException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(str1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>运行结果</p>
+<p>74 97 118 97 32 -25 -68 -106 -25 -88 -117 32 -27 -97 -70 -25 -95 -128<br>Java 编程 基础</p>
+</blockquote>
+<h2 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h2><h1 id="String、StringBuffer和StringBuilder"><a href="#String、StringBuffer和StringBuilder" class="headerlink" title="String、StringBuffer和StringBuilder"></a>String、StringBuffer和StringBuilder</h1><h2 id="StringBuilder的常用方法"><a href="#StringBuilder的常用方法" class="headerlink" title="StringBuilder的常用方法"></a>StringBuilder的常用方法</h2><h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><h1 id="和equals-方法"><a href="#和equals-方法" class="headerlink" title="==和equals()方法"></a>==和equals()方法</h1>
       
     </div>
     
@@ -477,7 +521,7 @@
   <p><span>本文标题:</span><a href="/2018/10/27/Java基础九/">Java基础九--字符串</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Cui Zhe 的个人博客">Cui Zhe</a></p>
   <p><span>发布时间:</span>2018年10月27日 - 17:10</p>
-  <p><span>最后更新:</span>2018年10月28日 - 09:10</p>
+  <p><span>最后更新:</span>2018年10月28日 - 13:10</p>
   <p><span>原始链接:</span><a href="/2018/10/27/Java基础九/" title="Java基础九--字符串">https://cuizhe1023.github.io/2018/10/27/Java基础九/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://cuizhe1023.github.io/2018/10/27/Java基础九/"  aria-label="复制成功！"></i></span>
   </p>
@@ -689,7 +733,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#String"><span class="nav-number">1.</span> <span class="nav-text">String</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建对象"><span class="nav-number">1.1.</span> <span class="nav-text">创建对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用方法"><span class="nav-number">1.2.</span> <span class="nav-text">常用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引"><span class="nav-number">1.3.</span> <span class="nav-text">索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储"><span class="nav-number">1.4.</span> <span class="nav-text">存储</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建格式化字符串"><span class="nav-number">1.5.</span> <span class="nav-text">创建格式化字符串</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#String、StringBuffer和StringBuilder"><span class="nav-number">2.</span> <span class="nav-text">String、StringBuffer和StringBuilder</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#StringBuilder的常用方法"><span class="nav-number">2.1.</span> <span class="nav-text">StringBuilder的常用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#区别"><span class="nav-number">2.2.</span> <span class="nav-text">区别</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#和equals-方法"><span class="nav-number">3.</span> <span class="nav-text">==和equals()方法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#String"><span class="nav-number">1.</span> <span class="nav-text">String</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建对象"><span class="nav-number">1.1.</span> <span class="nav-text">创建对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用方法"><span class="nav-number">1.2.</span> <span class="nav-text">常用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储"><span class="nav-number">1.3.</span> <span class="nav-text">存储</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#String、StringBuffer和StringBuilder"><span class="nav-number">2.</span> <span class="nav-text">String、StringBuffer和StringBuilder</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#StringBuilder的常用方法"><span class="nav-number">2.1.</span> <span class="nav-text">StringBuilder的常用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#区别"><span class="nav-number">2.2.</span> <span class="nav-text">区别</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#和equals-方法"><span class="nav-number">3.</span> <span class="nav-text">==和equals()方法</span></a></li></ol></div>
             
 
           </div>
@@ -727,7 +771,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">30.2k</span>
+    <span title="Site words total count">31.2k</span>
   
 -->
 
@@ -765,7 +809,7 @@
       <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-  <span class="post-count">Site words total count:30.2k</span>
+  <span class="post-count">Site words total count:31.2k</span>
 </div>
         
 
