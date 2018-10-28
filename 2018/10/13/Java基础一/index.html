@@ -98,7 +98,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://cuizhe1023.github.io/2018/10/13/Java基础一/数据类型.jpg">
 <meta property="og:image" content="https://cuizhe1023.github.io/2018/10/13/Java基础一/Java类型装换.jpg">
-<meta property="og:updated_time" content="2018-10-26T14:39:00.783Z">
+<meta property="og:updated_time" content="2018-10-28T03:17:14.079Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java基础一--基本数据类型&amp;类型转换">
 <meta name="twitter:description" content="Java 中有两大数据类型：  内置数据类型 引用数据类型">
@@ -414,7 +414,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2.2k
+                  2.4k
                 </span>
               
 
@@ -430,7 +430,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  8
+                  9
                 </span>
               
             </div>
@@ -595,7 +595,12 @@
 </blockquote>
 <p>在这种情况下编译器选择的是加宽操作，而不是装箱。</p>
 <p>测试结果（优先级排序）：</p>
-<p>long &gt; float &gt; Integer &gt; Long(运行出错) &gt; char(编译报错)</p>
+<p>int&gt;long &gt; float &gt; Integer &gt; Long(运行出错) &gt; char(编译报错)</p>
+<p>这里说一下为什么转 Long 会出错。</p>
+<p>因为 int 不能直接转为 Long 类型，int 是基本数据类型，而 Long 是包装类。int 转 Integer 可以通过装箱实现，而 Long 不是 int 的包装类，所以不行。</p>
+<p>那么如果想将 int 转为 Long 呢？</p>
+<p>可以通过一下步骤</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> a = <span class="number">5</span>;</span><br><span class="line">        <span class="keyword">long</span> l = a;<span class="comment">//先将 int 转为 long 类型</span></span><br><span class="line">        Long l1 = l;<span class="comment">//再将 long 装箱</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="字符串与基本数据类型"><a href="#字符串与基本数据类型" class="headerlink" title="字符串与基本数据类型"></a>字符串与基本数据类型</h3><ul>
 <li>基本数据类型转换为字符串<ul>
 <li>使用包装类的 toString() 方法</li>
@@ -699,7 +704,7 @@
   <p><span>本文标题:</span><a href="/2018/10/13/Java基础一/">Java基础一--基本数据类型&类型转换</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Cui Zhe 的个人博客">Cui Zhe</a></p>
   <p><span>发布时间:</span>2018年10月13日 - 18:10</p>
-  <p><span>最后更新:</span>2018年10月26日 - 22:10</p>
+  <p><span>最后更新:</span>2018年10月28日 - 11:10</p>
   <p><span>原始链接:</span><a href="/2018/10/13/Java基础一/" title="Java基础一--基本数据类型&类型转换">https://cuizhe1023.github.io/2018/10/13/Java基础一/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://cuizhe1023.github.io/2018/10/13/Java基础一/"  aria-label="复制成功！"></i></span>
   </p>
@@ -949,7 +954,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">30.1k</span>
+    <span title="Site words total count">30.2k</span>
   
 -->
 
@@ -987,7 +992,7 @@
       <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-  <span class="post-count">Site words total count:30.1k</span>
+  <span class="post-count">Site words total count:30.2k</span>
 </div>
         
 
