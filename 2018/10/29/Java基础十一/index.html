@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="CuiZhe&#39;s Blog">
 <meta property="og:description" content="在编程中，常常需要集中存放多个数据。从传统意义上讲，数组是我们的一个很好的选择，前提是我们事先已经明确知道我们将要保存的对象的数量。一旦在数组初始化时指定了这个数组长度，这个数组长度就是不可变的，如果我们需要保存一个可以动态增长的数据(在编译时无法确定具体的数量)，Java 的集合类就是一个很好的设计方案了。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-04T06:08:09.343Z">
+<meta property="og:updated_time" content="2018-11-04T15:50:13.250Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java基础十一--集合">
 <meta name="twitter:description" content="在编程中，常常需要集中存放多个数据。从传统意义上讲，数组是我们的一个很好的选择，前提是我们事先已经明确知道我们将要保存的对象的数量。一旦在数组初始化时指定了这个数组长度，这个数组长度就是不可变的，如果我们需要保存一个可以动态增长的数据(在编译时无法确定具体的数量)，Java 的集合类就是一个很好的设计方案了。">
@@ -411,7 +411,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3.8k
+                  4.2k
                 </span>
               
 
@@ -427,7 +427,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  17
+                  18
                 </span>
               
             </div>
@@ -556,6 +556,24 @@
 <p>运行结果</p>
 <p>aaaa<br>bbbb<br>cccc<br>dddd</p>
 </blockquote>
+<p>既然 TreeSet 可以自然排序,那么 TreeSet 必定是有排序规则的。</p>
+<ul>
+<li>让存入的元素自定义比较规则</li>
+<li>给 TreeSet 指定排序规则</li>
+</ul>
+<p>方式一：元素自身具备比较性</p>
+<p>元素自身具备比较性，需要元素实现 Comparable 接口，重写 compareTo 方法，也就是让元素自身具备比较性，这种方式叫做元素的自然排序也叫做默认排序。</p>
+<p>方式二：容器具备比较性</p>
+<p>当元素自身不具备比较性，或者自身具备的比较性不是所需要的。那么此时可以让容器自身具备。需要定义一个类实现接口 Comparator，重写 compare 方法，并将该接口的子类实例对象作为参数传递给 TreeMap 集合的构造方法。</p>
+<p><strong>注意：</strong></p>
+<ul>
+<li><p>当 Comparable 比较方式和 Comparator 比较方式同时存在时，以 Comparator 的比较方式为主</p>
+</li>
+<li><p>在重写 compareTo 或者 compare 方法时，必须要明确比较的主要条件相等时要比较次要条件</p>
+<p>假设姓名和年龄一致的人为相同的人，如果想要对人按照年龄的大小来排序，如果年龄相同的人，需要如何处理？不能直接 return 0，因为可能姓名不同（年龄相同姓名不同的人是不同的人）。此时就需要进行次要条件判断（需要判断姓名），只有姓名和年龄同时相等的才可以返回 0。</p>
+<p>通过return 0来判断唯一性</p>
+</li>
+</ul>
 
       
     </div>
@@ -583,7 +601,7 @@
   <p><span>本文标题:</span><a href="/2018/10/29/Java基础十一/">Java基础十一--集合</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Cui Zhe 的个人博客">Cui Zhe</a></p>
   <p><span>发布时间:</span>2018年10月29日 - 22:10</p>
-  <p><span>最后更新:</span>2018年11月04日 - 14:11</p>
+  <p><span>最后更新:</span>2018年11月04日 - 23:11</p>
   <p><span>原始链接:</span><a href="/2018/10/29/Java基础十一/" title="Java基础十一--集合">https://cuizhe1023.github.io/2018/10/29/Java基础十一/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://cuizhe1023.github.io/2018/10/29/Java基础十一/"  aria-label="复制成功！"></i></span>
   </p>
@@ -839,7 +857,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">38.5k</span>
+    <span title="Site words total count">38.9k</span>
   
 -->
 
@@ -877,7 +895,7 @@
       <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-  <span class="post-count">Site words total count:38.5k</span>
+  <span class="post-count">Site words total count:38.9k</span>
 </div>
         
 
