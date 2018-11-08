@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="在编程中，常常需要集中存放多个数据。从传统意义上讲，数组是我们的一个很好的选择，前提是我们事先已经明确知道我们将要保存的对象的数量。一旦在数组初始化时指定了这个数组长度，这个数组长度就是不可变的，如果我们需要保存一个可以动态增长的数据(在编译时无法确定具体的数量)，Java 的集合类就是一个很好的设计方案了。">
+<meta name="description" content="在编程中，常常需要集中存放多个数据。从传统意义上讲，数组是我们的一个很好的选择，前提是我们事先已经明确知道我们将要保存的对象的数量。一旦在数组初始化时指定了这个数组长度，这个数组长度就是不可变的，如果我们需要保存一个可以动态增长的数据（在编译时无法确定具体的数量），Java 的集合类就是一个很好的设计方案了。">
 <meta name="keywords" content="集合,List、Set、Map">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java基础十一--集合">
 <meta property="og:url" content="https://cuizhe1023.github.io/2018/10/29/Java基础十一/index.html">
 <meta property="og:site_name" content="CuiZhe&#39;s Blog">
-<meta property="og:description" content="在编程中，常常需要集中存放多个数据。从传统意义上讲，数组是我们的一个很好的选择，前提是我们事先已经明确知道我们将要保存的对象的数量。一旦在数组初始化时指定了这个数组长度，这个数组长度就是不可变的，如果我们需要保存一个可以动态增长的数据(在编译时无法确定具体的数量)，Java 的集合类就是一个很好的设计方案了。">
+<meta property="og:description" content="在编程中，常常需要集中存放多个数据。从传统意义上讲，数组是我们的一个很好的选择，前提是我们事先已经明确知道我们将要保存的对象的数量。一旦在数组初始化时指定了这个数组长度，这个数组长度就是不可变的，如果我们需要保存一个可以动态增长的数据（在编译时无法确定具体的数量），Java 的集合类就是一个很好的设计方案了。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-08T15:54:56.722Z">
+<meta property="og:updated_time" content="2018-11-08T16:04:37.218Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java基础十一--集合">
-<meta name="twitter:description" content="在编程中，常常需要集中存放多个数据。从传统意义上讲，数组是我们的一个很好的选择，前提是我们事先已经明确知道我们将要保存的对象的数量。一旦在数组初始化时指定了这个数组长度，这个数组长度就是不可变的，如果我们需要保存一个可以动态增长的数据(在编译时无法确定具体的数量)，Java 的集合类就是一个很好的设计方案了。">
+<meta name="twitter:description" content="在编程中，常常需要集中存放多个数据。从传统意义上讲，数组是我们的一个很好的选择，前提是我们事先已经明确知道我们将要保存的对象的数量。一旦在数组初始化时指定了这个数组长度，这个数组长度就是不可变的，如果我们需要保存一个可以动态增长的数据（在编译时无法确定具体的数量），Java 的集合类就是一个很好的设计方案了。">
 
 
 
@@ -411,7 +411,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  200
+                  261
                 </span>
               
 
@@ -448,14 +448,15 @@
       
 
       
-        <p>在编程中，常常需要集中存放多个数据。从传统意义上讲，数组是我们的一个很好的选择，前提是我们事先已经明确知道我们将要保存的对象的数量。一旦在数组初始化时指定了这个数组长度，这个数组长度就是不可变的，如果我们需要保存一个可以动态增长的数据(在编译时无法确定具体的数量)，Java 的集合类就是一个很好的设计方案了。</p>
+        <p>在编程中，常常需要集中存放多个数据。从传统意义上讲，数组是我们的一个很好的选择，前提是我们事先已经明确知道我们将要保存的对象的数量。一旦在数组初始化时指定了这个数组长度，这个数组长度就是不可变的，如果我们需要保存一个可以动态增长的数据（在编译时无法确定具体的数量），Java 的集合类就是一个很好的设计方案了。</p>
 <a id="more"></a>
 <h1 id="Collection-接口"><a href="#Collection-接口" class="headerlink" title="Collection 接口"></a>Collection 接口</h1><p>collection是个接口，它下面有两个子接口分别是 List 和 Set。</p>
 <p>List 又有三个类，ArrayList、LinkList和Vector</p>
 <p>Set 又分为 HashSet、TreeSet</p>
 <p>TreeSte是二叉树，有序的</p>
 <p>HashSet采用散列存储，是无序的</p>
-<h1 id="Map-接口"><a href="#Map-接口" class="headerlink" title="Map 接口"></a>Map 接口</h1>
+<h1 id="Map-接口"><a href="#Map-接口" class="headerlink" title="Map 接口"></a>Map 接口</h1><p>Map 集合使用键（key）值（value）来保存数据，其中值（value）可以重复，但键（key）必须是唯一，也可以为空，但最多只能有一个 key 为空，它的主要实现类有 HashMap、LinkedHashMap、TreeMap、Hashtable（过时了）。 </p>
+
       
     </div>
     
@@ -482,7 +483,7 @@
   <p><span>本文标题:</span><a href="/2018/10/29/Java基础十一/">Java基础十一--集合</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Cui Zhe 的个人博客">Cui Zhe</a></p>
   <p><span>发布时间:</span>2018年10月29日 - 22:10</p>
-  <p><span>最后更新:</span>2018年11月08日 - 23:11</p>
+  <p><span>最后更新:</span>2018年11月09日 - 00:11</p>
   <p><span>原始链接:</span><a href="/2018/10/29/Java基础十一/" title="Java基础十一--集合">https://cuizhe1023.github.io/2018/10/29/Java基础十一/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://cuizhe1023.github.io/2018/10/29/Java基础十一/"  aria-label="复制成功！"></i></span>
   </p>
