@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="泛型," />
+  <meta name="keywords" content="集合,List," />
 
 
 
@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="Java 泛型（generics）是 JDK 5 中引入的一个新特性, 泛型提供了编译时类型安全检测机制，该机制允许程序员在编译时检测到非法的类型。 泛型的本质是参数化类型，也就是说所操作的数据类型被指定为一个参数。">
-<meta name="keywords" content="泛型">
+<meta name="description" content="List 是元素有序并且可以重复的集合，称为序列 List 可以精确的控制每个元素的插入位置，或删除某个位置的元素 List 的两个主要实现类，是 ArrayList 和 LinkedList  ArrayList ArrayList 底层是由数组实现的 动态增长，以满足应用程序的需求 在列表尾部插入或删除非常有效 更适合查找和更新元素 ArrayList 中的元素可以为 NULL  下面的例子">
+<meta name="keywords" content="集合,List">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java基础十--泛型">
-<meta property="og:url" content="https://cuizhe1023.github.io/2018/10/29/Java基础十/index.html">
+<meta property="og:title" content="Java基础十一-List">
+<meta property="og:url" content="https://cuizhe1023.github.io/2018/11/08/Java基础十一-List/index.html">
 <meta property="og:site_name" content="CuiZhe&#39;s Blog">
-<meta property="og:description" content="Java 泛型（generics）是 JDK 5 中引入的一个新特性, 泛型提供了编译时类型安全检测机制，该机制允许程序员在编译时检测到非法的类型。 泛型的本质是参数化类型，也就是说所操作的数据类型被指定为一个参数。">
+<meta property="og:description" content="List 是元素有序并且可以重复的集合，称为序列 List 可以精确的控制每个元素的插入位置，或删除某个位置的元素 List 的两个主要实现类，是 ArrayList 和 LinkedList  ArrayList ArrayList 底层是由数组实现的 动态增长，以满足应用程序的需求 在列表尾部插入或删除非常有效 更适合查找和更新元素 ArrayList 中的元素可以为 NULL  下面的例子">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-31T14:26:07.127Z">
+<meta property="og:updated_time" content="2018-11-08T15:39:27.147Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java基础十--泛型">
-<meta name="twitter:description" content="Java 泛型（generics）是 JDK 5 中引入的一个新特性, 泛型提供了编译时类型安全检测机制，该机制允许程序员在编译时检测到非法的类型。 泛型的本质是参数化类型，也就是说所操作的数据类型被指定为一个参数。">
+<meta name="twitter:title" content="Java基础十一-List">
+<meta name="twitter:description" content="List 是元素有序并且可以重复的集合，称为序列 List 可以精确的控制每个元素的插入位置，或删除某个位置的元素 List 的两个主要实现类，是 ArrayList 和 LinkedList  ArrayList ArrayList 底层是由数组实现的 动态增长，以满足应用程序的需求 在列表尾部插入或删除非常有效 更适合查找和更新元素 ArrayList 中的元素可以为 NULL  下面的例子">
 
 
 
@@ -129,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="https://cuizhe1023.github.io/2018/10/29/Java基础十/"/>
+  <link rel="canonical" href="https://cuizhe1023.github.io/2018/11/08/Java基础十一-List/"/>
 
 
 
 
 
-  <title>Java基础十--泛型 | CuiZhe's Blog</title>
+  <title>Java基础十一-List | CuiZhe's Blog</title>
   
 
 
@@ -316,7 +316,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://cuizhe1023.github.io/2018/10/29/Java基础十/">
+    <link itemprop="mainEntityOfPage" href="https://cuizhe1023.github.io/2018/11/08/Java基础十一-List/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cui Zhe">
@@ -333,7 +333,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Java基础十--泛型</h1>
+          <h1 class="post-title" itemprop="name headline">Java基础十一-List</h1>
         
 
         <div class="post-meta">
@@ -345,8 +345,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-29T22:58:16+08:00">
-                2018-10-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-08T23:36:10+08:00">
+                2018-11-08
               </time>
             
 
@@ -385,7 +385,7 @@
 
           
           
-             <span id="/2018/10/29/Java基础十/" class="leancloud_visitors" data-flag-title="Java基础十--泛型">
+             <span id="/2018/11/08/Java基础十一-List/" class="leancloud_visitors" data-flag-title="Java基础十一-List">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -448,79 +448,59 @@
       
 
       
-        <p>Java 泛型（generics）是 JDK 5 中引入的一个新特性, 泛型提供了编译时类型安全检测机制，该机制允许程序员在编译时检测到非法的类型。</p>
-<p>泛型的本质是参数化类型，也就是说所操作的数据类型被指定为一个参数。</p>
-<a id="more"></a>
-<blockquote>
-<p>假定我们有这样一个需求：写一个排序方法，能够对整型数组、字符串数组甚至其他任何类型的数组进行排序，该如何实现？</p>
-<p>答案是可以使用 <strong>Java 泛型</strong>。</p>
-<p>使用 Java 泛型的概念，我们可以写一个泛型方法来对一个对象数组排序。然后，调用该泛型方法来对整型数组、浮点数数组、字符串数组等进行排序。</p>
-</blockquote>
-<h1 id="泛型方法"><a href="#泛型方法" class="headerlink" title="泛型方法"></a>泛型方法</h1><p>你可以写一个泛型方法，该方法在调用时可以接收不同类型的参数。根据传递给泛型方法的参数类型，编译器适当地处理每一个方法调用。</p>
-<p>下面是定义泛型方法的规则：</p>
-<ul>
-<li>所有泛型方法声明都有一个类型参数声明部分（由尖括号分隔），该类型参数声明部分在方法返回类型之前（在下面例子中的<t>）。</t></li>
-<li>每一个类型参数声明部分包含一个或多个类型参数，参数间用逗号隔开。一个泛型参数，也被称为一个类型变量，是用于指定一个泛型类型名称的标识符。</li>
-<li>类型参数能被用来声明返回值类型，并且能作为泛型方法得到的实际参数类型的占位符。</li>
-<li>泛型方法体的声明和其他方法一样。注意类型参数只能代表<strong>引用类型</strong>，不能是<strong>基本数据类型</strong>（像int,double,char的等）。</li>
+        <ul>
+<li>List 是元素有序并且可以重复的集合，称为序列</li>
+<li>List 可以精确的控制每个元素的插入位置，或删除某个位置的元素</li>
+<li>List 的两个主要实现类，是 ArrayList 和 LinkedList</li>
 </ul>
-<p>下面的例子演示了如何使用泛型方法打印不同字符串的元素：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function"><span class="keyword">void</span> <span class="title">printArray</span><span class="params">(T[] arr)</span></span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (T i :</span><br><span class="line">                arr) &#123;</span><br><span class="line">            System.out.print(i + <span class="string">"  "</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//定义不同类型的数组</span></span><br><span class="line">        Integer[] i = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>&#125;;</span><br><span class="line">        Double[] d = &#123;<span class="number">2.1</span>,<span class="number">3.2</span>,<span class="number">4.7</span>,<span class="number">5.8</span>,<span class="number">6.7</span>&#125;;</span><br><span class="line">        Character[] c = &#123;<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>,<span class="string">'e'</span>,<span class="string">'f'</span>,<span class="string">'g'</span>&#125;;</span><br><span class="line">        System.out.println(<span class="string">"整形数组元素："</span>);</span><br><span class="line">        printArray(i);</span><br><span class="line">        System.out.println(<span class="string">"双精度型数组元素："</span>);</span><br><span class="line">        printArray(d);</span><br><span class="line">        System.out.println(<span class="string">"字符型数组元素："</span>);</span><br><span class="line">        printArray(c);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h1><ul>
+<li>ArrayList 底层是由数组实现的</li>
+<li>动态增长，以满足应用程序的需求</li>
+<li>在列表尾部插入或删除非常有效</li>
+<li>更适合查找和更新元素</li>
+<li>ArrayList 中的元素可以为 NULL</li>
+</ul>
+<p>下面的例子介绍 ArrayList 的增删改查</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Iterator;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        List list = <span class="keyword">new</span> ArrayList();</span><br><span class="line">        list.add(<span class="string">'a'</span>);</span><br><span class="line">        list.add(<span class="string">'b'</span>);</span><br><span class="line">        list.add(<span class="string">'c'</span>);</span><br><span class="line">        list.add(<span class="string">'d'</span>);</span><br><span class="line">        list.add(<span class="string">'e'</span>);</span><br><span class="line">        System.out.println(<span class="string">"list的长度为:"</span> + list.size());</span><br><span class="line">        System.out.println(<span class="string">"输出list中的第二个元素:"</span> + list.get(<span class="number">1</span>));</span><br><span class="line">        System.out.println(<span class="string">"遍历list数组:"</span>);</span><br><span class="line">        System.out.println(<span class="string">"--第一种遍历方法---for循环"</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; list.size(); i++) &#123;</span><br><span class="line">            System.out.print(list.get(i) + <span class="string">" "</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println();</span><br><span class="line">        System.out.println(<span class="string">"--第二种遍历方法---foreach循环（修改第三个位置的数据）"</span>);</span><br><span class="line">        list.set(<span class="number">2</span>,<span class="string">'z'</span>);</span><br><span class="line">        <span class="keyword">for</span> (Object i :</span><br><span class="line">                list) &#123;</span><br><span class="line">            System.out.print(i + <span class="string">" "</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println();</span><br><span class="line">        System.out.println(<span class="string">"--第三种遍历方法---Iterator迭代器（去掉第二个位置的数据）"</span>);</span><br><span class="line">        list.remove(<span class="number">1</span>);</span><br><span class="line">        Iterator iterator = list.iterator();</span><br><span class="line">        <span class="keyword">while</span> (iterator.hasNext())&#123;</span><br><span class="line">            System.out.print(iterator.next() + <span class="string">" "</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>运行结果：</p>
-<p>整形数组元素：<br>1  2  3  4  5  6<br>双精度型数组元素：<br>2.1  3.2  4.7  5.8  6.7<br>字符型数组元素：<br>a  b  c  d  e  f  g</p>
+<p>list的长度为:5<br>输出list中的第二个元素:b<br>遍历list数组:<br>–第一种遍历方法—for循环<br>a b c d e<br>–第二种遍历方法—foreach循环（修改第三个位置的数据）<br>a b z d e<br>–第三种遍历方法—Iterator迭代器（去掉第二个位置的数据）<br>a z d e </p>
 </blockquote>
-<h2 id="有界的类型参数"><a href="#有界的类型参数" class="headerlink" title="有界的类型参数"></a>有界的类型参数</h2><p>可能有时候，你会想限制那些被允许传递到一个类型参数的类型种类范围。例如，一个操作数字的方法可能只希望接受Number或者Number子类的实例。这就是有界类型参数的目的。</p>
-<p>要声明一个有界的类型参数，首先列出类型参数的名称，后跟extends关键字，最后紧跟它的上界。</p>
-<p>下面的例子演示了”extends”如何使用在一般意义上的意思”extends”（类）或者”implements”（接口）。</p>
-<p>该例子中的泛型方法返回三个可比较对象的最大值。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T extends Comparable&lt;T&gt;&gt; <span class="function">T <span class="title">maxNum</span><span class="params">(T x,T y,T z)</span></span>&#123;</span><br><span class="line">        T max = x;</span><br><span class="line">        <span class="keyword">if</span> (y.compareTo(x) &gt; <span class="number">0</span>)&#123;</span><br><span class="line">            max = y;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (z.compareTo(max) &gt; <span class="number">0</span>)&#123;</span><br><span class="line">            max = z;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"3、4、5中最大的数是："</span> + maxNum(<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>));</span><br><span class="line">        System.out.println(<span class="string">"3.1f、4.5f、5.1f中最大的数是："</span> + maxNum(<span class="number">3.1f</span>,<span class="number">4.5f</span>,<span class="number">5.1f</span>));</span><br><span class="line">        System.out.println(<span class="string">"'A'、'a'、'C'中最大的数是："</span> + maxNum(<span class="string">'A'</span>,<span class="string">'a'</span>,<span class="string">'C'</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a>LinkedList</h1><ul>
+<li>与 ArrayList 一样，LinkedList 也按照索引位置排序，但它的元素之间是双向链表的</li>
+<li>适合快速地插入和删除元素</li>
+<li>LinkedList 实现 List 和 Queue 两个接口</li>
+</ul>
+<p>案例一：使用 LinkedList 对字符串进行管理</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.LinkedList;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        LinkedList&lt;String&gt; list = <span class="keyword">new</span> LinkedList&lt;String&gt;();</span><br><span class="line">        <span class="comment">//向链表添加数据</span></span><br><span class="line">        list.add(<span class="string">"apple"</span>);</span><br><span class="line">        list.add(<span class="string">"pear"</span>);</span><br><span class="line">        <span class="comment">//将数据插入链表头</span></span><br><span class="line">        list.addFirst(<span class="string">"banana"</span>);</span><br><span class="line">        <span class="comment">//将数据插入链表的末尾</span></span><br><span class="line">        list.addLast(<span class="string">"grape"</span>);</span><br><span class="line">        <span class="comment">//在指定位置添加数据</span></span><br><span class="line">        list.add(<span class="number">2</span>,<span class="string">"orange"</span>);</span><br><span class="line">        <span class="comment">//显示链表中的所有数据</span></span><br><span class="line">        System.out.println(list);</span><br><span class="line">        <span class="comment">//判断链表中是否包含指定元素</span></span><br><span class="line">        <span class="keyword">if</span> (list.contains(<span class="string">"Mast"</span>))&#123;</span><br><span class="line">            System.out.println(<span class="string">"'Mast'存在"</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"'Mast'不存在"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//返回位置3的元素</span></span><br><span class="line">        System.out.println(<span class="string">"位置3的元素是："</span> + list.get(<span class="number">2</span>));</span><br><span class="line">        <span class="comment">//返回第一个元素</span></span><br><span class="line">        System.out.println(<span class="string">"第一个元素是："</span> + list.getFirst());</span><br><span class="line">        <span class="comment">//返回最后一个元素</span></span><br><span class="line">        System.out.println(<span class="string">"最后一个元素是："</span> + list.getLast());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>运行结果：</p>
-<p>3、4、5中最大的数是：5<br>3.1f、4.5f、5.1f中最大的数是：5.1<br>‘A’、’a’、’C’中最大的数是：a</p>
+<p>运行结果</p>
+<p>[banana, apple, orange, pear, grape]<br>‘Mast’不存在<br>位置3的元素是：orange<br>第一个元素是：banana<br>最后一个元素是：grape</p>
 </blockquote>
-<hr>
-<h1 id="泛型类"><a href="#泛型类" class="headerlink" title="泛型类"></a>泛型类</h1><p>泛型类的声明和非泛型类的声明类似，除了在类名后面添加了类型参数声明部分。</p>
-<p>和泛型方法一样，泛型类的类型参数声明部分也包含一个或多个类型参数，参数间用逗号隔开。一个泛型参数，也被称为一个类型变量，是用于指定一个泛型类型名称的标识符。因为他们接受一个或多个参数，这些类被称为参数化的类或参数化的类型。</p>
-<p>如下实例演示了我们如何定义一个泛型类：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span>&lt;<span class="title">T</span>&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">private</span> T t;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(T t)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.t = t;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> T <span class="title">getT</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> t;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Main&lt;Integer&gt; integerMain = <span class="keyword">new</span> Main&lt;Integer&gt;();</span><br><span class="line">        Main&lt;String&gt; stringMain = <span class="keyword">new</span> Main&lt;String&gt;();</span><br><span class="line">        integerMain.add(<span class="keyword">new</span> Integer(<span class="number">10</span>));</span><br><span class="line">        stringMain.add(<span class="keyword">new</span> String(<span class="string">"泛型"</span>));</span><br><span class="line">        System.out.println(<span class="string">"整型值为："</span>+integerMain.getT());</span><br><span class="line">        System.out.println(<span class="string">"字符串为："</span>+stringMain.getT());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>案例二：使用 LinkedList 对自定义类进行管理</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Integer stuNum;</span><br><span class="line">    <span class="keyword">private</span> String stuName;</span><br><span class="line">    <span class="keyword">private</span> Integer stuAge;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">(Integer stuNum, String stuName, Integer stuAge)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.stuNum = stuNum;</span><br><span class="line">        <span class="keyword">this</span>.stuName = stuName;</span><br><span class="line">        <span class="keyword">this</span>.stuAge = stuAge;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">getStuNum</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> stuNum;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setStuNum</span><span class="params">(Integer stuNum)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.stuNum = stuNum;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getStuName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> stuName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setStuName</span><span class="params">(String stuName)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.stuName = stuName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">getStuAge</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> stuAge;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setStuAge</span><span class="params">(Integer stuAge)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.stuAge = stuAge;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Student&#123;"</span> +</span><br><span class="line">                <span class="string">"stuNum="</span> + stuNum +</span><br><span class="line">                <span class="string">", stuName='"</span> + stuName + <span class="string">'\''</span> +</span><br><span class="line">                <span class="string">", stuAge="</span> + stuAge +</span><br><span class="line">                <span class="string">'&#125;'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.LinkedList;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        LinkedList&lt;Student&gt; stulist = <span class="keyword">new</span> LinkedList&lt;Student&gt;();</span><br><span class="line">        Student s1 = <span class="keyword">new</span> Student(<span class="number">0001</span>,<span class="string">"Jack"</span>,<span class="number">18</span>);</span><br><span class="line">        Student s2 = <span class="keyword">new</span> Student(<span class="number">0002</span>,<span class="string">"Mike"</span>,<span class="number">20</span>);</span><br><span class="line">        Student s3 = <span class="keyword">new</span> Student(<span class="number">0003</span>,<span class="string">"Lucy"</span>,<span class="number">19</span>);</span><br><span class="line">        <span class="comment">//将学生添加到链表，使用push完成</span></span><br><span class="line">        <span class="comment">//LinkedList 实现 List 接口的同时，也实现了 Queue 接口</span></span><br><span class="line">        <span class="comment">//push 和 pop 就是针对 Queue 进行添加和取出数据的操作</span></span><br><span class="line">        stulist.push(s1);</span><br><span class="line">        stulist.push(s2);</span><br><span class="line">        stulist.push(s3);</span><br><span class="line">        System.out.println(<span class="string">"链表为："</span> + stulist);</span><br><span class="line">        <span class="comment">//弹出一个元素，这里可以把链表看成一个容器，先加入链表里的元素后弹出</span></span><br><span class="line">        <span class="comment">//依据先进后出的原则</span></span><br><span class="line">        System.out.println(<span class="string">"弹出的数据为："</span> + stulist.pop());</span><br><span class="line">        System.out.println(<span class="string">"调用 pop() 方法后的链表为："</span> + stulist);</span><br><span class="line">        <span class="comment">//peek() 方法获取并不移除元素</span></span><br><span class="line">        System.out.println(<span class="string">"调用 peek() 方法的数据为："</span> + stulist.peek());</span><br><span class="line">        System.out.println(<span class="string">"调用 peek() 方法后的链表为："</span> + stulist);</span><br><span class="line">        <span class="comment">//再次调用 pop() 方法，发现调用 pop() 方法后，数据从链表中移除了而 peek() 方法不会</span></span><br><span class="line">        System.out.println(<span class="string">"弹出的数据为："</span> + stulist.pop());</span><br><span class="line">        System.out.println(<span class="string">"调用 pop() 方法后的链表为："</span> + stulist);</span><br><span class="line">        <span class="comment">//重新添加元素</span></span><br><span class="line">        stulist.push(s2);</span><br><span class="line">        stulist.push(s3);</span><br><span class="line">        System.out.println(<span class="string">"重新添加元素后的链表为："</span> + stulist);</span><br><span class="line">        <span class="comment">//调用 poll() 方法</span></span><br><span class="line">        System.out.println(<span class="string">"调用 poll() 方法的数据为："</span> + stulist.poll());</span><br><span class="line">        <span class="comment">//调用 poll() 方法在获取了元素的同时删除了链表中的元素</span></span><br><span class="line">        System.out.println(<span class="string">"调用 poll() 方法后的链表为："</span> + stulist);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>运行结果：</p>
-<p>整型值为：10<br>字符串为：泛型</p>
+<p>运行结果</p>
+<p>链表为：[Student{stuNum=3, stuName=’Lucy’, stuAge=19}, Student{stuNum=2, stuName=’Mike’, stuAge=20}, Student{stuNum=1, stuName=’Jack’, stuAge=18}]<br>弹出的数据为：Student{stuNum=3, stuName=’Lucy’, stuAge=19}<br>调用 pop() 方法后的链表为：[Student{stuNum=2, stuName=’Mike’, stuAge=20}, Student{stuNum=1, stuName=’Jack’, stuAge=18}]<br>调用 peek() 方法的数据为：Student{stuNum=2, stuName=’Mike’, stuAge=20}<br>调用 peek() 方法后的链表为：[Student{stuNum=2, stuName=’Mike’, stuAge=20}, Student{stuNum=1, stuName=’Jack’, stuAge=18}]<br>弹出的数据为：Student{stuNum=2, stuName=’Mike’, stuAge=20}<br>调用 pop() 方法后的链表为：[Student{stuNum=1, stuName=’Jack’, stuAge=18}]<br>重新添加元素后的链表为：[Student{stuNum=3, stuName=’Lucy’, stuAge=19}, Student{stuNum=2, stuName=’Mike’, stuAge=20}, Student{stuNum=1, stuName=’Jack’, stuAge=18}]<br>调用 poll() 方法的数据为：Student{stuNum=3, stuName=’Lucy’, stuAge=19}<br>调用 poll() 方法后的链表为：[Student{stuNum=2, stuName=’Mike’, stuAge=20}, Student{stuNum=1, stuName=’Jack’, stuAge=18}]</p>
 </blockquote>
-<h1 id="类型通配符"><a href="#类型通配符" class="headerlink" title="类型通配符"></a>类型通配符</h1><ul>
-<li><p>类型通配符一般是使用 ? 代替具体的类型参数。例如 <strong>List&lt;?&gt;</strong> 在逻辑上是<strong>List<string>,List<integer></integer></string></strong> 等所有List&lt;具体类型实参&gt;的父类。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.sun.org.apache.xerces.internal.xs.StringList;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span>&lt;<span class="title">T</span>&gt;</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; name = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">        List&lt;Integer&gt; age = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">        List&lt;Number&gt; number = <span class="keyword">new</span> ArrayList&lt;Number&gt;();</span><br><span class="line"></span><br><span class="line">        name.add(<span class="string">"张三"</span>);</span><br><span class="line">        age.add(<span class="number">18</span>);</span><br><span class="line">        number.add(<span class="number">3.14</span>);</span><br><span class="line"></span><br><span class="line">        getData(name);</span><br><span class="line">        getData(age);</span><br><span class="line">        getData(number);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">getData</span><span class="params">(List&lt;?&gt; data)</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"data："</span> + data.get(<span class="number">0</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>运行结果：</p>
-<p>data：张三<br>data：18<br>data：3.14</p>
-</blockquote>
-<p>因为 getData() 方法的参数是 List 类型的，所以 name，age，number 都可以作为这个方法的实参，这就是通配符的作用。</p>
+<p>我们在这里发现，好像 pop() 和 poll() 的作用是一样的。</p>
+<h2 id="pop-和-poll-的区别"><a href="#pop-和-poll-的区别" class="headerlink" title="pop() 和 poll() 的区别"></a>pop() 和 poll() 的区别</h2><p>poll是队列数据结构实现类的方法，从队首获取元素，同时获取的这个元素将从原队列删除；</p>
+<p>pop是栈结构的实现类的方法，表示返回栈顶的元素，同时该元素从栈中删除，当栈中没有元素时，调用该方法会发生异常</p>
+<p>其实，这两个函数的代码实现是基本一致的，如果一定要说区别那么就是当头结点为空的时候，两个函数的处理方式不同：poll()选择返回null，pop()选择抛出异常。</p>
+<h1 id="ArrayList-和-LinkedList-的区别"><a href="#ArrayList-和-LinkedList-的区别" class="headerlink" title="ArrayList 和 LinkedList 的区别"></a>ArrayList 和 LinkedList 的区别</h1><ul>
+<li><p>ArrayList 和 LinkedLis t可想从名字分析，它们一个是 Array（动态数组）的数据结构，一个是 Link（链表）的数据结构，此外，它们两个都是对 List 接口的实现。</p>
+<p>前者是数组队列，相当于动态数组；后者为双向链表结构，也可当作堆栈、队列、双端队列</p>
 </li>
-<li><p>类型通配符上限通过形如List来定义，如此定义就是通配符泛型值接受Number及其下层子类类型。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.sun.org.apache.xerces.internal.xs.StringList;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span>&lt;<span class="title">T</span>&gt;</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; name = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">        List&lt;Integer&gt; age = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">        List&lt;Number&gt; number = <span class="keyword">new</span> ArrayList&lt;Number&gt;();</span><br><span class="line"></span><br><span class="line">        name.add(<span class="string">"张三"</span>);</span><br><span class="line">        age.add(<span class="number">18</span>);</span><br><span class="line">        number.add(<span class="number">3.14</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//getUperNumber(name);//因为 name 定义的时候是 String 类型，所以会报错</span></span><br><span class="line">        getUperNumber(age);</span><br><span class="line">        getUperNumber(number);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">getData</span><span class="params">(List&lt;?&gt; data)</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"data："</span> + data.get(<span class="number">0</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">getUperNumber</span><span class="params">(List&lt;? extends Number&gt; data)</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"data："</span> + data.get(<span class="number">0</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>运行结果：</p>
-<p>data：18<br>data：3.14</p>
-</blockquote>
-<p>在注释处会出现错误，因为 getUperNumber() 方法中的参数已经限定了参数泛型上限为 Number，所以泛型为 String 是不在这个范围之内，所以会报错。</p>
+<li><p>当随机访问 List 时（ get 和 set 操作），ArrayList 比 LinkedList 的效率更高，因为 LinkedList 是线性的数据存储方式，所以需要移动指针从前往后依次查找。</p>
 </li>
-<li><p>类型通配符下限通过形如 <strong>List&lt;? super Number&gt;</strong>来定义，表示类型只能接受Number及其三层父类类型，如Objec类型的实例。</p>
+<li><p>当对数据进行增加和删除的操作时( add 和 remove 操作)，LinkedList 比 ArrayList 的效率更高，因为ArrayList 是数组，所以在其中进行增删操作时，会对操作点之后所有数据的下标索引造成影响，需要进行数据的移动。</p>
+</li>
+<li><p>从利用效率来看，ArrayList 自由性较低，因为它需要手动的设置固定大小的容量，但是它的使用比较方便，只需要创建，然后添加数据，通过调用下标进行使用；而 LinkedList 自由性较高，能够动态的随数据量的变化而变化，但是它不便于使用。</p>
+</li>
+<li><p>线程都不安全</p>
 </li>
 </ul>
-<h2 id="lt-extends-T-gt-和-lt-super-T-gt-的区别"><a href="#lt-extends-T-gt-和-lt-super-T-gt-的区别" class="headerlink" title="&lt; ? extends T &gt;和&lt; ? super T &gt;的区别"></a>&lt; ? extends T &gt;和&lt; ? super T &gt;的区别</h2><ul>
-<li><p>&lt; ? extends T &gt; 表示该通配符所代表的类型是T类型的子类。</p>
-</li>
-<li><p>&lt; ? super T &gt; 表示该通配符所代表的类型是T类型的父类。</p>
-</li>
-</ul>
-<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><p>对于泛型，只是允许程序员在编译时检测到非法的类型而已。</p>
-<p>但是在运行期时，其中的泛型标志会变化为 Object 类型。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.lang.reflect.InvocationTargetException;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Method;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        List&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        list.add(<span class="number">12</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//list.add('a');//这么添加会报错</span></span><br><span class="line">        Class&lt; ? extends List&gt; clazz = list.getClass();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Method add = clazz.getDeclaredMethod(<span class="string">"add"</span>, Object.class);<span class="comment">//但是通过反射添加是可以的</span></span><br><span class="line">            add.invoke(list,<span class="string">'a'</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (NoSuchMethodException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IllegalAccessException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InvocationTargetException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(list);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>运行结果：</p>
-<p>[12, a]</p>
-</blockquote>
 
       
     </div>
@@ -545,12 +525,12 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2018/10/29/Java基础十/">Java基础十--泛型</a></p>
+  <p><span>本文标题:</span><a href="/2018/11/08/Java基础十一-List/">Java基础十一-List</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Cui Zhe 的个人博客">Cui Zhe</a></p>
-  <p><span>发布时间:</span>2018年10月29日 - 22:10</p>
-  <p><span>最后更新:</span>2018年10月31日 - 22:10</p>
-  <p><span>原始链接:</span><a href="/2018/10/29/Java基础十/" title="Java基础十--泛型">https://cuizhe1023.github.io/2018/10/29/Java基础十/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://cuizhe1023.github.io/2018/10/29/Java基础十/"  aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2018年11月08日 - 23:11</p>
+  <p><span>最后更新:</span>2018年11月08日 - 23:11</p>
+  <p><span>原始链接:</span><a href="/2018/11/08/Java基础十一-List/" title="Java基础十一-List">https://cuizhe1023.github.io/2018/11/08/Java基础十一-List/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://cuizhe1023.github.io/2018/11/08/Java基础十一-List/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -580,7 +560,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/泛型/" rel="tag"><i class="fa fa-tag"></i> 泛型</a>
+            <a href="/tags/集合/" rel="tag"><i class="fa fa-tag"></i> 集合</a>
+          
+            <a href="/tags/List/" rel="tag"><i class="fa fa-tag"></i> List</a>
           
         </div>
       
@@ -593,8 +575,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/27/Java基础九/" rel="next" title="Java基础九--字符串">
-                <i class="fa fa-chevron-left"></i> Java基础九--字符串
+              <a href="/2018/10/29/Java基础十二/" rel="next" title="Java基础十二--线程">
+                <i class="fa fa-chevron-left"></i> Java基础十二--线程
               </a>
             
           </div>
@@ -603,8 +585,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/10/29/Java基础十一/" rel="prev" title="Java基础十一--集合">
-                Java基础十一--集合 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/11/08/Java基础十一-Set/" rel="prev" title="Java基础十一-Set">
+                Java基础十一-Set <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -764,7 +746,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#泛型方法"><span class="nav-number">1.</span> <span class="nav-text">泛型方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#有界的类型参数"><span class="nav-number">1.1.</span> <span class="nav-text">有界的类型参数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#泛型类"><span class="nav-number">2.</span> <span class="nav-text">泛型类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#类型通配符"><span class="nav-number">3.</span> <span class="nav-text">类型通配符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#lt-extends-T-gt-和-lt-super-T-gt-的区别"><span class="nav-number">3.1.</span> <span class="nav-text">&lt; ? extends T &gt;和&lt; ? super T &gt;的区别</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注意"><span class="nav-number">4.</span> <span class="nav-text">注意</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ArrayList"><span class="nav-number">1.</span> <span class="nav-text">ArrayList</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LinkedList"><span class="nav-number">2.</span> <span class="nav-text">LinkedList</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#pop-和-poll-的区别"><span class="nav-number">2.1.</span> <span class="nav-text">pop() 和 poll() 的区别</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ArrayList-和-LinkedList-的区别"><span class="nav-number">3.</span> <span class="nav-text">ArrayList 和 LinkedList 的区别</span></a></li></ol></div>
             
 
           </div>
