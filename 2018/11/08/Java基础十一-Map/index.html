@@ -97,7 +97,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://cuizhe1023.github.io/2018/11/08/Java基础十一-Map/Java7HashMap.png">
 <meta property="og:image" content="https://cuizhe1023.github.io/2018/11/08/Java基础十一-Map/Java8HashMap.png">
-<meta property="og:updated_time" content="2018-11-09T15:57:05.065Z">
+<meta property="og:updated_time" content="2018-11-09T16:16:55.749Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java基础十一-Map">
 <meta name="twitter:description" content="Map 中的数据是以键值对（key - value）的形式存储的 key - value 以 Entry 类型的对象实例存在 可以通过 key 值快速的查找 value 值 一个映射不能包含重复的键 每个键最多只能映射到一个值 当访问的值不在的时候，方法会抛出一个 NoSuchElementException 异常 当对象的类型和 Map 里元素类型不兼容的时候，就会抛出一个 ClassCast">
@@ -391,7 +391,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  680
+                  1.5k
                 </span>
               
 
@@ -407,7 +407,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  5
                 </span>
               
             </div>
@@ -468,10 +468,22 @@
 </ul>
 </li>
 </ul>
-<h1 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h1><p>在 Java 7，HashMap 的主干是一个 Entry 数组。Entry 是 HashMap 的基本组成单元，每一个 Entry 包含一个 key-value 键值对。</p>
+<h1 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h1><p>HashMap 也是我们使用非常多的 Collection，它是基于哈希表的 Map 接口的实现，以 key-value 的形式存在。在 HashMap 中，key-value 总是会当做一个整体来处理，系统会根据 hash 算法来来计算 key-value 的存储位置，我们总是可以通过 key 快速地存、取 value。下面就来分析 HashMap 的存取。</p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>HashMap 实现了 Map 接口，继承 AbstractMap。其中 Map 接口定义了键映射到值的规则，而 AbstractMap 类提供 Map 接口的骨干实现，以最大限度地减少实现此接口所需的工作，其实 AbstractMap 类已经实现了 Map。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HashMap</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; </span></span><br><span class="line"><span class="class">		<span class="keyword">extends</span> <span class="title">AbstractMap</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">Map</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;, <span class="title">Cloneable</span>, <span class="title">Serializable</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h2><p>HashMap提供了三个构造函数：</p>
+<p>HashMap()：构造一个具有默认初始容量 (16) 和默认加载因子 (0.75) 的空 HashMap</p>
+<p>HashMap(int initialCapacity)：构造一个带指定初始容量和默认加载因子 (0.75) 的空 HashMap</p>
+<p>HashMap(int initialCapacity, float loadFactor)：构造一个带指定初始容量和加载因子的空 HashMap</p>
+<p>在这里提到了两个参数：初始容量，加载因子。这两个参数是影响 HashMap 性能的重要参数，其中容量表示哈希表中桶的数量，初始容量是创建哈希表时的容量，加载因子是哈希表在其容量自动增加之前可以达到多满的一种尺度，它衡量的是一个散列表的空间的使用程度，负载因子越大表示散列表的装填程度越高，反之愈小。对于使用链表法的散列表来说，查找一个元素的平均时间是 O(1+a)，因此如果负载因子越大，对空间的利用更充分，然而后果是查找效率的降低；如果负载因子太小，那么散列表的数据将过于稀疏，对空间造成严重浪费。系统默认负载因子为0.75，一般情况下我们是无需修改的。</p>
+<p>HashMap是一种支持快速存取的数据结构，要了解它的性能必须要了解它的数据结构。</p>
+<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><p>在 Java 7，HashMap 的主干是一个 Entry 数组。Entry 是 HashMap 的基本组成单元，每一个 Entry 包含一个 key-value 键值对。</p>
 <p>Entry是HashMap中的一个静态内部类。代码如下</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Entry</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; <span class="keyword">implements</span> <span class="title">Map</span>.<span class="title">Entry</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; </span>&#123;</span><br><span class="line">        <span class="keyword">final</span> K key;</span><br><span class="line">        V value;</span><br><span class="line">        Entry&lt;K,V&gt; next;<span class="comment">//存储指向下一个Entry的引用，单链表结构</span></span><br><span class="line">        <span class="keyword">int</span> hash;<span class="comment">//对key的hashcode值进行hash运算后得到的值，存储在Entry，避免重复计算</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * Creates new entry.</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        Entry(<span class="keyword">int</span> h, K k, V v, Entry&lt;K,V&gt; n) &#123;</span><br><span class="line">            value = v;</span><br><span class="line">            next = n;</span><br><span class="line">            key = k;</span><br><span class="line">            hash = h;</span><br><span class="line">        &#125;</span><br><span class="line">  </span><br><span class="line">  ......</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>它包含了键key、值value、下一个节点next，以及hash值，这是非常重要的，正是由于Entry才构成了table数组的项为链表。</p>
+<p>所以，HashMap的整体结构如下</p>
 <p><img src="/2018/11/08/Java基础十一-Map/Java7HashMap.png" alt="Java7HashMap"></p>
+<p>简单来说，HashMap 由数组+链表组成的，数组是 HashMap 的主体，链表则是主要为了解决哈希冲突而存在的，如果定位到的数组位置不含链表（当前 entry 的 next 指向 null）,那么对于查找，添加等操作很快，仅需一次寻址即可；如果定位到的数组包含链表，对于添加操作，其时间复杂度为 O(n)，首先遍历链表，存在即覆盖，否则新增；对于查找操作来讲，仍需遍历链表，然后通过 key 对象的 equals 方法逐一比对查找。所以，性能考虑，HashMap 中的链表出现越少，性能才会越好。</p>
 <p><img src="/2018/11/08/Java基础十一-Map/Java8HashMap.png" alt="Java8HashMap"></p>
 <p>Java 8 对 HashMap 进行了一些修改，最大的不同就是利用了红黑树，所以其由<strong>数组+链表+红黑树</strong>组成。</p>
 <p>根据 Java7 HashMap 的介绍，我们知道，查找的时候，根据 hash 值我们能够快速定位到数组的具体下标，但是之后的话，需要顺着链表一个个比较下去才能找到我们需要的，时间复杂度取决于链表的长度，为 O(n)。</p>
@@ -680,7 +692,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#常用的方法"><span class="nav-number">1.</span> <span class="nav-text">常用的方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HashMap"><span class="nav-number">2.</span> <span class="nav-text">HashMap</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LinkedHashMap"><span class="nav-number">3.</span> <span class="nav-text">LinkedHashMap</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hashtable"><span class="nav-number">4.</span> <span class="nav-text">Hashtable</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TreeMap"><span class="nav-number">5.</span> <span class="nav-text">TreeMap</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#常用的方法"><span class="nav-number">1.</span> <span class="nav-text">常用的方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HashMap"><span class="nav-number">2.</span> <span class="nav-text">HashMap</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">2.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构造函数"><span class="nav-number">2.2.</span> <span class="nav-text">构造函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据结构"><span class="nav-number">2.3.</span> <span class="nav-text">数据结构</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LinkedHashMap"><span class="nav-number">3.</span> <span class="nav-text">LinkedHashMap</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hashtable"><span class="nav-number">4.</span> <span class="nav-text">Hashtable</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TreeMap"><span class="nav-number">5.</span> <span class="nav-text">TreeMap</span></a></li></ol></div>
             
 
           </div>
@@ -718,7 +730,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">41.3k</span>
+    <span title="Site words total count">42.1k</span>
   
 -->
 
@@ -756,7 +768,7 @@
       <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-  <span class="post-count">Site words total count:41.3k</span>
+  <span class="post-count">Site words total count:42.1k</span>
 </div>
         
 
