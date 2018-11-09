@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="CuiZhe&#39;s Blog">
 <meta property="og:description" content="Map 中的数据是以键值对（key - value）的形式存储的 key - value 以 Entry 类型的对象实例存在 可以通过 key 值快速的查找 value 值 一个映射不能包含重复的键 每个键最多只能映射到一个值 当访问的值不在的时候，方法会抛出一个 NoSuchElementException 异常 当对象的类型和 Map 里元素类型不兼容的时候，就会抛出一个 ClassCast">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-08T15:54:24.959Z">
+<meta property="og:updated_time" content="2018-11-09T15:35:27.525Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java基础十一-Map">
 <meta name="twitter:description" content="Map 中的数据是以键值对（key - value）的形式存储的 key - value 以 Entry 类型的对象实例存在 可以通过 key 值快速的查找 value 值 一个映射不能包含重复的键 每个键最多只能映射到一个值 当访问的值不在的时候，方法会抛出一个 NoSuchElementException 异常 当对象的类型和 Map 里元素类型不兼容的时候，就会抛出一个 ClassCast">
@@ -388,7 +388,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  356
+                  680
                 </span>
               
 
@@ -404,7 +404,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -465,7 +465,13 @@
 </ul>
 </li>
 </ul>
-<h1 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h1><h1 id="LinkedHashMap"><a href="#LinkedHashMap" class="headerlink" title="LinkedHashMap"></a>LinkedHashMap</h1><h1 id="Hashtable"><a href="#Hashtable" class="headerlink" title="Hashtable"></a>Hashtable</h1><h1 id="TreeMap"><a href="#TreeMap" class="headerlink" title="TreeMap"></a>TreeMap</h1>
+<h1 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h1><p>在 Java 7，HashMap 的主干是一个 Entry 数组。Entry 是 HashMap 的基本组成单元，每一个 Entry 包含一个 key-value 键值对。</p>
+<p>Entry是HashMap中的一个静态内部类。代码如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Entry</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; <span class="keyword">implements</span> <span class="title">Map</span>.<span class="title">Entry</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; </span>&#123;</span><br><span class="line">        <span class="keyword">final</span> K key;</span><br><span class="line">        V value;</span><br><span class="line">        Entry&lt;K,V&gt; next;<span class="comment">//存储指向下一个Entry的引用，单链表结构</span></span><br><span class="line">        <span class="keyword">int</span> hash;<span class="comment">//对key的hashcode值进行hash运算后得到的值，存储在Entry，避免重复计算</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * Creates new entry.</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        Entry(<span class="keyword">int</span> h, K k, V v, Entry&lt;K,V&gt; n) &#123;</span><br><span class="line">            value = v;</span><br><span class="line">            next = n;</span><br><span class="line">            key = k;</span><br><span class="line">            hash = h;</span><br><span class="line">        &#125;</span><br><span class="line">  </span><br><span class="line">  ......</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Java 8 对 HashMap 进行了一些修改，最大的不同就是利用了红黑树，所以其由<strong>数组+链表+红黑树</strong>组成。</p>
+<p>根据 Java7 HashMap 的介绍，我们知道，查找的时候，根据 hash 值我们能够快速定位到数组的具体下标，但是之后的话，需要顺着链表一个个比较下去才能找到我们需要的，时间复杂度取决于链表的长度，为 O(n)。</p>
+<p>为了降低这部分的开销，在 Java8 中，当链表中的元素超过了 8 个以后，会将链表转换为红黑树，在这些位置进行查找的时候可以降低时间复杂度为 O(logN)。</p>
+<h1 id="LinkedHashMap"><a href="#LinkedHashMap" class="headerlink" title="LinkedHashMap"></a>LinkedHashMap</h1><h1 id="Hashtable"><a href="#Hashtable" class="headerlink" title="Hashtable"></a>Hashtable</h1><h1 id="TreeMap"><a href="#TreeMap" class="headerlink" title="TreeMap"></a>TreeMap</h1>
       
     </div>
     
@@ -707,7 +713,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">41k</span>
+    <span title="Site words total count">41.3k</span>
   
 -->
 
@@ -745,7 +751,7 @@
       <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-  <span class="post-count">Site words total count:41k</span>
+  <span class="post-count">Site words total count:41.3k</span>
 </div>
         
 
