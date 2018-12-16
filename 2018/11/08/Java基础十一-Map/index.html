@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="集合,Map,HashMap," />
 
 
 
@@ -89,6 +89,7 @@
 
 
 <meta name="description" content="Map 中的数据是以键值对（key - value）的形式存储的 key - value 以 Entry 类型的对象实例存在 可以通过 key 值快速的查找 value 值 一个映射不能包含重复的键 每个键最多只能映射到一个值 当访问的值不在的时候，方法会抛出一个 NoSuchElementException 异常 当对象的类型和 Map 里元素类型不兼容的时候，就会抛出一个 ClassCast">
+<meta name="keywords" content="集合,Map,HashMap">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java基础十一-Map">
 <meta property="og:url" content="https://cuizhe1023.github.io/2018/11/08/Java基础十一-Map/index.html">
@@ -101,7 +102,8 @@
 <meta property="og:image" content="https://cuizhe1023.github.io/Java基础十一-Map/hashMap%201.8%20哈希算法例图2.png">
 <meta property="og:image" content="https://cuizhe1023.github.io/Java基础十一-Map/jdk1.8%20hashMap扩容例图.png">
 <meta property="og:image" content="https://cuizhe1023.github.io/Java基础十一-Map/LinkedHashMap的数据结构.png">
-<meta property="og:updated_time" content="2018-11-20T15:54:04.911Z">
+<meta property="og:image" content="https://cuizhe1023.github.io/Java基础十一-Map/HashTable的继承关系.png">
+<meta property="og:updated_time" content="2018-12-16T13:43:32.012Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java基础十一-Map">
 <meta name="twitter:description" content="Map 中的数据是以键值对（key - value）的形式存储的 key - value 以 Entry 类型的对象实例存在 可以通过 key 值快速的查找 value 值 一个映射不能包含重复的键 每个键最多只能映射到一个值 当访问的值不在的时候，方法会抛出一个 NoSuchElementException 异常 当对象的类型和 Map 里元素类型不兼容的时候，就会抛出一个 ClassCast">
@@ -362,6 +364,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java基础/" itemprop="url" rel="index">
+                    <span itemprop="name">Java基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -395,7 +419,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  6.8k
+                  7.9k
                 </span>
               
 
@@ -411,7 +435,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  28
+                  32
                 </span>
               
             </div>
@@ -585,7 +609,53 @@
 <p>就是说在进行put之后就算是对节点的访问了，那么这个时候就会更新链表，把最近访问的放到最后，保证链表。关键参数是accessOrder，这个参数只有在public LinkedHashMap(int initialCapacity, float loadFactor,boolean accessOrder) 中可以手动设置为true，其余时候都默认为false</p>
 </li>
 </ol>
-<h1 id="Hashtable"><a href="#Hashtable" class="headerlink" title="Hashtable"></a>Hashtable</h1><h1 id="TreeMap"><a href="#TreeMap" class="headerlink" title="TreeMap"></a>TreeMap</h1>
+<h1 id="HashTable"><a href="#HashTable" class="headerlink" title="HashTable"></a>HashTable</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>HashTable和HashMap两种集合非常相似，经常被各种面试官问到两者的区别。</p>
+<ol>
+<li><p>HashMap是非同步的，没有对读写等操作进行锁保护，所以是线程不安全的，在多线程场景下会出现数据不一致的问题。而HashTable是同步的，所有的读写等操作都进行了锁（<code>synchronized</code>）保护，在多线程环境下没有安全问题。但是锁保护也是有代价的，会对读写的效率产生较大影响。</p>
+</li>
+<li><p>HashMap结构中，是允许保存<code>null</code>的，<code>Entry.key</code>和<code>Entry.value</code>均可以为<code>null</code>。但是HashTable中是不允许保存<code>null</code>的。</p>
+</li>
+<li><p>HashMap的迭代器（<code>Iterator</code>）是fail-fast迭代器，但是Hashtable的迭代器（<code>enumerator</code>）不是fail-fast的。如果有其它线程对HashMap进行的添加/删除元素，将会抛出<code>ConcurrentModificationException</code>，但迭代器本身的<code>remove</code>方法移除元素则不会抛出异常。这条同样也是Enumeration和Iterator的区别。</p>
+</li>
+</ol>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>HashTable类中，保存实际数据的，依然是<code>Entry</code>对象。其数据结构与HashMap是相同的。<br>HashTable类继承自<code>Dictionary</code>类，实现了三个接口，分别是<code>Map</code>，<code>Cloneable</code>和<code>java.io.Serializable</code>，如下图所示。</p>
+<p><img src="/Java基础十一-Map/HashTable的继承关系.png" alt="HashTable的继承关系"></p>
+<p>HashTable中的主要方法，如<code>put</code>，<code>get</code>，<code>remove</code>和<code>rehash</code>等，与HashMap中的功能相同</p>
+<h2 id="源码分析"><a href="#源码分析" class="headerlink" title="源码分析"></a>源码分析</h2><h3 id="put-方法-1"><a href="#put-方法-1" class="headerlink" title="put()方法"></a>put()方法</h3><p><strong>put方法的主要逻辑如下：</strong></p>
+<ol>
+<li>先获取<code>synchronized</code>锁。</li>
+<li>put方法不允许<code>null</code>值，如果发现是<code>null</code>，则直接抛出异常。</li>
+<li>计算<code>key</code>的哈希值和index</li>
+<li>遍历对应位置的链表，如果发现已经存在相同的hash和key，则更新value，并返回旧值。</li>
+<li>如果不存在相同的key的Entry节点，则调用<code>addEntry</code>方法增加节点。</li>
+<li><code>addEntry</code>方法中，如果需要则进行扩容，之后添加新节点到链表头部。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> V <span class="title">put</span><span class="params">(K key, V value)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Make sure the value is not null</span></span><br><span class="line">    <span class="keyword">if</span> (value == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Makes sure the key is not already in the hashtable.</span></span><br><span class="line">    Entry&lt;?,?&gt; tab[] = table;</span><br><span class="line">    <span class="keyword">int</span> hash = key.hashCode();</span><br><span class="line">    <span class="keyword">int</span> index = (hash &amp; <span class="number">0x7FFFFFFF</span>) % tab.length;</span><br><span class="line">    <span class="meta">@SuppressWarnings</span>(<span class="string">"unchecked"</span>)</span><br><span class="line">    Entry&lt;K,V&gt; entry = (Entry&lt;K,V&gt;)tab[index];</span><br><span class="line">    <span class="keyword">for</span>(; entry != <span class="keyword">null</span> ; entry = entry.next) &#123;</span><br><span class="line">        <span class="keyword">if</span> ((entry.hash == hash) &amp;&amp; entry.key.equals(key)) &#123;</span><br><span class="line">            V old = entry.value;</span><br><span class="line">            entry.value = value;</span><br><span class="line">            <span class="keyword">return</span> old;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    addEntry(hash, key, value, index);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">addEntry</span><span class="params">(<span class="keyword">int</span> hash, K key, V value, <span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">    modCount++;</span><br><span class="line"></span><br><span class="line">    Entry&lt;?,?&gt; tab[] = table;</span><br><span class="line">    <span class="keyword">if</span> (count &gt;= threshold) &#123;</span><br><span class="line">        <span class="comment">// Rehash the table if the threshold is exceeded</span></span><br><span class="line">        rehash();</span><br><span class="line"></span><br><span class="line">        tab = table;</span><br><span class="line">        hash = key.hashCode();</span><br><span class="line">        index = (hash &amp; <span class="number">0x7FFFFFFF</span>) % tab.length;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Creates the new entry.</span></span><br><span class="line">    <span class="meta">@SuppressWarnings</span>(<span class="string">"unchecked"</span>)</span><br><span class="line">    Entry&lt;K,V&gt; e = (Entry&lt;K,V&gt;) tab[index];</span><br><span class="line">    tab[index] = <span class="keyword">new</span> Entry&lt;&gt;(hash, key, value, e);</span><br><span class="line">    count++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="get-方法-1"><a href="#get-方法-1" class="headerlink" title="get()方法"></a>get()方法</h3><p><strong>get方法的主要逻辑如下</strong></p>
+<ol>
+<li>先获取<code>synchronized</code>锁。</li>
+<li>计算key的哈希值和index。</li>
+<li>在对应位置的链表中寻找具有相同hash和key的节点，返回节点的value。</li>
+<li>如果遍历结束都没有找到节点，则返回<code>null</code>。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> V <span class="title">get</span><span class="params">(Object key)</span> </span>&#123;</span><br><span class="line">    Entry&lt;?,?&gt; tab[] = table;</span><br><span class="line">    <span class="keyword">int</span> hash = key.hashCode();</span><br><span class="line">    <span class="keyword">int</span> index = (hash &amp; <span class="number">0x7FFFFFFF</span>) % tab.length;</span><br><span class="line">    <span class="keyword">for</span> (Entry&lt;?,?&gt; e = tab[index] ; e != <span class="keyword">null</span> ; e = e.next) &#123;</span><br><span class="line">        <span class="keyword">if</span> ((e.hash == hash) &amp;&amp; e.key.equals(key)) &#123;</span><br><span class="line">            <span class="keyword">return</span> (V)e.value;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="rehash扩容方法"><a href="#rehash扩容方法" class="headerlink" title="rehash扩容方法"></a>rehash扩容方法</h3><p><strong>rehash扩容方法主要逻辑如下：</strong></p>
+<ol>
+<li>数组长度增加一倍（如果超过上限，则设置成上限值）。</li>
+<li>更新哈希表的扩容门限值。</li>
+<li>遍历旧表中的节点，计算在新表中的index，插入到对应位置链表的头部。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">rehash</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> oldCapacity = table.length;</span><br><span class="line">    Entry&lt;?,?&gt;[] oldMap = table;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// overflow-conscious code</span></span><br><span class="line">    <span class="keyword">int</span> newCapacity = (oldCapacity &lt;&lt; <span class="number">1</span>) + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (newCapacity - MAX_ARRAY_SIZE &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (oldCapacity == MAX_ARRAY_SIZE)</span><br><span class="line">            <span class="comment">// Keep running with MAX_ARRAY_SIZE buckets</span></span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        newCapacity = MAX_ARRAY_SIZE;</span><br><span class="line">    &#125;</span><br><span class="line">    Entry&lt;?,?&gt;[] newMap = <span class="keyword">new</span> Entry&lt;?,?&gt;[newCapacity];</span><br><span class="line"></span><br><span class="line">    modCount++;</span><br><span class="line">    threshold = (<span class="keyword">int</span>)Math.min(newCapacity * loadFactor, MAX_ARRAY_SIZE + <span class="number">1</span>);</span><br><span class="line">    table = newMap;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = oldCapacity ; i-- &gt; <span class="number">0</span> ;) &#123;</span><br><span class="line">        <span class="keyword">for</span> (Entry&lt;K,V&gt; old = (Entry&lt;K,V&gt;)oldMap[i] ; old != <span class="keyword">null</span> ; ) &#123;</span><br><span class="line">            Entry&lt;K,V&gt; e = old;</span><br><span class="line">            old = old.next;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">int</span> index = (e.hash &amp; <span class="number">0x7FFFFFFF</span>) % newCapacity;</span><br><span class="line">            e.next = (Entry&lt;K,V&gt;)newMap[index];</span><br><span class="line">            newMap[index] = e;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="remove-方法"><a href="#remove-方法" class="headerlink" title="remove()方法"></a>remove()方法</h3><p><strong>remove方法主要逻辑如下：</strong></p>
+<ol>
+<li>先获取synchronized锁。</li>
+<li>计算key的哈希值和index。</li>
+<li>遍历对应位置的链表，寻找待删除节点，如果存在，用<code>e</code>表示待删除节点，<code>pre</code>表示前驱节点。如果不存在，返回<code>null</code>。</li>
+<li>更新前驱节点的<code>next</code>，指向<code>e</code>的next。返回待删除节点的value值。</li>
+</ol>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>HashTable相对于HashMap的最大特点就是线程安全，所有的操作都是被<code>synchronized</code>锁保护的</p>
+<h1 id="TreeMap"><a href="#TreeMap" class="headerlink" title="TreeMap"></a>TreeMap</h1>
       
     </div>
     
@@ -603,6 +673,35 @@
 	<div>
       
         
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/11/08/Java基础十一-Map/">Java基础十一-Map</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 Cui Zhe 的个人博客">Cui Zhe</a></p>
+  <p><span>发布时间:</span>2018年11月08日 - 23:11</p>
+  <p><span>最后更新:</span>2018年12月16日 - 21:12</p>
+  <p><span>原始链接:</span><a href="/2018/11/08/Java基础十一-Map/" title="Java基础十一-Map">https://cuizhe1023.github.io/2018/11/08/Java基础十一-Map/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://cuizhe1023.github.io/2018/11/08/Java基础十一-Map/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+    });
+    });  
+</script>
+
       
 	</div>
     
@@ -612,6 +711,16 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/集合/" rel="tag"><i class="fa fa-tag"></i> 集合</a>
+          
+            <a href="/tags/Map/" rel="tag"><i class="fa fa-tag"></i> Map</a>
+          
+            <a href="/tags/HashMap/" rel="tag"><i class="fa fa-tag"></i> HashMap</a>
+          
+        </div>
       
 
       
@@ -737,7 +846,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -793,7 +902,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#常用的方法"><span class="nav-number">1.</span> <span class="nav-text">常用的方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HashMap"><span class="nav-number">2.</span> <span class="nav-text">HashMap</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Hash表"><span class="nav-number">2.1.</span> <span class="nav-text">什么是Hash表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#哈希冲突"><span class="nav-number">2.1.1.</span> <span class="nav-text">哈希冲突</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">2.2.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构造函数"><span class="nav-number">2.3.</span> <span class="nav-text">构造函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据结构"><span class="nav-number">2.4.</span> <span class="nav-text">数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#几个比较重要的字段"><span class="nav-number">2.4.1.</span> <span class="nav-text">几个比较重要的字段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Node"><span class="nav-number">2.4.2.</span> <span class="nav-text">Node</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#put-流程"><span class="nav-number">2.5.</span> <span class="nav-text">put() 流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#put-方法"><span class="nav-number">2.5.1.</span> <span class="nav-text">put() 方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#putAll-方法"><span class="nav-number">2.5.2.</span> <span class="nav-text">putAll() 方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#get"><span class="nav-number">2.6.</span> <span class="nav-text">get()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#get-方法"><span class="nav-number">2.6.1.</span> <span class="nav-text">get() 方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HashMap-的扩容机制"><span class="nav-number">2.7.</span> <span class="nav-text">HashMap 的扩容机制</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LinkedHashMap"><span class="nav-number">3.</span> <span class="nav-text">LinkedHashMap</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据结构-1"><span class="nav-number">3.1.</span> <span class="nav-text">数据结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重要的属性"><span class="nav-number">3.2.</span> <span class="nav-text">重要的属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重点的方法"><span class="nav-number">3.3.</span> <span class="nav-text">重点的方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hashtable"><span class="nav-number">4.</span> <span class="nav-text">Hashtable</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TreeMap"><span class="nav-number">5.</span> <span class="nav-text">TreeMap</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#常用的方法"><span class="nav-number">1.</span> <span class="nav-text">常用的方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HashMap"><span class="nav-number">2.</span> <span class="nav-text">HashMap</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Hash表"><span class="nav-number">2.1.</span> <span class="nav-text">什么是Hash表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#哈希冲突"><span class="nav-number">2.1.1.</span> <span class="nav-text">哈希冲突</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">2.2.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构造函数"><span class="nav-number">2.3.</span> <span class="nav-text">构造函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据结构"><span class="nav-number">2.4.</span> <span class="nav-text">数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#几个比较重要的字段"><span class="nav-number">2.4.1.</span> <span class="nav-text">几个比较重要的字段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Node"><span class="nav-number">2.4.2.</span> <span class="nav-text">Node</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#put-流程"><span class="nav-number">2.5.</span> <span class="nav-text">put() 流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#put-方法"><span class="nav-number">2.5.1.</span> <span class="nav-text">put() 方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#putAll-方法"><span class="nav-number">2.5.2.</span> <span class="nav-text">putAll() 方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#get"><span class="nav-number">2.6.</span> <span class="nav-text">get()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#get-方法"><span class="nav-number">2.6.1.</span> <span class="nav-text">get() 方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HashMap-的扩容机制"><span class="nav-number">2.7.</span> <span class="nav-text">HashMap 的扩容机制</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LinkedHashMap"><span class="nav-number">3.</span> <span class="nav-text">LinkedHashMap</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据结构-1"><span class="nav-number">3.1.</span> <span class="nav-text">数据结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重要的属性"><span class="nav-number">3.2.</span> <span class="nav-text">重要的属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重点的方法"><span class="nav-number">3.3.</span> <span class="nav-text">重点的方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HashTable"><span class="nav-number">4.</span> <span class="nav-text">HashTable</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">4.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原理"><span class="nav-number">4.2.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#源码分析"><span class="nav-number">4.3.</span> <span class="nav-text">源码分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#put-方法-1"><span class="nav-number">4.3.1.</span> <span class="nav-text">put()方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#get-方法-1"><span class="nav-number">4.3.2.</span> <span class="nav-text">get()方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rehash扩容方法"><span class="nav-number">4.3.3.</span> <span class="nav-text">rehash扩容方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#remove-方法"><span class="nav-number">4.3.4.</span> <span class="nav-text">remove()方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">4.4.</span> <span class="nav-text">小结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TreeMap"><span class="nav-number">5.</span> <span class="nav-text">TreeMap</span></a></li></ol></div>
             
 
           </div>
@@ -831,7 +940,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">54.5k</span>
+    <span title="Site words total count">55.5k</span>
   
 -->
 
@@ -869,7 +978,7 @@
       <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-  <span class="post-count">Site words total count:54.5k</span>
+  <span class="post-count">Site words total count:55.5k</span>
 </div>
         
 
